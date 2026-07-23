@@ -6,6 +6,82 @@ import { AnimatedText } from '../ui/AnimatedText';
 import { ContactButton } from '../ui/ContactButton';
 import { DownloadCVButton } from '../ui/DownloadCVButton';
 
+// Elegant Botanical & Floral SVG Illustrations
+function FlowerBloomLeft({ className = 'w-36 h-36' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" fill="#F4A28C" fillOpacity="0.15" />
+      {/* Petals */}
+      <path d="M50 20C42 32 42 42 50 50C58 42 58 32 50 20Z" fill="#E88B73" fillOpacity="0.8" />
+      <path d="M50 80C42 68 42 58 50 50C58 58 58 68 50 80Z" fill="#E88B73" fillOpacity="0.8" />
+      <path d="M20 50C32 42 42 42 50 50C42 58 32 58 20 50Z" fill="#E88B73" fillOpacity="0.8" />
+      <path d="M80 50C68 42 58 42 50 50C58 58 68 58 80 50Z" fill="#E88B73" fillOpacity="0.8" />
+      <path d="M29 29C40 37 46 45 50 50C45 46 37 40 29 29Z" fill="#C4A468" fillOpacity="0.7" />
+      <path d="M71 71C60 63 54 55 50 50C55 54 63 60 71 71Z" fill="#C4A468" fillOpacity="0.7" />
+      <path d="M71 29C60 37 54 45 50 50C55 46 63 40 71 29Z" fill="#C4A468" fillOpacity="0.7" />
+      <path d="M29 71C40 63 46 55 50 50C45 54 37 60 29 71Z" fill="#C4A468" fillOpacity="0.7" />
+      {/* Center Stamen */}
+      <circle cx="50" cy="50" r="8" fill="#C4A468" />
+      <circle cx="50" cy="50" r="4" fill="#3D2E2B" />
+    </svg>
+  );
+}
+
+function SageBotanicalBranch({ className = 'w-36 h-36' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" fill="#A8BBA2" fillOpacity="0.15" />
+      {/* Stem */}
+      <path d="M30 80Q45 50 70 20" stroke="#6B8065" strokeWidth="3" strokeLinecap="round" />
+      {/* Leaves */}
+      <path d="M40 65C30 55 25 60 35 70Z" fill="#6B8065" />
+      <path d="M45 58C55 48 60 53 50 63Z" fill="#88A082" />
+      <path d="M52 48C42 38 37 43 47 53Z" fill="#6B8065" />
+      <path d="M58 40C68 30 73 35 63 45Z" fill="#88A082" />
+      <path d="M64 30C54 20 49 25 59 35Z" fill="#6B8065" />
+      {/* Gold Buds */}
+      <circle cx="70" cy="20" r="5" fill="#C4A468" />
+      <circle cx="63" cy="27" r="3.5" fill="#E88B73" />
+    </svg>
+  );
+}
+
+function RosePeonyRight({ className = 'w-36 h-36' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" fill="#F4A28C" fillOpacity="0.15" />
+      {/* Layers */}
+      <circle cx="50" cy="50" r="32" fill="#F4A28C" fillOpacity="0.4" />
+      <circle cx="50" cy="50" r="24" fill="#E88B73" fillOpacity="0.6" />
+      <circle cx="50" cy="50" r="16" fill="#C4A468" fillOpacity="0.7" />
+      <circle cx="50" cy="50" r="8" fill="#3D2E2B" />
+      {/* Petal Curves */}
+      <path d="M50 18A32 32 0 0 1 82 50" stroke="#FAF6EE" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M82 50A32 32 0 0 1 50 82" stroke="#FAF6EE" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M50 82A32 32 0 0 1 18 50" stroke="#FAF6EE" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M18 50A32 32 0 0 1 50 18" stroke="#FAF6EE" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function GoldenWreathBottom({ className = 'w-36 h-36' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" fill="#C4A468" fillOpacity="0.12" />
+      {/* Laurel Arc */}
+      <path d="M30 30C20 45 20 65 35 75C50 85 70 80 80 65" stroke="#C4A468" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+      {/* Leaf Clusters */}
+      <circle cx="28" cy="36" r="4" fill="#C4A468" />
+      <circle cx="23" cy="48" r="4.5" fill="#E88B73" />
+      <circle cx="25" cy="60" r="4" fill="#6B8065" />
+      <circle cx="34" cy="72" r="4.5" fill="#C4A468" />
+      <circle cx="48" cy="78" r="4" fill="#E88B73" />
+      <circle cx="64" cy="76" r="4.5" fill="#6B8065" />
+      <circle cx="76" cy="68" r="4" fill="#C4A468" />
+    </svg>
+  );
+}
+
 export function AboutSection() {
   const aboutText =
     "With hands-on experience in digital marketing, social media management, and content strategy, i focus on short-form video production, AIDA copywriting, and SEO growth, i truly enjoy working with consumer brands that aim to stand out and reach 163% of target KPI. Let's build something incredible together!";
@@ -19,61 +95,57 @@ export function AboutSection() {
       <div className="absolute top-[20%] left-[-10%] w-[450px] h-[450px] rounded-full bg-[#F4A28C]/20 blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] rounded-full bg-[#A8BBA2]/25 blur-[130px] pointer-events-none" />
 
-      {/* Decorative 3D Images */}
+      {/* Graceful Floral & Botanical Icons */}
+      {/* Top-left: Peach Blossom */}
       <FadeIn
         delay={0.1}
-        x={-80}
+        x={-60}
         y={0}
         duration={0.9}
-        className="absolute top-[12%] left-[1%] sm:left-[2%] md:left-[4%] pointer-events-none z-10 hidden sm:block"
+        className="absolute top-[10%] left-[2%] sm:left-[3%] md:left-[5%] pointer-events-none z-10 hidden sm:block hover:scale-110 transition-transform duration-500"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-          alt="Moon 3D Icon"
-          className="w-[120px] sm:w-[160px] md:w-[210px] object-contain drop-shadow-xl opacity-90"
-        />
+        <div className="p-3 rounded-full bg-[#FAF6EE]/80 border border-[#E6DCCC] shadow-xl shadow-[#3D2E2B]/5 backdrop-blur-md">
+          <FlowerBloomLeft className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40" />
+        </div>
       </FadeIn>
 
+      {/* Bottom-left: Sage Leaf Branch */}
       <FadeIn
         delay={0.25}
-        x={-80}
+        x={-60}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] pointer-events-none z-10 hidden sm:block"
+        className="absolute bottom-[8%] left-[2%] sm:left-[4%] md:left-[6%] pointer-events-none z-10 hidden sm:block hover:scale-110 transition-transform duration-500"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
-          alt="3D Shape"
-          className="w-[100px] sm:w-[140px] md:w-[180px] object-contain drop-shadow-xl opacity-90"
-        />
+        <div className="p-3 rounded-full bg-[#FAF6EE]/80 border border-[#E6DCCC] shadow-xl shadow-[#3D2E2B]/5 backdrop-blur-md">
+          <SageBotanicalBranch className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36" />
+        </div>
       </FadeIn>
 
+      {/* Top-right: Rose Peony */}
       <FadeIn
         delay={0.15}
-        x={80}
+        x={60}
         y={0}
         duration={0.9}
-        className="absolute top-[12%] right-[1%] sm:right-[2%] md:right-[4%] pointer-events-none z-10 hidden sm:block"
+        className="absolute top-[10%] right-[2%] sm:right-[3%] md:right-[5%] pointer-events-none z-10 hidden sm:block hover:scale-110 transition-transform duration-500"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-          alt="Lego 3D Icon"
-          className="w-[120px] sm:w-[160px] md:w-[210px] object-contain drop-shadow-xl opacity-90"
-        />
+        <div className="p-3 rounded-full bg-[#FAF6EE]/80 border border-[#E6DCCC] shadow-xl shadow-[#3D2E2B]/5 backdrop-blur-md">
+          <RosePeonyRight className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40" />
+        </div>
       </FadeIn>
 
+      {/* Bottom-right: Golden Botanical Wreath */}
       <FadeIn
         delay={0.3}
-        x={80}
+        x={60}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] pointer-events-none z-10 hidden sm:block"
+        className="absolute bottom-[8%] right-[2%] sm:right-[4%] md:right-[6%] pointer-events-none z-10 hidden sm:block hover:scale-110 transition-transform duration-500"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p47_1.26ea5d63.png"
-          alt="Torus 3D Icon"
-          className="w-[100px] sm:w-[140px] md:w-[180px] object-contain drop-shadow-xl opacity-90"
-        />
+        <div className="p-3 rounded-full bg-[#FAF6EE]/80 border border-[#E6DCCC] shadow-xl shadow-[#3D2E2B]/5 backdrop-blur-md">
+          <GoldenWreathBottom className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36" />
+        </div>
       </FadeIn>
 
       {/* Main Content Container */}
@@ -84,7 +156,8 @@ export function AboutSection() {
           </h2>
         </FadeIn>
 
-        <div className="py-4 px-2 sm:px-6">
+        {/* High-Contrast Readable Paragraph */}
+        <div className="py-4 px-2 sm:px-6 flex justify-center">
           <AnimatedText text={aboutText} />
         </div>
 

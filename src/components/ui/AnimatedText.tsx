@@ -15,7 +15,7 @@ interface CharProps {
 }
 
 function Character({ char, progress, range }: CharProps) {
-  const opacity = useTransform(progress, range, [0.2, 1]);
+  const opacity = useTransform(progress, range, [0.25, 1]);
   return <motion.span style={{ opacity }}>{char}</motion.span>;
 }
 
@@ -32,7 +32,7 @@ export function AnimatedText({ text, className = '' }: AnimatedTextProps) {
   return (
     <p
       ref={containerRef}
-      className={`text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px] text-[clamp(1rem,2vw,1.35rem)] ${className}`}
+      className={`text-[#3D2E2B] font-semibold text-center leading-relaxed max-w-[620px] text-[clamp(1.1rem,2.2vw,1.45rem)] ${className}`}
     >
       {characters.map((char, idx) => {
         const start = idx / total;
