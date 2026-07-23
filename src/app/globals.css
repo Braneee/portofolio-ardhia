@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  background-color: #13111C;
+  color: #E2E8F0;
+  font-family: var(--font-kanit), 'Kanit', sans-serif;
+  overflow-x: clip;
+  width: 100%;
+}
+
+/* Soft, Calm, Luxurious Multi-tone Gradient for Section Headings */
+.hero-heading {
+  background: linear-gradient(135deg, #F472B6 0%, #C084FC 40%, #818CF8 70%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.calm-heading-soft {
+  background: linear-gradient(135deg, #F472B6 0%, #E879F9 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #13111C;
+}
+::-webkit-scrollbar-thumb {
+  background: #2E2342;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C084FC;
+}
