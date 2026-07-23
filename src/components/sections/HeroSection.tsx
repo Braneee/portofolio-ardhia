@@ -59,25 +59,25 @@ export function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Centered Person Cutout (Large & Prominent) */}
-      <div className="relative z-20 my-6 sm:my-8 md:my-10 flex items-center justify-center">
+      {/* Centered Person Cutout (Slightly Enlarged & Bold High-Impact) */}
+      <div className="relative z-20 my-4 sm:my-6 md:my-8 flex items-center justify-center">
         <FadeIn delay={0.4} y={20}>
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
             <div className="relative group flex justify-center items-center">
               {/* Soft Warm Glowing Aura Behind Cutout */}
-              <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-[#F4A28C]/40 via-[#A8BBA2]/35 to-[#C4A468]/30 opacity-60 blur-3xl group-hover:opacity-85 transition duration-500 pointer-events-none" />
+              <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-[#F4A28C]/45 via-[#A8BBA2]/40 to-[#C4A468]/35 opacity-65 blur-3xl group-hover:opacity-90 transition duration-500 pointer-events-none" />
               
-              {/* Transparent Person Cutout Image */}
+              {/* Transparent Person Cutout Image (Enlarged) */}
               <img
                 src="/images/ardhia-cutout.png"
                 alt="Ardhia Nurul Vitra Iskandar - Digital Marketing Specialist"
                 style={{
-                  maxWidth: '480px',
-                  maxHeight: '560px',
+                  maxWidth: '540px',
+                  maxHeight: '620px',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 25px 35px rgba(61,46,43,0.25))',
+                  filter: 'drop-shadow(0 28px 40px rgba(61,46,43,0.3))',
                 }}
-                className="w-[280px] sm:w-[380px] md:w-[440px] lg:w-[480px] h-[340px] sm:h-[440px] md:h-[500px] lg:h-[560px] pointer-events-auto transition-transform duration-300 group-hover:scale-105"
+                className="w-[300px] sm:w-[400px] md:w-[480px] lg:w-[540px] h-[360px] sm:h-[460px] md:h-[540px] lg:h-[620px] pointer-events-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </Magnet>
@@ -85,7 +85,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-6 z-20">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-4 z-20">
         <FadeIn delay={0.35} y={20}>
           <p className="text-[#3D2E2B] font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[280px] sm:max-w-[320px]">
             a digital marketing specialist driven by crafting striking campaigns and viral content
