@@ -13,11 +13,11 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="min-h-screen w-full relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-gradient-to-b from-[#161224] via-[#1F1735] to-[#131728] overflow-hidden z-10 border-b border-[#C084FC]/15"
+      className="min-h-screen w-full relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-24 sm:py-32 bg-gradient-to-b from-[#F5F0E6] via-[#FAF6EE] to-[#F9F6F0] overflow-hidden z-10 border-b border-[#E6DCCC]"
     >
       {/* Soft Ambient Color Orbs */}
-      <div className="absolute top-[20%] left-[-10%] w-[450px] h-[450px] rounded-full bg-[#E879F9]/15 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] rounded-full bg-[#38BDF8]/15 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[450px] h-[450px] rounded-full bg-[#F4A28C]/20 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[450px] h-[450px] rounded-full bg-[#A8BBA2]/25 blur-[130px] pointer-events-none" />
 
       {/* Decorative 3D Images */}
       <FadeIn

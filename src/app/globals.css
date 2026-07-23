@@ -9,23 +9,23 @@
 }
 
 html, body, #root {
-  background-color: #13111C;
-  color: #E2E8F0;
+  background-color: #F9F6F0;
+  color: #3D2E2B;
   font-family: var(--font-kanit), 'Kanit', sans-serif;
   overflow-x: clip;
   width: 100%;
 }
 
-/* Soft, Calm, Luxurious Multi-tone Gradient for Section Headings */
+/* Elegant Warm Espresso & Antique Gold Gradient for Section Headings */
 .hero-heading {
-  background: linear-gradient(135deg, #F472B6 0%, #C084FC 40%, #818CF8 70%, #38BDF8 100%);
+  background: linear-gradient(135deg, #3D2E2B 0%, #59443F 50%, #7D6359 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .calm-heading-soft {
-  background: linear-gradient(135deg, #F472B6 0%, #E879F9 50%, #38BDF8 100%);
+  background: linear-gradient(135deg, #3D2E2B 0%, #C4A468 50%, #E88B73 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -36,12 +36,12 @@ html, body, #root {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #13111C;
+  background: #F9F6F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2E2342;
+  background: #DCD2C3;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C084FC;
+  background: #E88B73;
 }

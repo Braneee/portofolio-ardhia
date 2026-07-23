@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import { FadeIn } from '../ui/FadeIn';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
-import { Instagram, Video, ShoppingBag, ExternalLink, Play, Sparkles, TrendingUp, Eye, Clock, Heart, Users, Search } from 'lucide-react';
+import { Instagram, Video, ShoppingBag, ExternalLink, Play, Sparkles } from 'lucide-react';
 
-interface LinkItem {
+interface ProjectLink {
   label: string;
   url: string;
-  type: 'instagram' | 'tiktok' | 'web';
+  type: 'instagram' | 'tiktok' | 'web' | 'ecommerce';
 }
 
 interface AnalyticsMetric {
@@ -18,24 +18,24 @@ interface AnalyticsMetric {
   sub: string;
 }
 
-interface ProjectData {
+interface Project {
   id: string;
   number: string;
   name: string;
   category: string;
-  platform: 'instagram' | 'tiktok' | 'ecommerce';
+  platform: 'instagram' | 'tiktok' | 'web' | 'ecommerce';
   platformLabel: string;
   kpiMetric: string;
   mainUrl: string;
   analytics?: AnalyticsMetric[];
   searchQueries?: string[];
-  links: LinkItem[];
+  links: ProjectLink[];
   col1Image1: string;
   col1Image2: string;
   col2Image: string;
 }
 
-const projects: ProjectData[] = [
+const projects: Project[] = [
   {
     id: 'omah-daster-eva',
     number: '01',
@@ -98,21 +98,26 @@ const projects: ProjectData[] = [
   {
     id: 'kukiss-bae',
     number: '03',
-    name: 'Kukiss.bae E-Commerce',
+    name: 'KUKISS.BAE Brand',
     category: 'Brand Ownership',
     platform: 'ecommerce',
-    platformLabel: 'D2C Cookie Brand',
-    kpiMetric: 'Founder & Brand Owner',
+    platformLabel: 'D2C E-Commerce Brand',
+    kpiMetric: 'End-to-End Branding & Operations',
     mainUrl: 'https://www.linkedin.com/in/ardhianurul',
+    analytics: [
+      { label: 'Monthly Orders', value: 'Continuous', sub: 'Homemade Artisanal Cookies' },
+      { label: 'Content Assets Created', value: '50+ Videos', sub: 'Product Shoots & Reels' },
+      { label: 'WhatsApp Conversion', value: 'High CRM', sub: 'Repeat Customer Retention' },
+    ],
     links: [
-      { label: 'LinkedIn Profile Overview', url: 'https://www.linkedin.com/in/ardhianurul', type: 'web' },
+      { label: 'Brand Portfolio & LinkedIn', url: 'https://www.linkedin.com/in/ardhianurul', type: 'ecommerce' },
     ],
     col1Image1:
       'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1200',
     col1Image2:
-      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=1200',
     col2Image:
-      'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1200',
   },
 ];
 
@@ -122,23 +127,22 @@ function Card({
   total,
   progress,
 }: {
-  project: ProjectData;
+  project: Project;
   index: number;
   total: number;
-  progress: MotionValue<number>;
+  progress: any;
 }) {
-  const targetScale = 1 - (total - 1 - index) * 0.03;
-  const start = index / total;
-  const scale = useTransform(progress, [start, 1], [1, targetScale]);
+  const targetScale = 1 - (total - index - 1) * 0.05;
+  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   const renderPlatformIcon = (type: 'instagram' | 'tiktok' | 'web' | 'ecommerce') => {
     if (type === 'instagram') {
-      return <Instagram className="w-4 h-4 text-pink-400" />;
+      return <Instagram className="w-4 h-4 text-[#E88B73]" />;
     }
     if (type === 'tiktok') {
-      return <Video className="w-4 h-4 text-cyan-400" />;
+      return <Video className="w-4 h-4 text-[#E88B73]" />;
     }
-    return <ShoppingBag className="w-4 h-4 text-amber-400" />;
+    return <ShoppingBag className="w-4 h-4 text-[#C4A468]" />;
   };
 
   return (
@@ -148,16 +152,16 @@ function Card({
           scale,
           top: `${index * 24}px`,
         }}
-        className="relative w-full max-w-6xl rounded-[35px] sm:rounded-[45px] md:rounded-[55px] border-2 border-[#D7E2EA]/30 bg-[#0C0C0C] p-5 sm:p-7 md:p-9 flex flex-col justify-between overflow-hidden shadow-2xl space-y-6"
+        className="relative w-full max-w-6xl rounded-[35px] sm:rounded-[45px] md:rounded-[55px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-5 sm:p-7 md:p-9 flex flex-col justify-between overflow-hidden shadow-2xl shadow-[#3D2E2B]/5 space-y-6"
       >
         {/* Top Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#D7E2EA]/15 pb-5">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E6DCCC] pb-5">
           <div className="flex items-center gap-4 flex-wrap">
-            <span className="font-black text-[#D7E2EA] text-[clamp(2.2rem,5vw,4.5rem)] leading-none select-none">
+            <span className="font-black text-[#3D2E2B] text-[clamp(2.2rem,5vw,4.5rem)] leading-none select-none">
               {project.number}
             </span>
             <div>
-              <h3 className="text-[#D7E2EA] font-bold text-xl sm:text-2xl md:text-3xl uppercase tracking-wide">
+              <h3 className="text-[#3D2E2B] font-bold text-xl sm:text-2xl md:text-3xl uppercase tracking-wide">
                 {project.name}
               </h3>
             </div>
@@ -168,21 +172,21 @@ function Card({
 
         {/* Analytics Studio Stats Grid */}
         {project.analytics && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#121212] p-4 rounded-2xl border border-[#D7E2EA]/10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#FAF6EE] p-4 rounded-2xl border border-[#E6DCCC]">
             {project.analytics.map((st, sIdx) => (
-              <div key={sIdx} className="p-3 rounded-xl bg-[#181818] border border-[#D7E2EA]/5 space-y-0.5">
-                <span className="text-[10px] font-mono uppercase text-[#D7E2EA]/60 block">{st.label}</span>
-                <span className="text-base sm:text-lg font-extrabold font-mono text-sky-400 block">{st.value}</span>
-                <span className="text-[10px] font-mono text-emerald-400 block">{st.sub}</span>
+              <div key={sIdx} className="p-3 rounded-xl bg-[#FFFFFF] border border-[#E6DCCC] space-y-0.5">
+                <span className="text-[10px] font-mono uppercase text-[#3D2E2B]/60 block">{st.label}</span>
+                <span className="text-base sm:text-lg font-extrabold font-mono text-[#E88B73] block">{st.value}</span>
+                <span className="text-[10px] font-mono text-[#6B8065] block">{st.sub}</span>
               </div>
             ))}
           </div>
         )}
 
-        {/* Real Links Badge Bar (Instagram / TikTok Links) */}
-        <div className="flex items-center gap-2 flex-wrap bg-[#141414] p-3 rounded-2xl border border-[#D7E2EA]/10">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#D7E2EA]/60 mr-2 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-sky-400" /> Direct Content Links:
+        {/* Real Links Badge Bar */}
+        <div className="flex items-center gap-2 flex-wrap bg-[#FAF6EE] p-3 rounded-2xl border border-[#E6DCCC]">
+          <span className="text-xs font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-2 flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-[#E88B73]" /> Direct Content Links:
           </span>
           {project.links.map((link, lIdx) => (
             <a
@@ -190,31 +194,31 @@ function Card({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1F1F1F] hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-600 text-xs text-[#D7E2EA] font-medium border border-[#D7E2EA]/15 transition-all shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F5EBE6] text-xs text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm hover:scale-105"
             >
               {renderPlatformIcon(link.type)}
               <span>{link.label}</span>
-              <ExternalLink className="w-3 h-3 opacity-60" />
+              <ExternalLink className="w-3 h-3 text-[#3D2E2B]/50" />
             </a>
           ))}
         </div>
 
-        {/* Image Grid Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 flex-1 min-h-[260px]">
+        {/* Media Grid (12-column) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full min-h-[300px] sm:min-h-[360px]">
           {/* Left Column (40% width) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group h-[150px] sm:h-[180px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#181818] border border-[#D7E2EA]/10"
+              className="relative group h-[150px] sm:h-[180px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
             >
               <img
                 src={project.col1Image1}
                 alt={`${project.name} preview 1`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
+              <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
                 <Play className="w-4 h-4 fill-white" /> View on Platform
               </div>
             </a>
@@ -223,14 +227,14 @@ function Card({
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#181818] border border-[#D7E2EA]/10 flex-1"
+              className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex-1"
             >
               <img
                 src={project.col1Image2}
                 alt={`${project.name} preview 2`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
+              <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
                 <Play className="w-4 h-4 fill-white" /> Open Media Link
               </div>
             </a>
@@ -242,16 +246,16 @@ function Card({
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#181818] border border-[#D7E2EA]/10 block"
+              className="relative group w-full h-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block"
             >
               <img
                 src={project.col2Image}
                 alt={`${project.name} main preview`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/80 via-transparent to-transparent flex items-end p-6">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 bg-black/60 px-3 py-1.5 rounded-full border border-white/20">
+                  <span className="text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 bg-[#3D2E2B]/70 px-3 py-1.5 rounded-full border border-white/20">
                     {renderPlatformIcon(project.platform)} Click to Watch Full Campaign
                   </span>
                   <ExternalLink className="w-5 h-5 text-white" />
@@ -260,7 +264,6 @@ function Card({
             </a>
           </div>
         </div>
-
       </motion.div>
     </div>
   );
@@ -277,7 +280,7 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={containerRef}
-      className="bg-gradient-to-b from-[#161224] via-[#241535] to-[#13111C] border-b border-[#C084FC]/15 text-[#E2E8F0] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-4 sm:px-6 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-24 sm:pb-32 w-full"
+      className="bg-gradient-to-b from-[#F5F0E6] via-[#FAF4EA] to-[#F9F6F0] border-b border-[#E6DCCC] text-[#3D2E2B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-4 sm:px-6 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-24 sm:pb-32 w-full"
     >
       {/* Heading */}
       <FadeIn delay={0} y={40} className="mb-16 sm:mb-20 md:mb-28 text-center">
