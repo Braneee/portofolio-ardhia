@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { FadeIn } from '../ui/FadeIn';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
-import { Instagram, Video, ShoppingBag, ExternalLink, Play, Sparkles } from 'lucide-react';
+import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles } from 'lucide-react';
 
 interface ProjectLink {
   label: string;
@@ -30,6 +30,10 @@ interface Project {
   analytics?: AnalyticsMetric[];
   searchQueries?: string[];
   links: ProjectLink[];
+  video1Url?: string;
+  video1Title?: string;
+  video2Url?: string;
+  video2Title?: string;
   col1Image1: string;
   col1Image2: string;
   col2Image: string;
@@ -56,12 +60,15 @@ const projects: Project[] = [
       { label: 'Reel #3: Fabric Showcase', url: 'https://www.instagram.com/reel/DZ4UhaAxfwv/', type: 'instagram' },
       { label: 'Feed Post: AIDA Carousel', url: 'https://www.instagram.com/p/DacWAdLxHBp/', type: 'instagram' },
     ],
+    video1Url: '/videos/reels-11-7.mov',
+    video1Title: 'Reels #1: Product Try-On',
+    video2Url: '/videos/proses-packing.mov',
+    video2Title: 'Reels #2: Order Packing',
     col1Image1:
       'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200',
     col1Image2:
       'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200',
-    col2Image:
-      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1200',
+    col2Image: '/images/omah-daster-bestseller.png',
   },
   {
     id: 'nalpamara-tiktok',
@@ -120,6 +127,81 @@ const projects: Project[] = [
       'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1200',
   },
 ];
+
+function InlineVideoPlayer({
+  videoUrl,
+  title,
+  poster,
+}: {
+  videoUrl: string;
+  title: string;
+  poster?: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
+  return (
+    <div className="relative group w-full h-[200px] sm:h-[220px] rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#2D211F] border border-[#E6DCCC] shadow-md">
+      <video
+        ref={videoRef}
+        src={videoUrl}
+        poster={poster}
+        playsInline
+        loop
+        muted={isMuted}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        className="w-full h-full object-cover"
+      />
+
+      {/* Video Badge Title */}
+      <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20">
+        <Video className="w-3.5 h-3.5 text-[#E88B73]" /> {title}
+      </div>
+
+      {/* Center Play/Pause Overlay Button */}
+      <button
+        onClick={togglePlay}
+        className={`absolute inset-0 z-10 flex items-center justify-center transition-all ${
+          isPlaying ? 'opacity-0 hover:opacity-100 bg-[#3D2E2B]/30' : 'bg-[#3D2E2B]/50'
+        }`}
+      >
+        <div className="p-3.5 rounded-full bg-[#E88B73] text-white shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
+          {isPlaying ? <Pause className="w-5 h-5 fill-white" /> : <Play className="w-5 h-5 fill-white ml-0.5" />}
+        </div>
+      </button>
+
+      {/* Mute/Unmute Control */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-3 right-3 z-20 p-2 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
+        title={isMuted ? 'Unmute sound' : 'Mute sound'}
+      >
+        {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
+      </button>
+    </div>
+  );
+}
 
 function Card({
   project,
@@ -204,59 +286,73 @@ function Card({
         </div>
 
         {/* Media Grid (12-column) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full min-h-[300px] sm:min-h-[360px]">
-          {/* Left Column (40% width) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full min-h-[340px] sm:min-h-[400px]">
+          {/* Left Column (40% width) - Video or Image slots */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <a
-              href={project.mainUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group h-[150px] sm:h-[180px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
-            >
-              <img
-                src={project.col1Image1}
-                alt={`${project.name} preview 1`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            {project.video1Url ? (
+              <InlineVideoPlayer
+                videoUrl={project.video1Url}
+                title={project.video1Title || 'Video Reels #1'}
               />
-              <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
-                <Play className="w-4 h-4 fill-white" /> View on Platform
-              </div>
-            </a>
+            ) : (
+              <a
+                href={project.mainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
+              >
+                <img
+                  src={project.col1Image1}
+                  alt={`${project.name} preview 1`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
+                  <Play className="w-4 h-4 fill-white" /> View on Platform
+                </div>
+              </a>
+            )}
 
-            <a
-              href={project.mainUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex-1"
-            >
-              <img
-                src={project.col1Image2}
-                alt={`${project.name} preview 2`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            {project.video2Url ? (
+              <InlineVideoPlayer
+                videoUrl={project.video2Url}
+                title={project.video2Title || 'Video Reels #2'}
               />
-              <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
-                <Play className="w-4 h-4 fill-white" /> Open Media Link
-              </div>
-            </a>
+            ) : (
+              <a
+                href={project.mainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex-1"
+              >
+                <img
+                  src={project.col1Image2}
+                  alt={`${project.name} preview 2`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
+                  <Play className="w-4 h-4 fill-white" /> Open Media Link
+                </div>
+              </a>
+            )}
           </div>
 
-          {/* Right Column (60% width) */}
-          <div className="lg:col-span-7 h-full min-h-[220px]">
+          {/* Right Column (60% width) - Main Showcase Image / Poster */}
+          <div className="lg:col-span-7 h-full min-h-[260px] sm:min-h-[340px]">
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block"
+              className="relative group w-full h-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block min-h-[260px]"
             >
               <img
                 src={project.col2Image}
-                alt={`${project.name} main preview`}
+                alt={`${project.name} main showcase`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/80 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-6">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 bg-[#3D2E2B]/70 px-3 py-1.5 rounded-full border border-white/20">
-                    {renderPlatformIcon(project.platform)} Click to Watch Full Campaign
+                  <span className="text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 bg-[#3D2E2B]/80 px-3.5 py-1.5 rounded-full border border-white/20">
+                    {renderPlatformIcon(project.platform)} Click to Open Instagram Campaign
                   </span>
                   <ExternalLink className="w-5 h-5 text-white" />
                 </div>
