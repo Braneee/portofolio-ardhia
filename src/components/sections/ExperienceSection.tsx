@@ -170,7 +170,7 @@ export function ExperienceSection() {
                   <div className="p-6 sm:p-8 rounded-[30px] bg-[#FFFFFF] border border-[#E6DCCC] shadow-xl space-y-3 hover:border-[#6B8065]/70 transition-all duration-300">
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#EBF0EA] text-[#6B8065] border border-[#A8BBA2]/40 flex items-center gap-1 font-semibold">
-                        2019 &ndash; 2023
+                        2020 &ndash; 2024
                       </span>
                       <span className="text-xs font-mono text-[#C4A468] font-bold flex items-center gap-1">
                         <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
@@ -198,7 +198,7 @@ export function ExperienceSection() {
                   <div className="block md:hidden p-5 sm:p-8 rounded-[25px] sm:rounded-[30px] bg-[#FFFFFF] border border-[#E6DCCC] shadow-xl space-y-3">
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#EBF0EA] text-[#6B8065] border border-[#A8BBA2]/40 flex items-center gap-1 font-semibold">
-                        2019 &ndash; 2023
+                        2020 &ndash; 2024
                       </span>
                       <span className="text-xs font-mono text-[#C4A468] font-bold flex items-center gap-1">
                         <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
