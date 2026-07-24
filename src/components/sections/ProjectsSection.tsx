@@ -161,7 +161,7 @@ function InlineVideoPlayer({
   };
 
   return (
-    <div className="relative group w-full h-[135px] sm:h-[155px] md:h-[165px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#2D211F] border border-[#E6DCCC] shadow-sm">
+    <div className="relative group w-full h-[145px] sm:h-[165px] md:h-[180px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -171,7 +171,7 @@ function InlineVideoPlayer({
         muted={isMuted}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain bg-[#1D1412]"
       />
 
       {/* Video Badge Title */}
@@ -285,7 +285,7 @@ function Card({
 
         {/* Media Grid (12-column) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
-          {/* Left Column (5 cols) - Compact Video or Image slots */}
+          {/* Left Column (5 cols) - Video or Image slots */}
           <div className="lg:col-span-5 flex flex-col gap-3">
             {project.video1Url ? (
               <InlineVideoPlayer
@@ -297,12 +297,12 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[135px] sm:h-[155px] md:h-[165px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
+                className="relative group h-[145px] sm:h-[165px] md:h-[180px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image1}
                   alt={`${project.name} preview 1`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
                   <Play className="w-3.5 h-3.5 fill-white" /> View on Platform
@@ -320,12 +320,12 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[135px] sm:h-[155px] md:h-[165px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
+                className="relative group h-[145px] sm:h-[165px] md:h-[180px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image2}
                   alt={`${project.name} preview 2`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
                   <Play className="w-3.5 h-3.5 fill-white" /> Open Media Link
@@ -334,18 +334,18 @@ function Card({
             )}
           </div>
 
-          {/* Right Column (7 cols) - Main Showcase Poster Image */}
+          {/* Right Column (7 cols) - Main Showcase Poster Image (Full Uncropped Display) */}
           <div className="lg:col-span-7 h-full">
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[280px] sm:h-[325px] md:h-[340px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block"
+              className="relative group w-full h-[300px] sm:h-[345px] md:h-[370px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
                 src={project.col2Image}
                 alt={`${project.name} main showcase`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
                 <div className="flex items-center justify-between w-full">
