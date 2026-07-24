@@ -177,7 +177,7 @@ export function ExperienceSection() {
                       </span>
                     </div>
                     <h3 className="font-bold text-xl sm:text-2xl text-[#3D2E2B]">
-                      S1 Urban & Regional Planning (B.Eng)
+                      S1 Urban & Regional Planning (S.PWK.)
                     </h3>
                     <p className="text-sm font-semibold text-[#6B8065]">
                       Diponegoro University (UNDIP)
@@ -205,7 +205,7 @@ export function ExperienceSection() {
                       </span>
                     </div>
                     <h3 className="font-bold text-lg sm:text-2xl text-[#3D2E2B]">
-                      S1 Urban & Regional Planning (B.Eng)
+                      S1 Urban & Regional Planning (S.PWK.)
                     </h3>
                     <p className="text-xs sm:text-sm font-semibold text-[#6B8065]">
                       Diponegoro University (UNDIP)

@@ -135,7 +135,7 @@ export function HeroSection() {
                     {personalData.title}
                   </p>
                   <p className="text-[11px] font-mono text-slate-400 mt-1">
-                    B.Eng. Diponegoro University (GPA 3.74)
+                    S.PWK. Diponegoro University (GPA 3.74)
                   </p>
                 </div>
 
