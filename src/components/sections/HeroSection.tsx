@@ -88,7 +88,7 @@ export function HeroSection() {
       <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-2 z-20">
         <FadeIn delay={0.35} y={20}>
           <p className="text-[#3D2E2B] font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[280px] sm:max-w-[320px]">
-            a digital marketing specialist driven by crafting striking campaigns and viral content
+            a social media specialist driven by crafting striking campaigns and viral content
           </p>
         </FadeIn>
 
