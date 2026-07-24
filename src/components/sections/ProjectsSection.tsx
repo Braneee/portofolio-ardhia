@@ -161,7 +161,7 @@ function InlineVideoPlayer({
   };
 
   return (
-    <div className="relative group w-full h-[200px] sm:h-[220px] rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#2D211F] border border-[#E6DCCC] shadow-md">
+    <div className="relative group w-full h-[135px] sm:h-[155px] md:h-[165px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#2D211F] border border-[#E6DCCC] shadow-sm">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -175,29 +175,29 @@ function InlineVideoPlayer({
       />
 
       {/* Video Badge Title */}
-      <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white text-[10px] font-mono font-bold uppercase tracking-wider border border-white/20">
-        <Video className="w-3.5 h-3.5 text-[#E88B73]" /> {title}
+      <div className="absolute top-2 left-2 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white text-[9px] font-mono font-bold uppercase tracking-wider border border-white/20">
+        <Video className="w-3 h-3 text-[#E88B73]" /> {title}
       </div>
 
       {/* Center Play/Pause Overlay Button */}
       <button
         onClick={togglePlay}
         className={`absolute inset-0 z-10 flex items-center justify-center transition-all ${
-          isPlaying ? 'opacity-0 hover:opacity-100 bg-[#3D2E2B]/30' : 'bg-[#3D2E2B]/50'
+          isPlaying ? 'opacity-0 hover:opacity-100 bg-[#3D2E2B]/30' : 'bg-[#3D2E2B]/45'
         }`}
       >
-        <div className="p-3.5 rounded-full bg-[#E88B73] text-white shadow-2xl hover:scale-110 transition-transform flex items-center justify-center">
-          {isPlaying ? <Pause className="w-5 h-5 fill-white" /> : <Play className="w-5 h-5 fill-white ml-0.5" />}
+        <div className="p-2.5 sm:p-3 rounded-full bg-[#E88B73] text-white shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
+          {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
         </div>
       </button>
 
       {/* Mute/Unmute Control */}
       <button
         onClick={toggleMute}
-        className="absolute bottom-3 right-3 z-20 p-2 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
+        className="absolute bottom-2 right-2 z-20 p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
         title={isMuted ? 'Unmute sound' : 'Mute sound'}
       >
-        {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
+        {isMuted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3 text-[#E88B73]" />}
       </button>
     </div>
   );
@@ -214,39 +214,37 @@ function Card({
   total: number;
   progress: any;
 }) {
-  const targetScale = 1 - (total - index - 1) * 0.05;
+  const targetScale = 1 - (total - index - 1) * 0.04;
   const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   const renderPlatformIcon = (type: 'instagram' | 'tiktok' | 'web' | 'ecommerce') => {
     if (type === 'instagram') {
-      return <Instagram className="w-4 h-4 text-[#E88B73]" />;
+      return <Instagram className="w-3.5 h-3.5 text-[#E88B73]" />;
     }
     if (type === 'tiktok') {
-      return <Video className="w-4 h-4 text-[#E88B73]" />;
+      return <Video className="w-3.5 h-3.5 text-[#E88B73]" />;
     }
-    return <ShoppingBag className="w-4 h-4 text-[#C4A468]" />;
+    return <ShoppingBag className="w-3.5 h-3.5 text-[#C4A468]" />;
   };
 
   return (
-    <div className="sticky top-20 sm:top-24 md:top-28 min-h-[85vh] flex items-center justify-center mb-12 sm:mb-16">
+    <div className="sticky top-16 sm:top-20 flex items-center justify-center mb-8 sm:mb-12">
       <motion.div
         style={{
           scale,
-          top: `${index * 24}px`,
+          top: `${index * 16}px`,
         }}
-        className="relative w-full max-w-6xl rounded-[35px] sm:rounded-[45px] md:rounded-[55px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-5 sm:p-7 md:p-9 flex flex-col justify-between overflow-hidden shadow-2xl shadow-[#3D2E2B]/5 space-y-6"
+        className="relative w-full max-w-6xl rounded-[28px] sm:rounded-[36px] md:rounded-[44px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-3 sm:space-y-4"
       >
         {/* Top Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E6DCCC] pb-5">
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="font-black text-[#3D2E2B] text-[clamp(2.2rem,5vw,4.5rem)] leading-none select-none">
+        <div className="flex flex-row items-center justify-between gap-3 border-b border-[#E6DCCC] pb-3">
+          <div className="flex items-center gap-3">
+            <span className="font-black text-[#3D2E2B] text-2xl sm:text-3xl md:text-4xl leading-none select-none">
               {project.number}
             </span>
-            <div>
-              <h3 className="text-[#3D2E2B] font-bold text-xl sm:text-2xl md:text-3xl uppercase tracking-wide">
-                {project.name}
-              </h3>
-            </div>
+            <h3 className="text-[#3D2E2B] font-bold text-base sm:text-xl md:text-2xl uppercase tracking-wide">
+              {project.name}
+            </h3>
           </div>
 
           <LiveProjectButton href={project.mainUrl} />
@@ -254,21 +252,21 @@ function Card({
 
         {/* Analytics Studio Stats Grid */}
         {project.analytics && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#FAF6EE] p-4 rounded-2xl border border-[#E6DCCC]">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#FAF6EE] p-2.5 rounded-xl border border-[#E6DCCC]">
             {project.analytics.map((st, sIdx) => (
-              <div key={sIdx} className="p-3 rounded-xl bg-[#FFFFFF] border border-[#E6DCCC] space-y-0.5">
-                <span className="text-[10px] font-mono uppercase text-[#3D2E2B]/60 block">{st.label}</span>
-                <span className="text-base sm:text-lg font-extrabold font-mono text-[#E88B73] block">{st.value}</span>
-                <span className="text-[10px] font-mono text-[#6B8065] block">{st.sub}</span>
+              <div key={sIdx} className="p-2 sm:p-2.5 rounded-lg bg-[#FFFFFF] border border-[#E6DCCC] space-y-0.5">
+                <span className="text-[9px] font-mono uppercase text-[#3D2E2B]/60 block">{st.label}</span>
+                <span className="text-xs sm:text-base font-extrabold font-mono text-[#E88B73] block">{st.value}</span>
+                <span className="text-[9px] font-mono text-[#6B8065] block">{st.sub}</span>
               </div>
             ))}
           </div>
         )}
 
         {/* Real Links Badge Bar */}
-        <div className="flex items-center gap-2 flex-wrap bg-[#FAF6EE] p-3 rounded-2xl border border-[#E6DCCC]">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-2 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-[#E88B73]" /> Direct Content Links:
+        <div className="flex items-center gap-1.5 flex-wrap bg-[#FAF6EE] p-2 rounded-xl border border-[#E6DCCC]">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-1 flex items-center gap-1">
+            <Sparkles className="w-3 h-3 text-[#E88B73]" /> Direct Links:
           </span>
           {project.links.map((link, lIdx) => (
             <a
@@ -276,19 +274,19 @@ function Card({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F5EBE6] text-xs text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F5EBE6] text-[11px] text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm hover:scale-105"
             >
               {renderPlatformIcon(link.type)}
               <span>{link.label}</span>
-              <ExternalLink className="w-3 h-3 text-[#3D2E2B]/50" />
+              <ExternalLink className="w-2.5 h-2.5 text-[#3D2E2B]/50" />
             </a>
           ))}
         </div>
 
         {/* Media Grid (12-column) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 h-full min-h-[340px] sm:min-h-[400px]">
-          {/* Left Column (40% width) - Video or Image slots */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          {/* Left Column (5 cols) - Compact Video or Image slots */}
+          <div className="lg:col-span-5 flex flex-col gap-3">
             {project.video1Url ? (
               <InlineVideoPlayer
                 videoUrl={project.video1Url}
@@ -299,15 +297,15 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
+                className="relative group h-[135px] sm:h-[155px] md:h-[165px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
               >
                 <img
                   src={project.col1Image1}
                   alt={`${project.name} preview 1`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
-                  <Play className="w-4 h-4 fill-white" /> View on Platform
+                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+                  <Play className="w-3.5 h-3.5 fill-white" /> View on Platform
                 </div>
               </a>
             )}
@@ -322,39 +320,39 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[160px] sm:h-[190px] w-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex-1"
+                className="relative group h-[135px] sm:h-[155px] md:h-[165px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC]"
               >
                 <img
                   src={project.col1Image2}
                   alt={`${project.name} preview 2`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-mono text-xs font-bold uppercase tracking-wider">
-                  <Play className="w-4 h-4 fill-white" /> Open Media Link
+                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+                  <Play className="w-3.5 h-3.5 fill-white" /> Open Media Link
                 </div>
               </a>
             )}
           </div>
 
-          {/* Right Column (60% width) - Main Showcase Image / Poster */}
-          <div className="lg:col-span-7 h-full min-h-[260px] sm:min-h-[340px]">
+          {/* Right Column (7 cols) - Main Showcase Poster Image */}
+          <div className="lg:col-span-7 h-full">
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-full rounded-[25px] sm:rounded-[35px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block min-h-[260px]"
+              className="relative group w-full h-[280px] sm:h-[325px] md:h-[340px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block"
             >
               <img
                 src={project.col2Image}
                 alt={`${project.name} main showcase`}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 bg-[#3D2E2B]/80 px-3.5 py-1.5 rounded-full border border-white/20">
-                    {renderPlatformIcon(project.platform)} Click to Open Instagram Campaign
+                  <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                    {renderPlatformIcon(project.platform)} Click to Open Campaign
                   </span>
-                  <ExternalLink className="w-5 h-5 text-white" />
+                  <ExternalLink className="w-4 h-4 text-white" />
                 </div>
               </div>
             </a>
@@ -376,11 +374,11 @@ export function ProjectsSection() {
     <section
       id="projects"
       ref={containerRef}
-      className="bg-gradient-to-b from-[#F5F0E6] via-[#FAF4EA] to-[#F9F6F0] border-b border-[#E6DCCC] text-[#3D2E2B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-4 sm:px-6 md:px-10 pt-20 sm:pt-24 md:pt-32 pb-24 sm:pb-32 w-full"
+      className="bg-gradient-to-b from-[#F5F0E6] via-[#FAF4EA] to-[#F9F6F0] border-b border-[#E6DCCC] text-[#3D2E2B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-24 pb-20 sm:pb-28 w-full"
     >
       {/* Heading */}
-      <FadeIn delay={0} y={40} className="mb-16 sm:mb-20 md:mb-28 text-center">
-        <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(3rem,12vw,160px)]">
+      <FadeIn delay={0} y={40} className="mb-10 sm:mb-14 md:mb-16 text-center">
+        <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(2.5rem,10vw,140px)]">
           Projects
         </h2>
       </FadeIn>
