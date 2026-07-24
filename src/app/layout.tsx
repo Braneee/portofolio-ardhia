@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import { Kanit } from 'next/font/google';
 import './globals.css';
 
@@ -9,14 +9,10 @@ const kanit = Kanit({
   display: 'swap',
 });
 
-export const viewport: Viewport = {
-  themeColor: '#F9F6F0',
-  colorScheme: 'light',
-};
-
 export const metadata: Metadata = {
   title: 'Ardhia - Digital Marketing Specialist',
   description: 'Digital Marketing Specialist, Content Strategist & Social Media Manager.',
+  themeColor: '#F9F6F0',
 };
 
 export default function RootLayout({
