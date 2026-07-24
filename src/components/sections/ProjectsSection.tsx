@@ -159,7 +159,7 @@ function InlineVideoPlayer({
   };
 
   return (
-    <div className="relative group w-full h-[180px] sm:h-[220px] md:h-[240px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
+    <div className="relative group w-full h-[160px] sm:h-[220px] md:h-[240px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -226,35 +226,35 @@ function Card({
   };
 
   return (
-    <div className="sticky top-16 sm:top-20 flex items-center justify-center mb-8 sm:mb-12">
+    <div className="sticky top-14 sm:top-20 flex items-center justify-center mb-10 sm:mb-14">
       <motion.div
         style={{
           scale,
           top: `${index * 16}px`,
         }}
-        className="relative w-full max-w-6xl rounded-[28px] sm:rounded-[36px] md:rounded-[44px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-3 sm:space-y-4"
+        className="relative w-full max-w-6xl rounded-[24px] sm:rounded-[36px] md:rounded-[44px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-3.5 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-3 sm:space-y-4"
       >
         {/* Top Header Row */}
-        <div className="flex flex-row items-center justify-between gap-3 border-b border-[#E6DCCC] pb-3 flex-wrap">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-black text-[#3D2E2B] text-2xl sm:text-3xl md:text-4xl leading-none select-none">
+        <div className="flex flex-row items-center justify-between gap-2.5 border-b border-[#E6DCCC] pb-3 flex-wrap">
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <span className="font-black text-[#3D2E2B] text-xl sm:text-3xl md:text-4xl leading-none select-none">
               {project.number}
             </span>
-            <h3 className="text-[#3D2E2B] font-bold text-base sm:text-xl md:text-2xl uppercase tracking-wide">
+            <h3 className="text-[#3D2E2B] font-bold text-sm sm:text-xl md:text-2xl uppercase tracking-wide">
               {project.name}
             </h3>
             {/* Clean KPI Win Badge */}
-            <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#F5EBE6] text-[#E88B73] border border-[#F4A28C]/40 font-semibold flex items-center gap-1">
+            <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F5EBE6] text-[#E88B73] border border-[#F4A28C]/40 font-semibold flex items-center gap-1">
               <TrendingUp className="w-3 h-3 text-[#E88B73]" /> {project.kpiMetric}
             </span>
           </div>
 
-          <LiveProjectButton href={project.mainUrl} />
+          <LiveProjectButton href={project.mainUrl} label="View Campaign" />
         </div>
 
-        {/* Real Links Badge Bar */}
-        <div className="flex items-center gap-1.5 flex-wrap bg-[#FAF6EE] p-2 rounded-xl border border-[#E6DCCC]">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-1 flex items-center gap-1">
+        {/* Real Links Badge Bar (Horizontal Scrollable Pill Bar on Mobile) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none bg-[#FAF6EE] p-2 rounded-xl border border-[#E6DCCC]">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-1 shrink-0 flex items-center gap-1">
             <Sparkles className="w-3 h-3 text-[#E88B73]" /> Direct Links:
           </span>
           {project.links.map((link, lIdx) => (
@@ -263,7 +263,7 @@ function Card({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F5EBE6] text-[11px] text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm hover:scale-105"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F5EBE6] text-[11px] text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm shrink-0"
             >
               {renderPlatformIcon(link.type)}
               <span>{link.label}</span>
@@ -286,7 +286,7 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[180px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image1}
@@ -309,7 +309,7 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[180px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image2}
@@ -329,7 +329,7 @@ function Card({
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[380px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
                 src={project.col2Image}
