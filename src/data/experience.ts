@@ -38,7 +38,7 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     id: "exp-3",
-    role: "Digital Marketing Specialist Trainee",
+    role: "Digital Marketing Bootcamp",
     company: "Tempat Belajar – Career Accelerator",
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
     location: "Indonesia",
