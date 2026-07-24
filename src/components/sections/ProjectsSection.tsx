@@ -94,6 +94,7 @@ const projects: Project[] = [
       { label: 'TikTok #1: Skin Brightener Hook (16.1K Views)', url: 'https://vt.tiktok.com/ZSXt5VuCy/', type: 'tiktok' },
       { label: 'TikTok #2: Oral Care Routine', url: 'https://vt.tiktok.com/ZSXt5tfp4/', type: 'tiktok' },
       { label: 'TikTok #3: UGC Testimonial', url: 'https://vt.tiktok.com/ZSXtmLprp/', type: 'tiktok' },
+      { label: 'TikTok #4: Viral Product Showcase', url: 'https://vt.tiktok.com/ZSXn5x9WA/', type: 'tiktok' },
     ],
     col1Image1:
       'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1200',
