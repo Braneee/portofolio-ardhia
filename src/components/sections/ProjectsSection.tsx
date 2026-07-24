@@ -151,7 +151,7 @@ function InlineVideoPlayer({
   videoUrl,
   title,
   poster,
-  heightClass = 'h-[160px] sm:h-[220px] md:h-[240px]',
+  heightClass = 'h-[140px] sm:h-[180px] md:h-[195px]',
 }: {
   videoUrl: string;
   title: string;
@@ -194,7 +194,7 @@ function InlineVideoPlayer({
   };
 
   return (
-    <div className={`relative group w-full ${heightClass} rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center`}>
+    <div className={`relative group w-full ${heightClass} rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center`}>
       <video
         ref={videoRef}
         src={videoUrl}
@@ -209,8 +209,8 @@ function InlineVideoPlayer({
       />
 
       {/* Video Badge Title */}
-      <div className="absolute top-2 left-2 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white text-[9px] font-mono font-bold uppercase tracking-wider border border-white/20">
-        <Video className="w-3 h-3 text-[#E88B73]" /> {title}
+      <div className="absolute top-1.5 left-1.5 z-20 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white text-[8px] sm:text-[9px] font-mono font-bold uppercase tracking-wider border border-white/20">
+        <Video className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#E88B73]" /> {title}
       </div>
 
       {/* Center Play/Pause Overlay Button */}
@@ -220,27 +220,27 @@ function InlineVideoPlayer({
           isPlaying ? 'opacity-0 hover:opacity-100 bg-[#3D2E2B]/30' : 'bg-[#3D2E2B]/45'
         }`}
       >
-        <div className="p-3 sm:p-3.5 rounded-full bg-[#E88B73] text-white shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
-          {isPlaying ? <Pause className="w-4.5 h-4.5 fill-white" /> : <Play className="w-4.5 h-4.5 fill-white ml-0.5" />}
+        <div className="p-2.5 sm:p-3 rounded-full bg-[#E88B73] text-white shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
+          {isPlaying ? <Pause className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" /> : <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white ml-0.5" />}
         </div>
       </button>
 
       {/* Bottom Control Bar: Mute/Unmute + Fullscreen */}
-      <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1.5">
+      <div className="absolute bottom-1.5 right-1.5 z-20 flex items-center gap-1">
         <button
           onClick={toggleMute}
-          className="p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
+          className="p-1 sm:p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
           title={isMuted ? 'Unmute sound' : 'Mute sound'}
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
+          {isMuted ? <VolumeX className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> : <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#E88B73]" />}
         </button>
 
         <button
           onClick={toggleFullscreen}
-          className="p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors flex items-center gap-1 px-2 text-[10px] font-mono font-bold"
+          className="p-1 sm:p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors flex items-center gap-1 px-1.5 text-[9px] font-mono font-bold"
           title="Watch Fullscreen"
         >
-          <Maximize2 className="w-3.5 h-3.5 text-[#E88B73]" />
+          <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#E88B73]" />
           <span className="hidden sm:inline">Fullscreen</span>
         </button>
       </div>
@@ -273,26 +273,26 @@ function Card({
   };
 
   return (
-    <div className="sticky top-14 sm:top-20 flex items-center justify-center mb-10 sm:mb-14">
+    <div className="sticky top-12 sm:top-16 flex items-center justify-center mb-8 sm:mb-12">
       <motion.div
         style={{
           scale,
-          top: `${index * 16}px`,
+          top: `${index * 14}px`,
         }}
-        className="relative w-full max-w-6xl rounded-[24px] sm:rounded-[36px] md:rounded-[44px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-3.5 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-3 sm:space-y-4"
+        className="relative w-full max-w-6xl rounded-[20px] sm:rounded-[32px] md:rounded-[38px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-3 sm:p-4.5 md:p-5 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-2.5 sm:space-y-3"
       >
         {/* Top Header Row */}
-        <div className="flex flex-row items-center justify-between gap-2.5 border-b border-[#E6DCCC] pb-3 flex-wrap">
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <span className="font-black text-[#3D2E2B] text-xl sm:text-3xl md:text-4xl leading-none select-none">
+        <div className="flex flex-row items-center justify-between gap-2 border-b border-[#E6DCCC] pb-2 flex-wrap">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-black text-[#3D2E2B] text-lg sm:text-2xl md:text-3xl leading-none select-none">
               {project.number}
             </span>
-            <h3 className="text-[#3D2E2B] font-bold text-sm sm:text-xl md:text-2xl uppercase tracking-wide">
+            <h3 className="text-[#3D2E2B] font-bold text-xs sm:text-lg md:text-xl uppercase tracking-wide">
               {project.name}
             </h3>
             {/* Clean KPI Win Badge */}
-            <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F5EBE6] text-[#E88B73] border border-[#F4A28C]/40 font-semibold flex items-center gap-1">
-              <TrendingUp className="w-3 h-3 text-[#E88B73]" /> {project.kpiMetric}
+            <span className="text-[9px] sm:text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F5EBE6] text-[#E88B73] border border-[#F4A28C]/40 font-semibold flex items-center gap-1">
+              <TrendingUp className="w-2.5 h-2.5 text-[#E88B73]" /> {project.kpiMetric}
             </span>
           </div>
 
@@ -300,8 +300,8 @@ function Card({
         </div>
 
         {/* Real Links Badge Bar (Horizontal Scrollable Pill Bar on Mobile) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none bg-[#FAF6EE] p-2 rounded-xl border border-[#E6DCCC]">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-1 shrink-0 flex items-center gap-1">
+        <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none bg-[#FAF6EE] p-1.5 rounded-xl border border-[#E6DCCC]">
+          <span className="text-[9px] font-mono uppercase tracking-wider text-[#3D2E2B]/70 mr-1 shrink-0 flex items-center gap-1">
             <Sparkles className="w-3 h-3 text-[#E88B73]" /> Direct Links:
           </span>
           {project.links.map((link, lIdx) => (
@@ -310,7 +310,7 @@ function Card({
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFFFFF] hover:bg-[#F5EBE6] text-[11px] text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm shrink-0"
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-[#FFFFFF] hover:bg-[#F5EBE6] text-[10px] sm:text-[11px] text-[#3D2E2B] font-medium border border-[#E6DCCC] transition-all shadow-sm shrink-0"
             >
               {renderPlatformIcon(link.type)}
               <span>{link.label}</span>
@@ -321,62 +321,62 @@ function Card({
 
         {/* Media Grid */}
         {project.hasFiveVideos ? (
-          /* Symmetrical 5-Video Clean Showcase Grid for Fortis Seneca TikTok */
-          <div className="flex flex-col gap-3">
+          /* Scaled Symmetrical 5-Video Clean Showcase Grid for Fortis Seneca TikTok */
+          <div className="flex flex-col gap-2.5">
             {/* Top Row: 2 Main Videos */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               <InlineVideoPlayer
                 videoUrl={project.video1Url!}
                 title={project.video1Title!}
-                heightClass="h-[220px] sm:h-[300px] md:h-[340px]"
+                heightClass="h-[170px] sm:h-[210px] md:h-[230px]"
               />
               <InlineVideoPlayer
                 videoUrl={project.video2Url!}
                 title={project.video2Title!}
-                heightClass="h-[220px] sm:h-[300px] md:h-[340px]"
+                heightClass="h-[170px] sm:h-[210px] md:h-[230px]"
               />
             </div>
 
             {/* Bottom Row: 3 Campaign Videos */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               <InlineVideoPlayer
                 videoUrl={project.video3Url!}
                 title={project.video3Title!}
-                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+                heightClass="h-[150px] sm:h-[180px] md:h-[190px]"
               />
               <InlineVideoPlayer
                 videoUrl={project.video4Url!}
                 title={project.video4Title!}
-                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+                heightClass="h-[150px] sm:h-[180px] md:h-[190px]"
               />
               <InlineVideoPlayer
                 videoUrl={project.video5Url!}
                 title={project.video5Title!}
-                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+                heightClass="h-[150px] sm:h-[180px] md:h-[190px]"
               />
             </div>
           </div>
         ) : project.hasTwoImagesOnly ? (
           /* Symmetrical 2-Column Photo Showcase for Kukiss.bae */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
             {/* Left Image Box: Jar Packaging */}
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[260px] sm:h-[350px] md:h-[380px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              className="relative group w-full h-[220px] sm:h-[300px] md:h-[320px] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
                 src={project.col1Image1}
                 alt={`${project.name} jar packaging`}
                 className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-3">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
-                    <Instagram className="w-3.5 h-3.5 text-[#E88B73]" /> Jar Packaging Display
+                  <span className="text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-2.5 py-1 rounded-full border border-white/20">
+                    <Instagram className="w-3 h-3 text-[#E88B73]" /> Jar Packaging Display
                   </span>
-                  <ExternalLink className="w-4 h-4 text-white" />
+                  <ExternalLink className="w-3.5 h-3.5 text-white" />
                 </div>
               </div>
             </a>
@@ -386,47 +386,48 @@ function Card({
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[260px] sm:h-[350px] md:h-[380px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              className="relative group w-full h-[220px] sm:h-[300px] md:h-[320px] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
                 src={project.col2Image}
                 alt={`${project.name} soft cookies platter`}
                 className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-3">
                 <div className="flex items-center justify-between w-full">
-                  <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
-                    <Instagram className="w-3.5 h-3.5 text-[#E88B73]" /> Product Platter Showcase
+                  <span className="text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-2.5 py-1 rounded-full border border-white/20">
+                    <Instagram className="w-3 h-3 text-[#E88B73]" /> Product Platter Showcase
                   </span>
-                  <ExternalLink className="w-4 h-4 text-white" />
+                  <ExternalLink className="w-3.5 h-3.5 text-white" />
                 </div>
               </div>
             </a>
           </div>
         ) : (
-          /* Standard Multi-Media Grid */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
+          /* Standard Multi-Media Grid for Omah Daster Eva */
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-2.5">
             {/* Left Column (5 cols) - Video slots */}
-            <div className="lg:col-span-5 flex flex-col gap-3">
+            <div className="lg:col-span-5 flex flex-col gap-2.5">
               {project.video1Url ? (
                 <InlineVideoPlayer
                   videoUrl={project.video1Url}
                   title={project.video1Title || 'Video Reels #1'}
+                  heightClass="h-[140px] sm:h-[165px] md:h-[175px]"
                 />
               ) : (
                 <a
                   href={project.mainUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                  className="relative group h-[140px] sm:h-[165px] md:h-[175px] w-full rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
                 >
                   <img
                     src={project.col1Image1}
                     alt={`${project.name} preview 1`}
                     className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
-                    <Play className="w-3.5 h-3.5 fill-white" /> View on Platform
+                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+                    <Play className="w-3 h-3 fill-white" /> View on Platform
                   </div>
                 </a>
               )}
@@ -435,45 +436,46 @@ function Card({
                 <InlineVideoPlayer
                   videoUrl={project.video2Url}
                   title={project.video2Title || 'Video Reels #2'}
+                  heightClass="h-[140px] sm:h-[165px] md:h-[175px]"
                 />
               ) : (
                 <a
                   href={project.mainUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                  className="relative group h-[140px] sm:h-[165px] md:h-[175px] w-full rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
                 >
                   <img
                     src={project.col1Image2}
                     alt={`${project.name} preview 2`}
                     className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
-                    <Play className="w-3.5 h-3.5 fill-white" /> Open Media Link
+                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+                    <Play className="w-3 h-3 fill-white" /> Open Media Link
                   </div>
                 </a>
               )}
             </div>
 
-            {/* Right Column (7 cols) - Main Showcase */}
+            {/* Right Column (7 cols) - Main Showcase Poster */}
             <div className="lg:col-span-7 h-full">
               <a
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+                className="relative group w-full h-[240px] sm:h-[345px] md:h-[360px] rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
               >
                 <img
                   src={project.col2Image}
                   alt={`${project.name} main showcase`}
                   className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-3">
                   <div className="flex items-center justify-between w-full">
-                    <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                    <span className="text-white font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-2.5 py-1 rounded-full border border-white/20">
                       {renderPlatformIcon(project.platform)} Click to Open Campaign
                     </span>
-                    <ExternalLink className="w-4 h-4 text-white" />
+                    <ExternalLink className="w-3.5 h-3.5 text-white" />
                   </div>
                 </div>
               </a>
