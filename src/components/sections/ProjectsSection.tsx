@@ -56,13 +56,13 @@ const projects: Project[] = [
       { label: 'Accounts Reached', value: '18,930', sub: 'Target Demographic' },
     ],
     links: [
-      { label: 'Reel #1: Product Try-On', url: 'https://www.instagram.com/reel/DapbDxzx06o/', type: 'instagram' },
+      { label: 'Reel #1: Product Recommendation', url: 'https://www.instagram.com/reel/DapbDxzx06o/', type: 'instagram' },
       { label: 'Reel #2: Outfit Styling', url: 'https://www.instagram.com/reel/Dar-jfcx1rQ/', type: 'instagram' },
       { label: 'Reel #3: Fabric Showcase', url: 'https://www.instagram.com/reel/DZ4UhaAxfwv/', type: 'instagram' },
       { label: 'Feed Post: AIDA Carousel', url: 'https://www.instagram.com/p/DacWAdLxHBp/', type: 'instagram' },
     ],
     video1Url: '/videos/reels-11-7.mov',
-    video1Title: 'Reels #1: Product Try-On',
+    video1Title: 'Reels #1: Product Recommendation',
     video2Url: '/videos/proses-packing.mov',
     video2Title: 'Reels #2: Order Packing',
     col1Image1:
