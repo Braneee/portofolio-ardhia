@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { FadeIn } from '../ui/FadeIn';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
-import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles, TrendingUp } from 'lucide-react';
+import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles, TrendingUp, Maximize2 } from 'lucide-react';
 
 interface ProjectLink {
   label: string;
@@ -16,6 +16,11 @@ interface AnalyticsMetric {
   label: string;
   value: string;
   sub: string;
+}
+
+interface ProjectVideo {
+  url: string;
+  title: string;
 }
 
 interface Project {
@@ -35,6 +40,7 @@ interface Project {
   video1Title?: string;
   video2Url?: string;
   video2Title?: string;
+  videoList?: ProjectVideo[];
   col1Image1: string;
   col1Image2: string;
   col2Image: string;
@@ -80,6 +86,15 @@ const projects: Project[] = [
     platformLabel: 'TikTok Short-Form Video',
     kpiMetric: '16,181 Views • 79.3% FYP Push',
     mainUrl: 'https://vt.tiktok.com/ZSXt5VuCy/',
+    video1Url: '/videos/fortis-seneca/fortis-video-1.mp4',
+    video1Title: 'TikTok #1: Skin Brightener Hook',
+    video2Url: '/videos/fortis-seneca/fortis-video-2.mp4',
+    video2Title: 'TikTok #2: Oral Care Routine',
+    videoList: [
+      { url: '/videos/fortis-seneca/fortis-video-5.mp4', title: 'Featured Campaign Reel' },
+      { url: '/videos/fortis-seneca/fortis-video-3.mp4', title: 'TikTok #3: UGC Testimonial' },
+      { url: '/videos/fortis-seneca/fortis-video-4.mp4', title: 'TikTok #4: Product Showcase' },
+    ],
     analytics: [
       { label: 'Organic Video Views', value: '16,181', sub: '14.0K Unique Viewers' },
       { label: 'For You (FYP) Share', value: '79.3%', sub: 'Viral FYP Distribution' },
@@ -127,10 +142,12 @@ function InlineVideoPlayer({
   videoUrl,
   title,
   poster,
+  heightClass = 'h-[160px] sm:h-[220px] md:h-[240px]',
 }: {
   videoUrl: string;
   title: string;
   poster?: string;
+  heightClass?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -155,8 +172,20 @@ function InlineVideoPlayer({
     setIsMuted(!isMuted);
   };
 
+  const toggleFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else if ((videoRef.current as any).webkitRequestFullscreen) {
+      (videoRef.current as any).webkitRequestFullscreen();
+    } else if ((videoRef.current as any).msRequestFullscreen) {
+      (videoRef.current as any).msRequestFullscreen();
+    }
+  };
+
   return (
-    <div className="relative group w-full h-[160px] sm:h-[220px] md:h-[240px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
+    <div className={`relative group w-full ${heightClass} rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center`}>
       <video
         ref={videoRef}
         src={videoUrl}
@@ -166,7 +195,8 @@ function InlineVideoPlayer({
         muted={isMuted}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
-        className="w-full h-full object-contain bg-[#1D1412]"
+        className="w-full h-full object-contain bg-[#1D1412] cursor-pointer"
+        onClick={togglePlay}
       />
 
       {/* Video Badge Title */}
@@ -186,14 +216,59 @@ function InlineVideoPlayer({
         </div>
       </button>
 
-      {/* Mute/Unmute Control */}
-      <button
-        onClick={toggleMute}
-        className="absolute bottom-2 right-2 z-20 p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
-        title={isMuted ? 'Unmute sound' : 'Mute sound'}
-      >
-        {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
-      </button>
+      {/* Bottom Control Bar: Mute/Unmute + Fullscreen */}
+      <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1.5">
+        <button
+          onClick={toggleMute}
+          className="p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
+          title={isMuted ? 'Unmute sound' : 'Mute sound'}
+        >
+          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
+        </button>
+
+        <button
+          onClick={toggleFullscreen}
+          className="p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors flex items-center gap-1 px-2 text-[10px] font-mono font-bold"
+          title="Watch Fullscreen"
+        >
+          <Maximize2 className="w-3.5 h-3.5 text-[#E88B73]" />
+          <span className="hidden sm:inline">Fullscreen</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function MultiVideoSelector({ videos }: { videos: ProjectVideo[] }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const activeVideo = videos[activeIdx] || videos[0];
+
+  return (
+    <div className="flex flex-col gap-2.5 h-full">
+      {/* Featured Main Video Player */}
+      <InlineVideoPlayer
+        videoUrl={activeVideo.url}
+        title={activeVideo.title}
+        heightClass="h-[260px] sm:h-[380px] md:h-[420px]"
+      />
+
+      {/* Video Selector Tab Buttons */}
+      <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+        {videos.map((vid, vIdx) => (
+          <button
+            key={vIdx}
+            onClick={() => setActiveIdx(vIdx)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 shrink-0 border ${
+              activeIdx === vIdx
+                ? 'bg-[#3D2E2B] text-white border-[#3D2E2B] shadow-md'
+                : 'bg-[#FAF6EE] text-[#3D2E2B] border-[#E6DCCC] hover:border-[#E88B73]'
+            }`}
+          >
+            <Video className={`w-3.5 h-3.5 ${activeIdx === vIdx ? 'text-[#E88B73]' : 'text-[#3D2E2B]/60'}`} />
+            <span>{vid.title}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -318,9 +393,9 @@ function Card({
             </a>
           </div>
         ) : (
-          /* Standard 3-slot Media Grid */
+          /* Standard Multi-Media Grid */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
-            {/* Left Column (5 cols) - Video or Image slots */}
+            {/* Left Column (5 cols) - Video slots */}
             <div className="lg:col-span-5 flex flex-col gap-3">
               {project.video1Url ? (
                 <InlineVideoPlayer
@@ -369,28 +444,32 @@ function Card({
               )}
             </div>
 
-            {/* Right Column (7 cols) - Main Showcase Poster Image */}
+            {/* Right Column (7 cols) - Main Showcase (Multi-Video Selector or Poster Image) */}
             <div className="lg:col-span-7 h-full">
-              <a
-                href={project.mainUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
-              >
-                <img
-                  src={project.col2Image}
-                  alt={`${project.name} main showcase`}
-                  className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
-                  <div className="flex items-center justify-between w-full">
-                    <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
-                      {renderPlatformIcon(project.platform)} Click to Open Campaign
-                    </span>
-                    <ExternalLink className="w-4 h-4 text-white" />
+              {project.videoList && project.videoList.length > 0 ? (
+                <MultiVideoSelector videos={project.videoList} />
+              ) : (
+                <a
+                  href={project.mainUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+                >
+                  <img
+                    src={project.col2Image}
+                    alt={`${project.name} main showcase`}
+                    className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                        {renderPlatformIcon(project.platform)} Click to Open Campaign
+                      </span>
+                      <ExternalLink className="w-4 h-4 text-white" />
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              )}
             </div>
           </div>
         )}
