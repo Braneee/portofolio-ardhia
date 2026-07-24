@@ -107,24 +107,21 @@ const projects: Project[] = [
     number: '03',
     name: 'KUKISS.BAE Brand',
     category: 'Brand Ownership',
-    platform: 'ecommerce',
-    platformLabel: 'D2C E-Commerce Brand',
+    platform: 'instagram',
+    platformLabel: 'Instagram @kukiss.bae',
     kpiMetric: 'End-to-End Branding & Operations',
-    mainUrl: 'https://www.linkedin.com/in/ardhianurul',
+    mainUrl: 'https://www.instagram.com/kukiss.bae?igsh=MWxvdGIyYXF1bDEyeQ==',
     analytics: [
       { label: 'Monthly Orders', value: 'Continuous', sub: 'Homemade Artisanal Cookies' },
       { label: 'Content Assets Created', value: '50+ Videos', sub: 'Product Shoots & Reels' },
       { label: 'WhatsApp Conversion', value: 'High CRM', sub: 'Repeat Customer Retention' },
     ],
     links: [
-      { label: 'Brand Portfolio & LinkedIn', url: 'https://www.linkedin.com/in/ardhianurul', type: 'ecommerce' },
+      { label: 'Instagram @kukiss.bae', url: 'https://www.instagram.com/kukiss.bae?igsh=MWxvdGIyYXF1bDEyeQ==', type: 'instagram' },
     ],
-    col1Image1:
-      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1200',
-    col1Image2:
-      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80&w=1200',
-    col2Image:
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1200',
+    col1Image1: '/images/kukiss-bae-jar.png',
+    col1Image2: '/images/kukiss-bae-cookies.jpg',
+    col2Image: '/images/kukiss-bae-cookies.jpg',
   },
 ];
 
