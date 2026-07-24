@@ -56,7 +56,6 @@ function CanvaLogo({ className = 'w-5 h-5' }: { className?: string }) {
 interface ToolItem {
   name: string;
   desc: string;
-  tag: string;
   icon: React.ReactNode;
 }
 
@@ -76,87 +75,70 @@ const toolCategories: ToolCategory[] = [
       {
         name: 'TikTok Creator Studio',
         desc: 'Analytics, FYP timing & short-form publishing',
-        tag: 'Core Stack',
         icon: <TikTokLogo className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
         name: 'Meta Business Suite',
         desc: 'Instagram & Facebook campaign management',
-        tag: 'Core Stack',
         icon: <MetaLogo className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
         name: 'CapCut Video Editor',
         desc: 'Dynamic short-form video editing & captions',
-        tag: 'Creative',
         icon: <Scissors className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
         name: 'Instagram Insights',
         desc: 'Audience demographic & engagement analytics',
-        tag: 'Analytics',
         icon: <InstagramLogo className="w-5 h-5 text-[#3D2E2B]" />,
       },
     ],
   },
   {
-    title: 'SEO & Keyword Research',
-    subtitle: 'Search Intent Analysis & Organic Growth',
-    icon: <Search className="w-5 h-5 text-[#6B8065]" />,
+    title: 'SEO & Content Research',
+    subtitle: 'Search Ranking, Keywords & Competitor Benchmarking',
+    icon: <Search className="w-5 h-5 text-[#C4A468]" />,
     tools: [
       {
-        name: 'Ahrefs',
-        desc: 'Keyword difficulty & organic search volume',
-        tag: 'SEO Audit',
+        name: 'Google Analytics 4',
+        desc: 'User journey tracking & conversion events',
+        icon: <GoogleLogo className="w-5 h-5 text-[#3D2E2B]" />,
+      },
+      {
+        name: 'Google Search Console',
+        desc: 'Indexing, query clicks & search impression metrics',
+        icon: <BarChart2 className="w-5 h-5 text-[#3D2E2B]" />,
+      },
+      {
+        name: 'Ahrefs & Semrush',
+        desc: 'Keyword volume, backlink audits & competitor gaps',
         icon: <AhrefsLogo className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
-        name: 'Google Trends',
-        desc: 'Real-time search volume & viral topic discovery',
-        tag: 'Topic Discovery',
-        icon: <GoogleLogo className="w-5 h-5 text-[#3D2E2B]" />,
-      },
-      {
         name: 'Google Keyword Planner',
-        desc: 'Commercial search intent & CPC research',
-        tag: 'Search Volume',
-        icon: <GoogleLogo className="w-5 h-5 text-[#3D2E2B]" />,
-      },
-      {
-        name: 'SEO On-Page Copywriting',
-        desc: 'Heading hierarchy, meta tags & long-tail copy',
-        tag: 'Optimization',
-        icon: <BarChart2 className="w-5 h-5 text-[#3D2E2B]" />,
+        desc: 'Search intent discovery & CPC forecasting',
+        icon: <Zap className="w-5 h-5 text-[#3D2E2B]" />,
       },
     ],
   },
   {
-    title: 'Copywriting & Creative Design',
-    subtitle: 'Persuasive AIDA Copy & Aesthetic Branding',
-    icon: <PenTool className="w-5 h-5 text-[#C4A468]" />,
+    title: 'Creative & Strategy',
+    subtitle: 'Design Assets, Content Planning & Brand Ownership',
+    icon: <PenTool className="w-5 h-5 text-[#6B8065]" />,
     tools: [
       {
-        name: 'AIDA Framework',
-        desc: 'Attention, Interest, Desire, Action copy structure',
-        tag: 'Strategy',
-        icon: <Zap className="w-5 h-5 text-[#3D2E2B]" />,
-      },
-      {
         name: 'Canva Pro',
-        desc: 'Social media carousel & promo banner design',
-        tag: 'Visual Design',
-        icon: <CanvaLogo className="w-5 h-5 text-[#3D2E2B]" />,
+        desc: 'Social carousels, story graphics & brand kits',
+        icon: <CanvaLogo className="w-5 h-5" />,
       },
       {
-        name: 'Scriptwriting & Storyboard',
-        desc: '3-second hook & UGC video storyboarding',
-        tag: 'Content Engine',
+        name: 'Notion & Content Calendars',
+        desc: 'Editorial scheduling, script hooks & workflow tracking',
         icon: <Video className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
         name: 'D2C Brand Management',
         desc: 'Packaging aesthetics, offers & WhatsApp CRM',
-        tag: 'E-Commerce',
         icon: <Layers className="w-5 h-5 text-[#3D2E2B]" />,
       },
     ],
@@ -207,20 +189,12 @@ export function ToolsSection() {
                         key={tIdx}
                         className="p-3.5 rounded-2xl bg-[#FAF6EE] border border-[#E6DCCC] hover:border-[#E88B73]/60 hover:bg-[#F5EBE6] transition-all space-y-2 group/item"
                       >
-                        <div className="flex items-center justify-between gap-2">
-                          {/* Left: Icon + Name */}
-                          <div className="flex items-center gap-3">
-                            <div className="p-2.5 rounded-xl bg-[#FFFFFF] border border-[#E6DCCC] text-[#3D2E2B] group-hover/item:border-[#E88B73] group-hover/item:text-[#E88B73] shrink-0 flex items-center justify-center transition-colors">
-                              {t.icon}
-                            </div>
-                            <span className="text-xs sm:text-sm font-bold text-[#3D2E2B] group-hover/item:text-[#E88B73] transition-colors">
-                              {t.name}
-                            </span>
+                        <div className="flex items-center gap-3">
+                          <div className="p-2.5 rounded-xl bg-[#FFFFFF] border border-[#E6DCCC] text-[#3D2E2B] group-hover/item:border-[#E88B73] group-hover/item:text-[#E88B73] shrink-0 flex items-center justify-center transition-colors">
+                            {t.icon}
                           </div>
-
-                          {/* Right: Tag */}
-                          <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-[#FFFFFF] text-[#6B8065] border border-[#E6DCCC] shrink-0 font-semibold">
-                            {t.tag}
+                          <span className="text-xs sm:text-sm font-bold text-[#3D2E2B] group-hover/item:text-[#E88B73] transition-colors">
+                            {t.name}
                           </span>
                         </div>
 
