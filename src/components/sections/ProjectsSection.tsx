@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { FadeIn } from '../ui/FadeIn';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
-import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles, TrendingUp } from 'lucide-react';
 
 interface ProjectLink {
   label: string;
@@ -159,7 +159,7 @@ function InlineVideoPlayer({
   };
 
   return (
-    <div className="relative group w-full h-[145px] sm:h-[165px] md:h-[180px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
+    <div className="relative group w-full h-[180px] sm:h-[220px] md:h-[240px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#1D1412] border border-[#E6DCCC] shadow-sm flex items-center justify-center">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -184,8 +184,8 @@ function InlineVideoPlayer({
           isPlaying ? 'opacity-0 hover:opacity-100 bg-[#3D2E2B]/30' : 'bg-[#3D2E2B]/45'
         }`}
       >
-        <div className="p-2.5 sm:p-3 rounded-full bg-[#E88B73] text-white shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
-          {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
+        <div className="p-3 sm:p-3.5 rounded-full bg-[#E88B73] text-white shadow-xl hover:scale-110 transition-transform flex items-center justify-center">
+          {isPlaying ? <Pause className="w-4.5 h-4.5 fill-white" /> : <Play className="w-4.5 h-4.5 fill-white ml-0.5" />}
         </div>
       </button>
 
@@ -195,7 +195,7 @@ function InlineVideoPlayer({
         className="absolute bottom-2 right-2 z-20 p-1.5 rounded-full bg-[#3D2E2B]/85 backdrop-blur-md text-white hover:text-[#E88B73] border border-white/20 transition-colors"
         title={isMuted ? 'Unmute sound' : 'Mute sound'}
       >
-        {isMuted ? <VolumeX className="w-3 h-3" /> : <Volume2 className="w-3 h-3 text-[#E88B73]" />}
+        {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#E88B73]" />}
       </button>
     </div>
   );
@@ -235,31 +235,22 @@ function Card({
         className="relative w-full max-w-6xl rounded-[28px] sm:rounded-[36px] md:rounded-[44px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-4 sm:p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-3 sm:space-y-4"
       >
         {/* Top Header Row */}
-        <div className="flex flex-row items-center justify-between gap-3 border-b border-[#E6DCCC] pb-3">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-row items-center justify-between gap-3 border-b border-[#E6DCCC] pb-3 flex-wrap">
+          <div className="flex items-center gap-3 flex-wrap">
             <span className="font-black text-[#3D2E2B] text-2xl sm:text-3xl md:text-4xl leading-none select-none">
               {project.number}
             </span>
             <h3 className="text-[#3D2E2B] font-bold text-base sm:text-xl md:text-2xl uppercase tracking-wide">
               {project.name}
             </h3>
+            {/* Clean KPI Win Badge */}
+            <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-[#F5EBE6] text-[#E88B73] border border-[#F4A28C]/40 font-semibold flex items-center gap-1">
+              <TrendingUp className="w-3 h-3 text-[#E88B73]" /> {project.kpiMetric}
+            </span>
           </div>
 
           <LiveProjectButton href={project.mainUrl} />
         </div>
-
-        {/* Analytics Studio Stats Grid */}
-        {project.analytics && (
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-[#FAF6EE] p-2.5 rounded-xl border border-[#E6DCCC]">
-            {project.analytics.map((st, sIdx) => (
-              <div key={sIdx} className="p-2 sm:p-2.5 rounded-lg bg-[#FFFFFF] border border-[#E6DCCC] space-y-0.5">
-                <span className="text-[9px] font-mono uppercase text-[#3D2E2B]/60 block">{st.label}</span>
-                <span className="text-xs sm:text-base font-extrabold font-mono text-[#E88B73] block">{st.value}</span>
-                <span className="text-[9px] font-mono text-[#6B8065] block">{st.sub}</span>
-              </div>
-            ))}
-          </div>
-        )}
 
         {/* Real Links Badge Bar */}
         <div className="flex items-center gap-1.5 flex-wrap bg-[#FAF6EE] p-2 rounded-xl border border-[#E6DCCC]">
@@ -295,7 +286,7 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[145px] sm:h-[165px] md:h-[180px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                className="relative group h-[180px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image1}
@@ -318,7 +309,7 @@ function Card({
                 href={project.mainUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative group h-[145px] sm:h-[165px] md:h-[180px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                className="relative group h-[180px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
               >
                 <img
                   src={project.col1Image2}
@@ -338,7 +329,7 @@ function Card({
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[300px] sm:h-[345px] md:h-[370px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              className="relative group w-full h-[380px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
                 src={project.col2Image}
