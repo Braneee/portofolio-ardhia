@@ -36,10 +36,17 @@ interface Project {
   searchQueries?: string[];
   links: ProjectLink[];
   hasTwoImagesOnly?: boolean;
+  hasFiveVideos?: boolean;
   video1Url?: string;
   video1Title?: string;
   video2Url?: string;
   video2Title?: string;
+  video3Url?: string;
+  video3Title?: string;
+  video4Url?: string;
+  video4Title?: string;
+  video5Url?: string;
+  video5Title?: string;
   videoList?: ProjectVideo[];
   col1Image1: string;
   col1Image2: string;
@@ -86,15 +93,17 @@ const projects: Project[] = [
     platformLabel: 'TikTok Short-Form Video',
     kpiMetric: '16,181 Views • 79.3% FYP Push',
     mainUrl: 'https://vt.tiktok.com/ZSXt5VuCy/',
+    hasFiveVideos: true,
     video1Url: '/videos/fortis-seneca/fortis-video-1.mp4',
     video1Title: 'TikTok #1: Skin Brightener Hook',
     video2Url: '/videos/fortis-seneca/fortis-video-2.mp4',
     video2Title: 'TikTok #2: Oral Care Routine',
-    videoList: [
-      { url: '/videos/fortis-seneca/fortis-video-5.mp4', title: 'Featured Campaign Reel' },
-      { url: '/videos/fortis-seneca/fortis-video-3.mp4', title: 'TikTok #3: UGC Testimonial' },
-      { url: '/videos/fortis-seneca/fortis-video-4.mp4', title: 'TikTok #4: Product Showcase' },
-    ],
+    video3Url: '/videos/fortis-seneca/fortis-video-3.mp4',
+    video3Title: 'TikTok #3: UGC Testimonial',
+    video4Url: '/videos/fortis-seneca/fortis-video-4.mp4',
+    video4Title: 'TikTok #4: Product Showcase',
+    video5Url: '/videos/fortis-seneca/fortis-video-5.mp4',
+    video5Title: 'TikTok #5: Featured Campaign Reel',
     analytics: [
       { label: 'Organic Video Views', value: '16,181', sub: '14.0K Unique Viewers' },
       { label: 'For You (FYP) Share', value: '79.3%', sub: 'Viral FYP Distribution' },
@@ -239,40 +248,6 @@ function InlineVideoPlayer({
   );
 }
 
-function MultiVideoSelector({ videos }: { videos: ProjectVideo[] }) {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const activeVideo = videos[activeIdx] || videos[0];
-
-  return (
-    <div className="flex flex-col gap-2.5 h-full">
-      {/* Featured Main Video Player */}
-      <InlineVideoPlayer
-        videoUrl={activeVideo.url}
-        title={activeVideo.title}
-        heightClass="h-[260px] sm:h-[380px] md:h-[420px]"
-      />
-
-      {/* Video Selector Tab Buttons */}
-      <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
-        {videos.map((vid, vIdx) => (
-          <button
-            key={vIdx}
-            onClick={() => setActiveIdx(vIdx)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase transition-all flex items-center gap-1.5 shrink-0 border ${
-              activeIdx === vIdx
-                ? 'bg-[#3D2E2B] text-white border-[#3D2E2B] shadow-md'
-                : 'bg-[#FAF6EE] text-[#3D2E2B] border-[#E6DCCC] hover:border-[#E88B73]'
-            }`}
-          >
-            <Video className={`w-3.5 h-3.5 ${activeIdx === vIdx ? 'text-[#E88B73]' : 'text-[#3D2E2B]/60'}`} />
-            <span>{vid.title}</span>
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function Card({
   project,
   index,
@@ -345,7 +320,43 @@ function Card({
         </div>
 
         {/* Media Grid */}
-        {project.hasTwoImagesOnly ? (
+        {project.hasFiveVideos ? (
+          /* Symmetrical 5-Video Clean Showcase Grid for Fortis Seneca TikTok */
+          <div className="flex flex-col gap-3">
+            {/* Top Row: 2 Main Videos */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <InlineVideoPlayer
+                videoUrl={project.video1Url!}
+                title={project.video1Title!}
+                heightClass="h-[220px] sm:h-[300px] md:h-[340px]"
+              />
+              <InlineVideoPlayer
+                videoUrl={project.video2Url!}
+                title={project.video2Title!}
+                heightClass="h-[220px] sm:h-[300px] md:h-[340px]"
+              />
+            </div>
+
+            {/* Bottom Row: 3 Campaign Videos */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <InlineVideoPlayer
+                videoUrl={project.video3Url!}
+                title={project.video3Title!}
+                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+              />
+              <InlineVideoPlayer
+                videoUrl={project.video4Url!}
+                title={project.video4Title!}
+                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+              />
+              <InlineVideoPlayer
+                videoUrl={project.video5Url!}
+                title={project.video5Title!}
+                heightClass="h-[200px] sm:h-[260px] md:h-[280px]"
+              />
+            </div>
+          </div>
+        ) : project.hasTwoImagesOnly ? (
           /* Symmetrical 2-Column Photo Showcase for Kukiss.bae */
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {/* Left Image Box: Jar Packaging */}
@@ -444,32 +455,28 @@ function Card({
               )}
             </div>
 
-            {/* Right Column (7 cols) - Main Showcase (Multi-Video Selector or Poster Image) */}
+            {/* Right Column (7 cols) - Main Showcase */}
             <div className="lg:col-span-7 h-full">
-              {project.videoList && project.videoList.length > 0 ? (
-                <MultiVideoSelector videos={project.videoList} />
-              ) : (
-                <a
-                  href={project.mainUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
-                >
-                  <img
-                    src={project.col2Image}
-                    alt={`${project.name} main showcase`}
-                    className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
-                    <div className="flex items-center justify-between w-full">
-                      <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
-                        {renderPlatformIcon(project.platform)} Click to Open Campaign
-                      </span>
-                      <ExternalLink className="w-4 h-4 text-white" />
-                    </div>
+              <a
+                href={project.mainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              >
+                <img
+                  src={project.col2Image}
+                  alt={`${project.name} main showcase`}
+                  className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+                  <div className="flex items-center justify-between w-full">
+                    <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                      {renderPlatformIcon(project.platform)} Click to Open Campaign
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-white" />
                   </div>
-                </a>
-              )}
+                </div>
+              </a>
             </div>
           </div>
         )}
