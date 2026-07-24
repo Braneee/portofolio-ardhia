@@ -30,6 +30,7 @@ interface Project {
   analytics?: AnalyticsMetric[];
   searchQueries?: string[];
   links: ProjectLink[];
+  hasTwoImagesOnly?: boolean;
   video1Url?: string;
   video1Title?: string;
   video2Url?: string;
@@ -112,11 +113,7 @@ const projects: Project[] = [
     platformLabel: 'Instagram @kukiss.bae',
     kpiMetric: 'End-to-End Branding & Operations',
     mainUrl: 'https://www.instagram.com/kukiss.bae?igsh=MWxvdGIyYXF1bDEyeQ==',
-    analytics: [
-      { label: 'Monthly Orders', value: 'Continuous', sub: 'Homemade Artisanal Cookies' },
-      { label: 'Content Assets Created', value: '50+ Videos', sub: 'Product Shoots & Reels' },
-      { label: 'WhatsApp Conversion', value: 'High CRM', sub: 'Repeat Customer Retention' },
-    ],
+    hasTwoImagesOnly: true,
     links: [
       { label: 'Instagram @kukiss.bae', url: 'https://www.instagram.com/kukiss.bae?igsh=MWxvdGIyYXF1bDEyeQ==', type: 'instagram' },
     ],
@@ -272,81 +269,131 @@ function Card({
           ))}
         </div>
 
-        {/* Media Grid (12-column) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
-          {/* Left Column (5 cols) - Video or Image slots */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
-            {project.video1Url ? (
-              <InlineVideoPlayer
-                videoUrl={project.video1Url}
-                title={project.video1Title || 'Video Reels #1'}
-              />
-            ) : (
-              <a
-                href={project.mainUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
-              >
-                <img
-                  src={project.col1Image1}
-                  alt={`${project.name} preview 1`}
-                  className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
-                  <Play className="w-3.5 h-3.5 fill-white" /> View on Platform
-                </div>
-              </a>
-            )}
-
-            {project.video2Url ? (
-              <InlineVideoPlayer
-                videoUrl={project.video2Url}
-                title={project.video2Title || 'Video Reels #2'}
-              />
-            ) : (
-              <a
-                href={project.mainUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
-              >
-                <img
-                  src={project.col1Image2}
-                  alt={`${project.name} preview 2`}
-                  className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
-                  <Play className="w-3.5 h-3.5 fill-white" /> Open Media Link
-                </div>
-              </a>
-            )}
-          </div>
-
-          {/* Right Column (7 cols) - Main Showcase Poster Image (Full Uncropped Display) */}
-          <div className="lg:col-span-7 h-full">
+        {/* Media Grid */}
+        {project.hasTwoImagesOnly ? (
+          /* Symmetrical 2-Column Photo Showcase for Kukiss.bae */
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {/* Left Image Box: Jar Packaging */}
             <a
               href={project.mainUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              className="relative group w-full h-[260px] sm:h-[350px] md:h-[380px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
             >
               <img
-                src={project.col2Image}
-                alt={`${project.name} main showcase`}
-                className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
+                src={project.col1Image1}
+                alt={`${project.name} jar packaging`}
+                className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
                 <div className="flex items-center justify-between w-full">
                   <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
-                    {renderPlatformIcon(project.platform)} Click to Open Campaign
+                    <Instagram className="w-3.5 h-3.5 text-[#E88B73]" /> Jar Packaging Display
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-white" />
+                </div>
+              </div>
+            </a>
+
+            {/* Right Image Box: Soft Cookies Platter */}
+            <a
+              href={project.mainUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group w-full h-[260px] sm:h-[350px] md:h-[380px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+            >
+              <img
+                src={project.col2Image}
+                alt={`${project.name} soft cookies platter`}
+                className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                    <Instagram className="w-3.5 h-3.5 text-[#E88B73]" /> Product Platter Showcase
                   </span>
                   <ExternalLink className="w-4 h-4 text-white" />
                 </div>
               </div>
             </a>
           </div>
-        </div>
+        ) : (
+          /* Standard 3-slot Media Grid */
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
+            {/* Left Column (5 cols) - Video or Image slots */}
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              {project.video1Url ? (
+                <InlineVideoPlayer
+                  videoUrl={project.video1Url}
+                  title={project.video1Title || 'Video Reels #1'}
+                />
+              ) : (
+                <a
+                  href={project.mainUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                >
+                  <img
+                    src={project.col1Image1}
+                    alt={`${project.name} preview 1`}
+                    className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+                    <Play className="w-3.5 h-3.5 fill-white" /> View on Platform
+                  </div>
+                </a>
+              )}
+
+              {project.video2Url ? (
+                <InlineVideoPlayer
+                  videoUrl={project.video2Url}
+                  title={project.video2Title || 'Video Reels #2'}
+                />
+              ) : (
+                <a
+                  href={project.mainUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative group h-[160px] sm:h-[220px] md:h-[240px] w-full rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] flex items-center justify-center"
+                >
+                  <img
+                    src={project.col1Image2}
+                    alt={`${project.name} preview 2`}
+                    className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-[#3D2E2B]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-mono text-[11px] font-bold uppercase tracking-wider">
+                    <Play className="w-3.5 h-3.5 fill-white" /> Open Media Link
+                  </div>
+                </a>
+              )}
+            </div>
+
+            {/* Right Column (7 cols) - Main Showcase Poster Image */}
+            <div className="lg:col-span-7 h-full">
+              <a
+                href={project.mainUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group w-full h-[260px] sm:h-[450px] md:h-[490px] rounded-[20px] sm:rounded-[25px] overflow-hidden bg-[#FAF6EE] border border-[#E6DCCC] block flex items-center justify-center"
+              >
+                <img
+                  src={project.col2Image}
+                  alt={`${project.name} main showcase`}
+                  className="w-full h-full object-contain p-1.5 group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2B]/85 via-transparent to-transparent flex items-end p-4">
+                  <div className="flex items-center justify-between w-full">
+                    <span className="text-white font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 bg-[#3D2E2B]/80 px-3 py-1 rounded-full border border-white/20">
+                      {renderPlatformIcon(project.platform)} Click to Open Campaign
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        )}
       </motion.div>
     </div>
   );
