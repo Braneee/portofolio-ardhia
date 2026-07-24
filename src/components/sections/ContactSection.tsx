@@ -21,10 +21,10 @@ export function ContactSection() {
   const instagramUrl = 'https://www.instagram.com/kukiss.bae?igsh=MWxvdGIyYXF1bDEyeQ==';
 
   const topics = [
-    '🎯 Social Media Campaign',
-    '📹 Short-Form Video / Reels',
-    '💼 Work / Collaboration',
-    '💬 General Inquiry',
+    'Social Media Campaign',
+    'Short-Form Video / Reels',
+    'Work / Collaboration',
+    'General Inquiry',
   ];
 
   const handleCopyEmail = () => {
