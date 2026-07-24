@@ -100,24 +100,14 @@ const toolCategories: ToolCategory[] = [
     icon: <Search className="w-5 h-5 text-[#C4A468]" />,
     tools: [
       {
-        name: 'Google Analytics 4',
-        desc: 'User journey tracking & conversion events',
+        name: 'Google Trends',
+        desc: 'Search interest analytics & trending keyword discovery',
         icon: <GoogleLogo className="w-5 h-5 text-[#3D2E2B]" />,
       },
       {
-        name: 'Google Search Console',
-        desc: 'Indexing, query clicks & search impression metrics',
-        icon: <BarChart2 className="w-5 h-5 text-[#3D2E2B]" />,
-      },
-      {
-        name: 'Ahrefs & Semrush',
+        name: 'Ahrefs',
         desc: 'Keyword volume, backlink audits & competitor gaps',
         icon: <AhrefsLogo className="w-5 h-5 text-[#3D2E2B]" />,
-      },
-      {
-        name: 'Google Keyword Planner',
-        desc: 'Search intent discovery & CPC forecasting',
-        icon: <Zap className="w-5 h-5 text-[#3D2E2B]" />,
       },
     ],
   },
