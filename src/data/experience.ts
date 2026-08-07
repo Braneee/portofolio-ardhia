@@ -20,7 +20,7 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     id: "exp-2",
-    role: "Social Media Specialist",
+    role: "Social Media Content Creator",
     company: "Fortis Seneca Sdn. Bhd.",
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
     location: "Malaysia (Remote / Hybrid)",
