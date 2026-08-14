@@ -60,14 +60,7 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
                   </>
                 ) : ev.type === 'pdf' ? (
                   <>
-                    {projectImage && (
-                      <img src={projectImage} alt="PDF Preview Background" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-[2px]" />
-                    )}
-                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300"></div>
-                    <FileText className="relative z-10 w-8 h-8 text-white/80 mb-3 group-hover:scale-110 transition-transform drop-shadow-md" />
-                    <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
-                      {ev.title}
-                    </span>
+                    <img src={ev.url.replace('.pdf', '.png')} alt="PDF Preview Background" className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" />
                   </>
                 ) : (
                   <>
