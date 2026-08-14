@@ -2,7 +2,7 @@ export type ProjectCategory = 'All' | 'Social Media Campaign' | 'Content Strateg
 
 export interface ProjectEvidence {
   title: string;
-  type: 'image' | 'video' | 'gallery';
+  type: 'image' | 'video' | 'gallery' | 'pdf';
   url?: string;
   thumbnail?: string;
   images?: string[];
@@ -25,6 +25,7 @@ export interface Project {
     description?: string;
     highlights?: { label: string; value: string; sub?: string }[];
   };
+  deliverables?: string;
   evidence: ProjectEvidence[];
   
   techStack: string[];

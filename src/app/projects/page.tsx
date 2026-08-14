@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { projectsData } from '@/data/projects';
-import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
 
@@ -47,7 +47,11 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
             className="snap-start shrink-0 relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1"
           >
             {/* Placeholder Graphic */}
-            <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+            {ev.type === 'pdf' ? (
+              <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+            ) : (
+              <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+            )}
             <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
               {ev.title}
             </span>
@@ -55,7 +59,7 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
             {/* Overlay */}
             <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
               <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                View Media
+                {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
               </span>
             </div>
           </div>
@@ -190,9 +194,15 @@ export default function ProjectsPage() {
 
                 {/* Evidence / Deliverables Section */}
                 <div>
-                  <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-6">
+                  <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-4">
                     <ImageIcon className="w-4 h-4" /> Evidence & Deliverables
                   </h4>
+                  
+                  {project.deliverables && (
+                    <p className="text-xs font-mono font-bold text-[#3D2E2B]/60 uppercase tracking-widest mb-4">
+                      {project.deliverables}
+                    </p>
+                  )}
                   
                   <EvidenceSlider evidence={project.evidence} />
                 </div>

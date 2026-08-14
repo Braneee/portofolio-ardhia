@@ -86,9 +86,9 @@ export const projectsData: Project[] = [
         { label: "Deliverables", value: "Strategy Deck", sub: "Content & Channel Plans" }
       ]
     },
+    deliverables: "Content Pillars & Direction • Content Calendar & Concepts",
     evidence: [
-      { title: "Content Pillars & Direction", type: "gallery", url: "#" },
-      { title: "Content Calendar & Concepts", type: "gallery", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "#" }
     ],
     techStack: ["Market Research", "Audience Profiling", "Content Strategy"],
     caseStudyAvailable: true
@@ -114,12 +114,9 @@ export const projectsData: Project[] = [
         { label: "Campaign Theme", value: "Bad Day?", sub: "Dessert Dulu" }
       ]
     },
+    deliverables: "Audience Analysis • Campaign Concept • Content Pillars • Content Calendar • Sample Content",
     evidence: [
-      { title: "Audience Analysis", type: "gallery", url: "#" },
-      { title: "Campaign Concept", type: "gallery", url: "#" },
-      { title: "Content Pillars", type: "gallery", url: "#" },
-      { title: "Content Calendar", type: "gallery", url: "#" },
-      { title: "Sample Content", type: "gallery", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "#" }
     ],
     techStack: ["Campaign Planning", "Content Calendar", "Social Media Strategy"],
     caseStudyAvailable: true
@@ -146,9 +143,9 @@ export const projectsData: Project[] = [
         { label: "Top Bundles", value: "Latte + Fries", sub: "& Latte + Cinnamon Roll" }
       ]
     },
+    deliverables: "Customer Insights Report • Strategic Recommendations",
     evidence: [
-      { title: "Customer Insights Report", type: "gallery", url: "#" },
-      { title: "Strategic Recommendations", type: "gallery", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "#" }
     ],
     techStack: ["Market Research", "Quantitative Survey", "Data Analysis"],
     caseStudyAvailable: true
@@ -174,11 +171,9 @@ export const projectsData: Project[] = [
         { label: "Framework", value: "AIDA", sub: "Attention, Interest, Desire, Action" }
       ]
     },
+    deliverables: "Reels storyboard/script • Feed copy • Caption • Before/After Copy",
     evidence: [
-      { title: "Reels storyboard/script", type: "gallery", url: "#" },
-      { title: "Feed copy", type: "gallery", url: "#" },
-      { title: "Caption", type: "gallery", url: "#" },
-      { title: "Before/After Copy", type: "gallery", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "#" }
     ],
     techStack: ["Copywriting", "AIDA Framework", "Scriptwriting"],
     caseStudyAvailable: true
@@ -203,11 +198,9 @@ export const projectsData: Project[] = [
         { label: "Output", value: "SEO Article", sub: "Search-intent mapped" }
       ]
     },
+    deliverables: "Keyword research • Keyword mapping • Content structure • Final article",
     evidence: [
-      { title: "Keyword research", type: "gallery", url: "#" },
-      { title: "Keyword mapping", type: "gallery", url: "#" },
-      { title: "Content structure", type: "gallery", url: "#" },
-      { title: "Final article", type: "gallery", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "#" }
     ],
     techStack: ["Ahrefs", "Google Trends", "Google Keyword Planner", "SEO Writing"],
     caseStudyAvailable: true
