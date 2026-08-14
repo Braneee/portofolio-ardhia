@@ -25,9 +25,14 @@ export const projectsData: Project[] = [
       ]
     },
     evidence: [
-      { title: "01 Content Planning", type: "gallery", url: "#" },
+      { title: "01 Content Planning", type: "gallery", url: "/projects/fortis-seneca/content-planning/image.png" },
+      { title: "01 Content Planning (Data)", type: "gallery", url: "/projects/fortis-seneca/content-planning/excel.png" },
       { title: "03 Content Execution", type: "gallery", url: "#" },
-      { title: "04 Performance Highlights", type: "gallery", url: "#" }
+      { title: "04 Performance Highlights", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/main.jpeg" },
+      { title: "04 Highlight 2", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-1.jpeg" },
+      { title: "04 Highlight 3", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-2.jpeg" },
+      { title: "04 Highlight 4", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-3.jpeg" },
+      { title: "04 Highlight 5", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-4.jpeg" }
     ],
     techStack: ["TikTok Studio", "CapCut", "Scriptwriting", "Trend Analysis"],
     caseStudyAvailable: true
@@ -56,10 +61,10 @@ export const projectsData: Project[] = [
       ]
     },
     evidence: [
-      { title: "Content Planning & Strategy", type: "pdf", url: "#" },
+      { title: "Content Planning & Strategy", type: "pdf", url: "/projects/omah-daster-eva/content-planning-strategy.pdf" },
       { title: "Content Execution", type: "gallery", url: "#" },
       { title: "Performance Analysis", type: "gallery", url: "#" },
-      { title: "Campaign Results", type: "gallery", url: "#" }
+      { title: "Campaign Results", type: "pdf", url: "/projects/omah-daster-eva/campaign-result.pdf" }
     ],
     techStack: ["Instagram Reels", "Meta Business Suite", "Content Strategy"],
     caseStudyAvailable: true
@@ -87,7 +92,7 @@ export const projectsData: Project[] = [
     },
     deliverables: "Content Pillars & Direction • Content Calendar & Concepts",
     evidence: [
-      { title: "View Full PDF Report", type: "pdf", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "/projects/sarena-parfum/sarena-strategy.pdf" }
     ],
     techStack: ["Market Research", "Audience Profiling", "Content Strategy"],
     caseStudyAvailable: true
@@ -115,7 +120,7 @@ export const projectsData: Project[] = [
     },
     deliverables: "Audience Analysis • Campaign Concept • Content Pillars • Content Calendar • Sample Content",
     evidence: [
-      { title: "View Full PDF Report", type: "pdf", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "/projects/fins-kitchen/social-media.pdf" }
     ],
     techStack: ["Campaign Planning", "Content Calendar", "Social Media Strategy"],
     caseStudyAvailable: true
@@ -144,7 +149,7 @@ export const projectsData: Project[] = [
     },
     deliverables: "Customer Insights Report • Strategic Recommendations",
     evidence: [
-      { title: "View Full PDF Report", type: "pdf", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "/projects/lamis-resto/market-research.pdf" }
     ],
     techStack: ["Market Research", "Quantitative Survey", "Data Analysis"],
     caseStudyAvailable: true
@@ -172,7 +177,7 @@ export const projectsData: Project[] = [
     },
     deliverables: "Reels storyboard/script • Feed copy • Caption • Before/After Copy",
     evidence: [
-      { title: "View Full PDF Report", type: "pdf", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "/projects/kandang-jeletot/copywriting.pdf" }
     ],
     techStack: ["Copywriting", "AIDA Framework", "Scriptwriting"],
     caseStudyAvailable: true
@@ -199,7 +204,7 @@ export const projectsData: Project[] = [
     },
     deliverables: "Keyword research • Keyword mapping • Content structure • Final article",
     evidence: [
-      { title: "View Full PDF Report", type: "pdf", url: "#" }
+      { title: "View Full PDF Report", type: "pdf", url: "/projects/seo-optimization/seo.pdf" }
     ],
     techStack: ["Ahrefs", "Google Trends", "Google Keyword Planner", "SEO Writing"],
     caseStudyAvailable: true

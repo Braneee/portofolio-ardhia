@@ -50,15 +50,27 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
             className="snap-start shrink-0 block"
           >
             <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
-              {/* Placeholder Graphic */}
-              {ev.type === 'pdf' ? (
-                <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+              {ev.type === 'gallery' && ev.url !== '#' ? (
+                <>
+                  <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+                  <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
+                    {ev.title}
+                  </span>
+                </>
               ) : (
-                <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+                <>
+                  {/* Placeholder Graphic */}
+                  {ev.type === 'pdf' ? (
+                    <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+                  ) : (
+                    <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+                  )}
+                  <span className="relative z-10 text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
+                    {ev.title}
+                  </span>
+                </>
               )}
-              <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
-                {ev.title}
-              </span>
               
               {/* Overlay */}
               <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
