@@ -37,9 +37,6 @@ export default function ProjectsGallery() {
             >
               <ArrowLeft className="w-4 h-4" /> Back to Home
             </Link>
-            <span className="text-[#E88B73] font-mono font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
-              Selected Works
-            </span>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-none mb-6">
               Project Gallery
             </h1>
