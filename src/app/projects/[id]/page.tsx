@@ -106,9 +106,11 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
               }}
             >
               {selectedMedia.type === 'pdf' ? (
-                // Removing #toolbar=0 because it forces mobile browsers to show a download fallback.
-                // Just use #view=Fit to attempt scaling on supported browsers.
-                <iframe src={`${selectedMedia.url}#view=Fit`} className="w-full h-full border-0 pointer-events-auto" />
+                // Use Google Docs Viewer for robust cross-platform mobile PDF rendering without native browser quirks
+                <iframe 
+                  src={`https://docs.google.com/gview?url=${encodeURIComponent('https://portofolio-ardhia.vercel.app' + selectedMedia.url)}&embedded=true`} 
+                  className="w-full h-full border-0 pointer-events-auto" 
+                />
               ) : (
                 <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain pointer-events-none" />
               )}
