@@ -56,8 +56,13 @@ export function ExperienceSection() {
                             <h3 className="font-bold text-xl sm:text-2xl text-[#3D2E2B] pt-2">
                               {exp.role}
                             </h3>
-                            <p className="text-sm font-semibold text-[#E88B73]">
+                            <p className="text-sm font-semibold text-[#E88B73] flex items-center gap-2 flex-wrap">
                               {exp.company}
+                              {exp.type && (
+                                <span className="text-[9px] px-2 py-0.5 rounded bg-[#E88B73]/10 border border-[#E88B73]/20 text-[#E88B73] font-bold uppercase tracking-wider">
+                                  {exp.type}
+                                </span>
+                              )}
                             </p>
                           </div>
                           <p className="text-xs sm:text-sm text-[#59443F] leading-relaxed font-light">
@@ -100,8 +105,13 @@ export function ExperienceSection() {
                             <h3 className="font-bold text-lg sm:text-2xl text-[#3D2E2B] pt-2">
                               {exp.role}
                             </h3>
-                            <p className="text-xs sm:text-sm font-semibold text-[#E88B73]">
+                            <p className="text-xs sm:text-sm font-semibold text-[#E88B73] flex items-center gap-2 flex-wrap">
                               {exp.company}
+                              {exp.type && (
+                                <span className="text-[9px] px-2 py-0.5 rounded bg-[#E88B73]/10 border border-[#E88B73]/20 text-[#E88B73] font-bold uppercase tracking-wider">
+                                  {exp.type}
+                                </span>
+                              )}
                             </p>
                           </div>
                           <p className="text-xs sm:text-sm text-[#59443F] leading-relaxed font-light">
@@ -135,8 +145,13 @@ export function ExperienceSection() {
                             <h3 className="font-bold text-lg sm:text-2xl text-[#3D2E2B] pt-2">
                               {exp.role}
                             </h3>
-                            <p className="text-xs sm:text-sm font-semibold text-[#E88B73]">
+                            <p className="text-xs sm:text-sm font-semibold text-[#E88B73] flex items-center gap-2 flex-wrap">
                               {exp.company}
+                              {exp.type && (
+                                <span className="text-[9px] px-2 py-0.5 rounded bg-[#E88B73]/10 border border-[#E88B73]/20 text-[#E88B73] font-bold uppercase tracking-wider">
+                                  {exp.type}
+                                </span>
+                              )}
                             </p>
                           </div>
                           <p className="text-xs sm:text-sm text-[#59443F] leading-relaxed font-light">
