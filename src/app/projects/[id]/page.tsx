@@ -57,10 +57,6 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
                 {ev.type === 'gallery' && ev.url !== '#' ? (
                   <>
                     <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
-                    <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
-                      {ev.title}
-                    </span>
                   </>
                 ) : (
                   <>
