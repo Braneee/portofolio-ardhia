@@ -109,7 +109,8 @@ export function HeroSection() {
       <div className="hidden sm:block flex-1" />
 
       {/* Centered Person Cutout */}
-      <div className="sm:absolute sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 z-10 flex flex-1 sm:flex-none items-end justify-center w-full pointer-events-none relative">
+      {/* On desktop: absolute at bottom (out of flow, bottom bar overlaps). On mobile: relative flex-1 (in flow, pushes bottom bar down). */}
+      <div className="relative flex-1 sm:absolute sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 z-10 flex items-end justify-center w-full pointer-events-none">
         <FadeIn delay={0.4} y={20} className="flex items-end justify-center w-full">
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
             <div className="relative group flex justify-center items-end">
@@ -133,7 +134,8 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-4 sm:pt-2 z-30 flex-shrink-0 relative sm:static pb-2 sm:pb-0">
+      {/* ALWAYS relative z-30 so it stacks on top of the image. On mobile, add a subtle gradient background. On desktop, transparent. */}
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-4 sm:pt-2 z-30 flex-shrink-0 relative bg-gradient-to-t from-[#F5F0E6] via-[#F5F0E6]/80 to-transparent sm:bg-none pb-2 sm:pb-0">
         <FadeIn delay={0.35} y={20} className="w-full sm:w-auto flex justify-center sm:block">
           <p className="text-[#3D2E2B] font-bold sm:font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[11px] sm:text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[300px] sm:max-w-[320px] drop-shadow-[0_2px_4px_rgba(255,255,255,1)] sm:drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] px-2">
             a social media specialist driven by crafting striking campaigns and viral content
