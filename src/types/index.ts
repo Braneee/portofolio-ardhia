@@ -1,5 +1,13 @@
 export type ProjectCategory = 'All' | 'Social Media Campaign' | 'Content Strategy' | 'SEO & Copywriting' | 'Market Research' | 'Brand Ownership';
 
+export interface ProjectEvidence {
+  title: string;
+  type: 'image' | 'video' | 'gallery';
+  url?: string;
+  thumbnail?: string;
+  images?: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -7,18 +15,19 @@ export interface Project {
   category: ProjectCategory;
   featured: boolean;
   image: string;
-  summary: string;
-  impactMetrics: string[];
-  techStack: string[]; // Tools used (CapCut, Meta Ads, Ahrefs, Canva, etc.)
-  architecture: {
-    description: string;
-    diagramType?: 'funnel' | 'content-calendar' | 'seo-strategy';
-    components: { name: string; description: string; tech: string }[];
+  
+  // Storytelling fields
+  background: string;
+  objective: string;
+  role: string;
+  process: string[];
+  result: {
+    description?: string;
+    highlights?: { label: string; value: string; sub?: string }[];
   };
-  challenges: string[];
-  solutions: string[];
-  results: string[];
-  features: string[];
+  evidence: ProjectEvidence[];
+  
+  techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
   caseStudyAvailable: boolean;

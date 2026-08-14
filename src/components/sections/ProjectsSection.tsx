@@ -55,38 +55,8 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 'omah-daster-eva',
-    number: '01',
-    name: 'Omah Daster Eva',
-    category: 'Social Media Campaign',
-    platform: 'instagram',
-    platformLabel: 'Instagram Reels & Feed',
-    kpiMetric: '163,023 Impressions (163% KPI Win)',
-    mainUrl: 'https://www.instagram.com/reel/DapbDxzx06o/',
-    analytics: [
-      { label: 'Total Impressions', value: '163,023', sub: '163% of KPI Target' },
-      { label: 'Total Engagements', value: '624', sub: '312% of KPI Target' },
-      { label: 'Accounts Reached', value: '18,930', sub: 'Target Demographic' },
-    ],
-    links: [
-      { label: 'Reel #1: Product Recommendation', url: 'https://www.instagram.com/reel/DapbDxzx06o/', type: 'instagram' },
-      { label: 'Reel #2: Outfit Styling', url: 'https://www.instagram.com/reel/Dar-jfcx1rQ/', type: 'instagram' },
-      { label: 'Reel #3: Fabric Showcase', url: 'https://www.instagram.com/reel/DZ4UhaAxfwv/', type: 'instagram' },
-      { label: 'Feed Post: AIDA Carousel', url: 'https://www.instagram.com/p/DacWAdLxHBp/', type: 'instagram' },
-    ],
-    video1Url: '/videos/reels-11-7.mov',
-    video1Title: 'Reels #1: Product Recommendation',
-    video2Url: '/videos/proses-packing.mov',
-    video2Title: 'Reels #2: Order Packing',
-    col1Image1:
-      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200',
-    col1Image2:
-      'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200',
-    col2Image: '/images/omah-daster-bestseller.png',
-  },
-  {
     id: 'nalpamara-tiktok',
-    number: '02',
+    number: '01',
     name: 'Fortis Seneca TikTok',
     category: 'Content Strategy',
     platform: 'tiktok',
@@ -127,6 +97,36 @@ const projects: Project[] = [
       'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&q=80&w=1200',
     col2Image:
       'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=1200',
+  },
+  {
+    id: 'omah-daster-eva',
+    number: '02',
+    name: 'Omah Daster Eva',
+    category: 'Social Media Campaign',
+    platform: 'instagram',
+    platformLabel: 'Instagram Reels & Feed',
+    kpiMetric: '163,023 Impressions (163% KPI Win)',
+    mainUrl: 'https://www.instagram.com/reel/DapbDxzx06o/',
+    analytics: [
+      { label: 'Total Impressions', value: '163,023', sub: '163% of KPI Target' },
+      { label: 'Total Engagements', value: '624', sub: '312% of KPI Target' },
+      { label: 'Accounts Reached', value: '18,930', sub: 'Target Demographic' },
+    ],
+    links: [
+      { label: 'Reel #1: Product Recommendation', url: 'https://www.instagram.com/reel/DapbDxzx06o/', type: 'instagram' },
+      { label: 'Reel #2: Outfit Styling', url: 'https://www.instagram.com/reel/Dar-jfcx1rQ/', type: 'instagram' },
+      { label: 'Reel #3: Fabric Showcase', url: 'https://www.instagram.com/reel/DZ4UhaAxfwv/', type: 'instagram' },
+      { label: 'Feed Post: AIDA Carousel', url: 'https://www.instagram.com/p/DacWAdLxHBp/', type: 'instagram' },
+    ],
+    video1Url: '/videos/reels-11-7.mov',
+    video1Title: 'Reels #1: Product Recommendation',
+    video2Url: '/videos/proses-packing.mov',
+    video2Title: 'Reels #2: Order Packing',
+    col1Image1:
+      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200',
+    col1Image2:
+      'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200',
+    col2Image: '/images/omah-daster-bestseller.png',
   },
   {
     id: 'kukiss-bae',
@@ -518,6 +518,20 @@ export function ProjectsSection() {
             progress={scrollYProgress}
           />
         ))}
+      </div>
+
+      {/* View All Projects CTA */}
+      <div className="mt-16 sm:mt-24 w-full flex justify-center pb-10">
+        <a
+          href="/projects"
+          className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-[#3D2E2B] text-[#FAF4EA] rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-[#E88B73] to-[#C4A468] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <span className="relative z-10 font-bold uppercase tracking-widest text-xs sm:text-sm">
+            View All Campaigns & Projects
+          </span>
+          <ExternalLink className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
       </div>
     </section>
   );

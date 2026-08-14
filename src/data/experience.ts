@@ -6,14 +6,13 @@ export const experienceData: ExperienceItem[] = [
     role: "Founder & Owner",
     company: "KUKISS.BAE",
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
-    location: "Brebes, Central Java, Indonesia",
+    location: "Brebes, Central Java",
     period: "July 2025 – Present",
     type: "Business Owner",
-    description: "Founded and managed an online homemade cookie business, overseeing end-to-end branding, digital marketing, content creation, and daily business operations.",
+    description: "Founded and developed an online homemade cookie business from the ground up, overseeing branding, social media, marketing, and daily operations.",
     achievements: [
-      "Created social media content and promotional campaigns to engage local customers and drive consistent order growth.",
-      "Managed customer communication, WhatsApp ordering, and order fulfillment while maintaining a high customer satisfaction rating.",
-      "Executed visual branding, product photo/video production, and seasonal promotional offers."
+      "Planned and created Instagram content and promotional campaigns around seasonal moments, payday, double-date campaigns, and product bundling initiatives, achieving a 19% engagement rate.",
+      "Managed pre-order operations, with orders typically starting from 50 soft cookies per order cycle, while developing promotional content that reached 88.3% non-followers."
     ],
     technologies: ["Branding", "Social Media Marketing", "Meta Business Suite", "Content Strategy", "CRM"],
     featured: true
@@ -23,15 +22,13 @@ export const experienceData: ExperienceItem[] = [
     role: "Social Media Content Creator",
     company: "Fortis Seneca Sdn. Bhd.",
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
-    location: "Malaysia (Remote / Hybrid)",
+    location: "Malaysia",
     period: "Dec 2025 – June 2026",
     type: "Full-time",
-    description: "Managed TikTok social media content for 2 consumer brands: Nalpamara Herbal Soap and Formula Oral Care.",
+    description: "Created and planned TikTok content including storyboards, scripts, copywriting, and creative briefs for Nalpamara Herbal Soap and Formula Oral Care. Produced 100+ TikTok content pieces across both brands.",
     achievements: [
-      "Produced 100+ TikTok content pieces, including monthly content planning, scriptwriting, copywriting, and creative briefs.",
-      "Produced high-performing TikTok videos with multiple content pieces reaching 15K+ organic views each.",
-      "Conducted trend research and competitor analysis to create engaging, audience-focused videos.",
-      "Collaborated with graphic designers and internal marketing teams to execute promotional campaigns and maintain brand consistency."
+      "Conducted trend research and competitor analysis to develop audience-focused content and creative concepts based on TikTok trends, audience insights, and brand objectives. Achieved multiple videos with 15K+ organic views.",
+      "Collaborated with designers and internal teams to execute promotional campaigns and maintain consistent brand messaging."
     ],
     technologies: ["TikTok Marketing", "CapCut", "Scriptwriting", "Copywriting", "Trend Analysis", "Social Blade"],
     featured: true
@@ -39,16 +36,15 @@ export const experienceData: ExperienceItem[] = [
   {
     id: "exp-3",
     role: "Digital Marketing Bootcamp",
-    company: "Tempat Belajar – Career Accelerator",
+    company: "Tempat Belajar",
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
-    location: "Indonesia",
-    period: "Feb – July 2026",
+    location: "Brebes, Central Java",
+    period: "July 2026",
     type: "Bootcamp",
-    description: "Intensive Digital Marketing Bootcamp covering Social Media Strategy, Meta Ads, SEO Keyword Research, Copywriting, and Marketing Analytics.",
+    description: "Key Learning: Social Media Marketing, Content Strategy & Copywriting, SEO & Keyword Research, Meta Ads & Performance Marketing, Marketing Analytics, CRM, and Digital Marketing Strategy.",
     achievements: [
-      "Developed social media strategies, content calendars, and campaign plans for Fin's Kitchen, Sarena Parfum, and Omah Daster Eva.",
-      "Achieved 163% KPI impressions (163,023 impressions) and 312% KPI engagement for Omah Daster Eva campaign.",
-      "Performed SEO keyword research using Ahrefs, Google Trends, and Google Keyword Planner, creating promotional copy using the AIDA framework."
+      "Applied learning through Digital Marketing Strategy Projects and real-brand Digital Marketing Handling Projects.",
+      "Additional Projects: Fin's Kitchen – Social Media Marketing | Lamis Resto – Market Research | Kandang Jeletot – Copywriting | Landing Page Optimization | SEO Optimization"
     ],
     technologies: ["Ahrefs", "Google Trends", "Meta Ads Manager", "AIDA Framework", "Google Keyword Planner", "Canva"],
     featured: true
