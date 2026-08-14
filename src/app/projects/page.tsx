@@ -42,27 +42,32 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {evidence.map((ev, evIdx) => (
-          <div 
-            key={evIdx} 
-            className="snap-start shrink-0 relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1"
+          <a 
+            key={evIdx}
+            href={ev.url !== '#' ? ev.url : undefined}
+            target={ev.url !== '#' ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            className="snap-start shrink-0 block"
           >
-            {/* Placeholder Graphic */}
-            {ev.type === 'pdf' ? (
-              <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-            ) : (
-              <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-            )}
-            <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
-              {ev.title}
-            </span>
-            
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-              <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
+            <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
+              {/* Placeholder Graphic */}
+              {ev.type === 'pdf' ? (
+                <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+              ) : (
+                <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+              )}
+              <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
+                {ev.title}
               </span>
+              
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
+                  {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
+                </span>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
