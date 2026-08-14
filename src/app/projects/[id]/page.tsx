@@ -9,6 +9,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 
 function EvidenceSlider({ evidence }: { evidence: any[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedMedia, setSelectedMedia] = React.useState<{url: string, type: string, title: string} | null>(null);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -19,70 +20,98 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
   };
 
   return (
-    <div className="relative group">
-      {/* Scroll Buttons */}
-      <button 
-        onClick={() => scroll('left')}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
-      >
-        <ChevronLeft className="w-5 h-5 text-[#3D2E2B]" />
-      </button>
-      
-      <button 
-        onClick={() => scroll('right')}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
-      >
-        <ChevronRight className="w-5 h-5 text-[#3D2E2B]" />
-      </button>
+    <>
+      <div className="relative group">
+        {/* Scroll Buttons */}
+        <button 
+          onClick={() => scroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
+        >
+          <ChevronLeft className="w-5 h-5 text-[#3D2E2B]" />
+        </button>
+        
+        <button 
+          onClick={() => scroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
+        >
+          <ChevronRight className="w-5 h-5 text-[#3D2E2B]" />
+        </button>
 
-      {/* Slider Container */}
-      <div 
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-1"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {evidence.map((ev, evIdx) => (
-          <a 
-            key={evIdx}
-            href={ev.url !== '#' ? ev.url : undefined}
-            target={ev.url !== '#' ? "_blank" : undefined}
-            rel="noopener noreferrer"
-            className="snap-start shrink-0 block"
-          >
-            <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
-              {ev.type === 'gallery' && ev.url !== '#' ? (
-                <>
-                  <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
-                  <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
-                    {ev.title}
+        {/* Slider Container */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-1"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {evidence.map((ev, evIdx) => (
+            <div 
+              key={evIdx}
+              onClick={() => {
+                if (ev.url !== '#') {
+                  setSelectedMedia({ url: ev.url, type: ev.type, title: ev.title });
+                }
+              }}
+              className="snap-start shrink-0 block"
+            >
+              <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
+                {ev.type === 'gallery' && ev.url !== '#' ? (
+                  <>
+                    <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+                    <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
+                      {ev.title}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {/* Placeholder Graphic */}
+                    {ev.type === 'pdf' ? (
+                      <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+                    ) : (
+                      <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+                    )}
+                    <span className="relative z-10 text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
+                      {ev.title}
+                    </span>
+                  </>
+                )}
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
+                    {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
                   </span>
-                </>
-              ) : (
-                <>
-                  {/* Placeholder Graphic */}
-                  {ev.type === 'pdf' ? (
-                    <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-                  ) : (
-                    <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-                  )}
-                  <span className="relative z-10 text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
-                    {ev.title}
-                  </span>
-                </>
-              )}
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                  {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
-                </span>
+                </div>
               </div>
             </div>
-          </a>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* Modal Popup */}
+      {selectedMedia && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedMedia(null)}>
+          <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-[24px] overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E6DCCC] bg-[#FAF4EA]">
+              <h3 className="font-bold text-[#3D2E2B] uppercase tracking-widest text-sm">{selectedMedia.title}</h3>
+              <button onClick={() => setSelectedMedia(null)} className="text-[#3D2E2B]/60 hover:text-[#E88B73] transition-colors p-2">
+                ✕
+              </button>
+            </div>
+            
+            {/* Modal Content */}
+            <div className="flex-1 bg-gray-100 relative overflow-hidden">
+              {selectedMedia.type === 'pdf' ? (
+                <iframe src={selectedMedia.url} className="w-full h-full border-0" />
+              ) : (
+                <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain" />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
