@@ -40,7 +40,7 @@ export interface ExperienceItem {
   companyUrl?: string;
   location: string;
   period: string;
-  type: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp';
+  type: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp' | 'Freelance/Remote';
   description: string;
   achievements: string[];
   technologies: string[];
