@@ -106,8 +106,9 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
               }}
             >
               {selectedMedia.type === 'pdf' ? (
-                // Append #toolbar=0&view=FitH to disable the native download/print toolbar and fit horizontally on mobile
-                <iframe src={`${selectedMedia.url}#toolbar=0&view=FitH`} className="w-full h-full border-0 pointer-events-auto" />
+                // Removing #toolbar=0 because it forces mobile browsers to show a download fallback.
+                // Just use #view=Fit to attempt scaling on supported browsers.
+                <iframe src={`${selectedMedia.url}#view=Fit`} className="w-full h-full border-0 pointer-events-auto" />
               ) : (
                 <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain pointer-events-none" />
               )}
