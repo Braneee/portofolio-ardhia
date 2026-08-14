@@ -24,7 +24,7 @@ export const experienceData: ExperienceItem[] = [
     companyUrl: "https://www.linkedin.com/in/ardhianurul",
     location: "Malaysia",
     period: "Dec 2025 – June 2026",
-    type: "Full-time",
+    type: "Freelance/Remote",
     description: "Created and planned TikTok content including storyboards, scripts, copywriting, and creative briefs for Nalpamara Herbal Soap and Formula Oral Care. Produced 100+ TikTok content pieces across both brands.",
     achievements: [
       "Conducted trend research and competitor analysis to develop audience-focused content and creative concepts based on TikTok trends, audience insights, and brand objectives. Achieved multiple videos with 15K+ organic views.",
