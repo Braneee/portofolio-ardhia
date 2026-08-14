@@ -20,7 +20,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-between relative bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] pt-20 pb-10 px-6 sm:px-10 z-20 border-b border-[#E6DCCC] overflow-hidden">
+    <section className="h-screen min-h-[600px] max-h-[1080px] w-full flex flex-col items-center justify-between relative bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] pt-24 pb-6 sm:pb-8 px-6 sm:px-10 z-20 border-b border-[#E6DCCC] overflow-hidden">
       
       {/* Soft Warm Peach & Sage Green Ambient Color Orbs */}
       <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#F4A28C]/25 via-[#E88B73]/20 to-transparent blur-[130px] pointer-events-none" />
@@ -52,7 +52,7 @@ export function HeroSection() {
             </div>
 
             {/* Mobile Nav Actions (CV + Hamburger Button) */}
-            <div className="flex md:hidden items-center gap-2">
+            <div className="flex md:flex-none md:hidden items-center gap-2">
               <DownloadCVButton variant="nav" />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -96,8 +96,8 @@ export function HeroSection() {
         </AnimatePresence>
       </header>
 
-      {/* Hero Heading (Positioned Closely Above Cutout Photo) */}
-      <div className="w-full pt-16 sm:pt-20 md:pt-22 z-10">
+      {/* Hero Heading */}
+      <div className="w-full mt-4 sm:mt-6 z-10 flex-shrink-0">
         <FadeIn delay={0.15} y={30} className="w-full">
           <h1 className="hero-heading font-black uppercase tracking-tight leading-none w-full text-center text-[clamp(2.8rem,7.5vw,7.2rem)] py-1">
             Hi, i&apos;m ardhia
@@ -105,11 +105,11 @@ export function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Centered Person Cutout (Shifted Upwards Closer to Title) */}
-      <div className="relative z-20 -mt-6 sm:-mt-10 md:-mt-14 my-2 flex items-center justify-center">
-        <FadeIn delay={0.4} y={20}>
+      {/* Centered Person Cutout (Scales with viewport height) */}
+      <div className="relative z-20 flex-1 flex items-center justify-center w-full min-h-0 -my-4 sm:-my-6">
+        <FadeIn delay={0.4} y={20} className="h-full flex items-center justify-center">
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
-            <div className="relative group flex justify-center items-center">
+            <div className="relative group flex justify-center items-center h-full">
               {/* Soft Warm Glowing Aura Behind Cutout */}
               <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-[#F4A28C]/45 via-[#A8BBA2]/40 to-[#C4A468]/35 opacity-65 blur-3xl group-hover:opacity-90 transition duration-500 pointer-events-none" />
               
@@ -118,12 +118,10 @@ export function HeroSection() {
                 src="/images/ardhia-cutout.png"
                 alt="Ardhia Nurul Vitra Iskandar - Social Media Specialist"
                 style={{
-                  maxWidth: '520px',
-                  maxHeight: '600px',
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 28px 40px rgba(61,46,43,0.3))',
                 }}
-                className="w-[290px] sm:w-[380px] md:w-[460px] lg:w-[520px] h-[350px] sm:h-[450px] md:h-[520px] lg:h-[600px] pointer-events-auto transition-transform duration-300 group-hover:scale-105"
+                className="w-auto h-[45vh] md:h-[55vh] max-h-[550px] min-h-[300px] pointer-events-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </Magnet>
@@ -131,7 +129,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-2 z-20">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-2 z-20 flex-shrink-0">
         <FadeIn delay={0.35} y={20}>
           <p className="text-[#3D2E2B] font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[280px] sm:max-w-[320px]">
             a social media specialist driven by crafting striking campaigns and viral content
