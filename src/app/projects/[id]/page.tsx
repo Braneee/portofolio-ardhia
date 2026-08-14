@@ -7,7 +7,7 @@ import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
 
-function EvidenceSlider({ evidence }: { evidence: any[] }) {
+function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectImage?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedMedia, setSelectedMedia] = React.useState<{url: string, type: string, title: string} | null>(null);
 
@@ -58,14 +58,21 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
                   <>
                     <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   </>
+                ) : ev.type === 'pdf' ? (
+                  <>
+                    {projectImage && (
+                      <img src={projectImage} alt="PDF Preview Background" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 blur-[2px]" />
+                    )}
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors duration-300"></div>
+                    <FileText className="relative z-10 w-8 h-8 text-white/80 mb-3 group-hover:scale-110 transition-transform drop-shadow-md" />
+                    <span className="relative z-10 text-xs font-bold text-white uppercase tracking-widest px-4 text-center drop-shadow-md">
+                      {ev.title}
+                    </span>
+                  </>
                 ) : (
                   <>
-                    {/* Placeholder Graphic */}
-                    {ev.type === 'pdf' ? (
-                      <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-                    ) : (
-                      <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-                    )}
+                    {/* Placeholder Graphic for empty gallery cards (#) */}
+                    <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
                     <span className="relative z-10 text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
                       {ev.title}
                     </span>
@@ -75,7 +82,7 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
                   <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                    {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
+                    {ev.type === 'pdf' ? 'Read Report' : 'View Media'}
                   </span>
                 </div>
               </div>
@@ -97,11 +104,19 @@ function EvidenceSlider({ evidence }: { evidence: any[] }) {
             </div>
             
             {/* Modal Content */}
-            <div className="flex-1 bg-gray-100 relative overflow-hidden">
+            <div 
+              className="flex-1 bg-gray-100 relative overflow-hidden"
+              onContextMenu={(e) => {
+                if (selectedMedia.type === 'pdf') {
+                  e.preventDefault(); // Disable right-click for PDFs
+                }
+              }}
+            >
               {selectedMedia.type === 'pdf' ? (
-                <iframe src={selectedMedia.url} className="w-full h-full border-0" />
+                // Append #toolbar=0 to disable the native download/print toolbar in supported browsers
+                <iframe src={`${selectedMedia.url}#toolbar=0`} className="w-full h-full border-0 pointer-events-auto" />
               ) : (
-                <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain" />
+                <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain pointer-events-none" />
               )}
             </div>
           </div>
@@ -246,7 +261,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                 </p>
               )}
               
-              <EvidenceSlider evidence={project.evidence} />
+              <EvidenceSlider evidence={project.evidence} projectImage={project.image} />
             </div>
 
           </article>
