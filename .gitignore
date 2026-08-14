@@ -31,3 +31,7 @@ next-env.d.ts
 *.pem
 cutout.py
 remove_background.py
+/*.mp4
+/*.mov
+/*.pdf
+.agent/
