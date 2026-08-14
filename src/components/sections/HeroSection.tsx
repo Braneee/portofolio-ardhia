@@ -105,15 +105,14 @@ export function HeroSection() {
         </FadeIn>
       </div>
 
-      {/* Empty flex-1 spacer to push bottom bar down since image is now absolute - ONLY ON DESKTOP */}
+      {/* Spacer to push bottom bar down on desktop */}
       <div className="hidden sm:block flex-1" />
 
       {/* Centered Person Cutout */}
-      {/* On desktop: absolute at the bottom. On mobile: flex-1 to take up remaining space above the bottom bar naturally without overlapping */}
-      <div className="sm:absolute sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 z-10 flex items-end justify-center w-full pointer-events-none flex-1 sm:flex-none relative overflow-hidden sm:overflow-visible">
-        <FadeIn delay={0.4} y={20} className="flex items-end justify-center w-full h-full">
+      <div className="sm:absolute sm:bottom-0 sm:left-1/2 sm:-translate-x-1/2 z-10 flex flex-1 sm:flex-none items-end justify-center w-full pointer-events-none relative">
+        <FadeIn delay={0.4} y={20} className="flex items-end justify-center w-full">
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
-            <div className="relative group flex justify-center items-end h-full">
+            <div className="relative group flex justify-center items-end">
               {/* Soft Warm Glowing Aura Behind Cutout */}
               <div className="absolute inset-x-[-20%] bottom-0 top-[-20%] rounded-full bg-gradient-to-t from-[#F4A28C]/45 via-[#A8BBA2]/40 to-[#C4A468]/35 opacity-65 blur-3xl group-hover:opacity-90 transition duration-500 pointer-events-none" />
               
@@ -126,7 +125,7 @@ export function HeroSection() {
                   objectPosition: 'bottom',
                   filter: 'drop-shadow(0 10px 40px rgba(61,46,43,0.3))',
                 }}
-                className="w-auto max-w-[120%] sm:max-w-none h-[45vh] sm:h-[65vh] md:h-[75vh] max-h-[800px] sm:min-h-[400px] pointer-events-auto transition-transform duration-300 group-hover:scale-[1.03] origin-bottom object-bottom"
+                className="w-auto max-w-[150%] sm:max-w-none h-[50vh] sm:h-[65vh] md:h-[75vh] max-h-[800px] min-h-[350px] pointer-events-auto transition-transform duration-300 group-hover:scale-[1.03] origin-bottom"
               />
             </div>
           </Magnet>
@@ -134,16 +133,16 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-4 sm:pt-2 z-30 flex-shrink-0 relative sm:static bg-gradient-to-t from-[#F5F0E6] via-[#F5F0E6]/80 to-transparent sm:bg-none pb-2 sm:pb-0">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-4 sm:pt-2 z-30 flex-shrink-0 relative sm:static pb-2 sm:pb-0">
         <FadeIn delay={0.35} y={20} className="w-full sm:w-auto flex justify-center sm:block">
-          <p className="text-[#3D2E2B] font-bold sm:font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[10px] sm:text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[300px] sm:max-w-[320px] drop-shadow-[0_2px_4px_rgba(255,255,255,1)] sm:drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] px-2">
+          <p className="text-[#3D2E2B] font-bold sm:font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[11px] sm:text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[300px] sm:max-w-[320px] drop-shadow-[0_2px_4px_rgba(255,255,255,1)] sm:drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] px-2">
             a social media specialist driven by crafting striking campaigns and viral content
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.5} y={20} className="flex flex-row flex-wrap items-center justify-center gap-3 sm:gap-3 w-full sm:w-auto px-2">
-          <DownloadCVButton variant="outline" />
-          <ContactButton />
+        <FadeIn delay={0.5} y={20} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3 w-full sm:w-auto px-2">
+          <DownloadCVButton variant="outline" className="w-full sm:w-auto justify-center" />
+          <ContactButton className="w-full sm:w-auto justify-center" />
         </FadeIn>
       </div>
     </section>
