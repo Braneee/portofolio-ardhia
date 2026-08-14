@@ -1,11 +1,69 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { projectsData } from '@/data/projects';
-import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
+
+function EvidenceSlider({ evidence }: { evidence: any[] }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="relative group">
+      {/* Scroll Buttons */}
+      <button 
+        onClick={() => scroll('left')}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
+      >
+        <ChevronLeft className="w-5 h-5 text-[#3D2E2B]" />
+      </button>
+      
+      <button 
+        onClick={() => scroll('right')}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
+      >
+        <ChevronRight className="w-5 h-5 text-[#3D2E2B]" />
+      </button>
+
+      {/* Slider Container */}
+      <div 
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-1"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {evidence.map((ev, evIdx) => (
+          <div 
+            key={evIdx} 
+            className="snap-start shrink-0 relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1"
+          >
+            {/* Placeholder Graphic */}
+            <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
+            <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
+              {ev.title}
+            </span>
+            
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
+                View Media
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectsPage() {
   return (
@@ -136,25 +194,7 @@ export default function ProjectsPage() {
                     <ImageIcon className="w-4 h-4" /> Evidence & Deliverables
                   </h4>
                   
-                  {/* Clean Visual Gallery Placeholders */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {project.evidence.map((ev, evIdx) => (
-                      <div key={evIdx} className="group relative w-full h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer">
-                        {/* Placeholder Graphic */}
-                        <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-                        <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
-                          {ev.title}
-                        </span>
-                        
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                          <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                            View Media
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  <EvidenceSlider evidence={project.evidence} />
                 </div>
 
               </article>
