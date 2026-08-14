@@ -4,15 +4,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const BRANDS = [
-  "Fortis Seneca",
-  "Nalpamara",
-  "Formula Oral Care",
-  "Omah Daster Eva",
-  "SARENA Parfum",
-  "Fin's Kitchen",
-  "Lamis Resto",
-  "Kandang Jeletot",
-  "KUKISS.BAE"
+  { name: "Fortis Seneca", src: "/images/brands/fortis.jpg" },
+  { name: "Nalpamara", src: "/images/brands/nalpamara.jpg" },
+  { name: "Formula Oral Care", src: "/images/brands/formula.jpg" },
+  { name: "Omah Daster Eva", src: "/images/brands/omah-daster-eva.png" },
+  { name: "SARENA Parfum", src: "/images/brands/sarena-parfum.jpg" },
+  { name: "Fin's Kitchen", src: null },
+  { name: "Lamis Resto", src: null },
+  { name: "Kandang Jeletot", src: null },
+  { name: "KUKISS.BAE", src: null }
 ];
 
 // Double the array for seamless marquee loop
@@ -24,12 +24,6 @@ export function BrandsSection() {
       <h3 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#3D2E2B]/50 mb-8 sm:mb-10 text-center">
         Brands Collaborated With
       </h3>
-      
-      {/* 
-        Note to Developer: 
-        Replace the text-based brand placeholders below with actual <img src="..." /> tags 
-        from your Logo Collab Brands folder.
-      */}
       
       <div className="relative w-full flex overflow-hidden">
         {/* Left/Right Fade Masks */}
@@ -48,13 +42,19 @@ export function BrandsSection() {
           {MARQUEE_ITEMS.map((brand, idx) => (
             <div 
               key={idx} 
-              className="flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+              className="flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer h-12 sm:h-16"
             >
-              {/* Fallback typography logo if no image */}
-              <span className="text-xl sm:text-2xl font-black uppercase text-[#3D2E2B] tracking-tight">
-                {brand}
-              </span>
-              {/* <img src={`/images/brands/${brand.toLowerCase()}.png`} alt={brand} className="h-10 sm:h-12 object-contain" /> */}
+              {brand.src ? (
+                <img 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  className="max-h-full max-w-[120px] sm:max-w-[150px] object-contain rounded-md" 
+                />
+              ) : (
+                <span className="text-xl sm:text-2xl font-black uppercase text-[#3D2E2B] tracking-tight">
+                  {brand.name}
+                </span>
+              )}
             </div>
           ))}
         </motion.div>
