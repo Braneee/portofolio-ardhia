@@ -1,95 +1,48 @@
-# Dhia AI — Senior Software Engineer & Full-Stack Architect Portfolio
+# Ardhia Nurul Vitra Iskandar — Digital Marketing Portfolio
 
-> A modern, luxury, high-performance portfolio website built for senior software engineers, systems architects, and internship candidates targeting tier-1 tech companies (Google, Apple, Meta, Stripe, Vercel, Linear, Notion, Raycast, Figma).
+> A modern, elegant, and professional digital marketing portfolio built to showcase end-to-end digital marketing workflows, social media strategies, and content creation, complete with a structured storytelling framework.
 
 ---
 
 ## 🌟 Overview & Aesthetic
 
-Designed with a high-end SaaS product design philosophy inspired by **Vercel, Linear, Apple, Stripe, and Raycast**. It features:
+Designed with a premium, warm, and sophisticated aesthetic tailored for a digital marketing professional. The website serves as a high-end showcase of real-world campaigns, featuring:
 
-- **Raycast-Inspired Command Palette (`Cmd + K`)**: Keyboard-driven navigation for instant section jumps, theme switching, project searches, and email copying.
-- **Interactive Terminal Playground**: Real-time CLI runner demonstrating system metrics, benchmark execution, and automated test suite coverage.
-- **Deep-Dive Case Study Overlay Modals**: Architectural blueprints, challenge/solution breakdowns, and metric callouts for every project.
-- **Responsive & Accessible**: Complete WCAG AA contrast compliance, ARIA accessibility attributes, keyboard trap support for modals, and reduced motion settings.
-- **Ultra Performance**: Sub-100ms LCP, zero cumulative layout shift (CLS), static rendering optimizations, and dynamic edge metadata.
+- **6-Point Storytelling Framework**: Every project is comprehensively documented through *Background*, *Objective*, *Role*, *Process*, *Result*, and *Evidence*, allowing recruiters to understand the strategic thought process behind the metrics.
+- **Warm & Elegant Design System**: A carefully curated color palette featuring warm off-whites, deep charcoals, soft terracotta, and muted gold, conveying professionalism and approachability.
+- **Smooth Animations**: Integrated with Framer Motion for elegant scroll reveals, hover states, and seamless page transitions.
+- **Fully Responsive**: Optimized for all devices, from mobile phones to ultra-wide desktop monitors.
+- **High Performance**: Built on Next.js with static rendering optimizations and dynamic edge capabilities.
 
 ---
 
-## 🏗️ Folder Structure
+## 🏗️ Project Structure
 
-```
-d:/PORTOFOLIO_DHIA/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx         # Root layout with ThemeProvider, ToastProvider & JSON-LD
-│   │   ├── page.tsx           # Main landing page assembling all sections
-│   │   ├── globals.css        # Core design system tokens, glassmorphism & keyframes
-│   │   ├── sitemap.ts         # Dynamic sitemap generator for SEO
-│   │   ├── robots.ts          # Search engine crawler directive
-│   │   └── api/
-│   │       └── contact/       # Contact form endpoint with Zod validation
-│   ├── components/
-│   │   ├── ui/
-│   │   │   └── command-menu.tsx   # Raycast Cmd+K search palette
-│   │   ├── layout/
-│   │   │   ├── navbar.tsx         # Floating glassmorphic header with active pill
-│   │   │   ├── footer.tsx         # Footer with social links & back-to-top
-│   │   │   └── theme-toggle.tsx   # Light/Dark mode switcher button
-│   │   ├── sections/
-│   │   │   ├── hero.tsx           # Hero section with headline & magnetic CTAs
-│   │   │   ├── about.tsx          # Career narrative & engineering philosophy
-│   │   │   ├── experience.tsx     # Vertical experience timeline
-│   │   │   ├── projects.tsx       # Filterable project showcase grid
-│   │   │   ├── project-modal.tsx  # Interactive Case Study overlay
-│   │   │   ├── tech-stack.tsx     # Categorized technology grid
-│   │   │   ├── skills.tsx         # Proficiency matrix & progress bars
-│   │   │   ├── achievements.tsx   # Hackathon wins, publications & awards
-│   │   │   ├── certificates.tsx   # AWS, Meta & CKA verified credentials
-│   │   │   ├── services.tsx       # Engineering services & advisory
-│   │   │   └── contact.tsx        # React Hook Form + Zod & Confetti submit
-│   │   ├── visual/
-│   │   │   └── code-terminal.tsx  # Live terminal simulator
-│   │   └── providers/
-│   │       ├── theme-provider.tsx # Next-themes wrapper
-│   │       └── toast-provider.tsx # Animated Toast notification engine
-│   ├── data/
-│   │   ├── personal.ts        # Personal details & metrics
-│   │   ├── experience.ts      # Work history data
-│   │   ├── projects.ts        # Project showcase & case study data
-│   │   ├── tech-stack.ts      # Technology items
-│   │   ├── skills.ts          # Skill matrix breakdown
-│   │   ├── achievements.ts    # Awards & recognitions
-│   │   ├── certificates.ts    # Certifications
-│   │   └── services.ts        # Service offerings
-│   ├── types/
-│   │   └── index.ts           # Strict TypeScript interfaces
-│   └── lib/
-│       ├── utils.ts           # Tailwind merge utility (`cn`)
-│       └── validations.ts     # Zod schemas for contact forms
-├── tailwind.config.ts         # Custom theme extensions & keyframe animations
-├── tsconfig.json              # TypeScript configuration
-└── package.json               # Next.js 14, Framer Motion, Tailwind dependencies
-```
+The portfolio showcases **8 core projects & campaigns**:
+1. **Fortis Seneca TikTok**: Viral organic TikTok content strategy (16.1K views).
+2. **Omah Daster Eva**: Instagram marketing campaign (163% KPI win).
+3. **KUKISS.BAE**: End-to-end small business brand ownership and operations.
+4. **SARENA Parfum**: Comprehensive digital marketing strategy & playbook.
+5. **Fin's Kitchen**: Relatable social media marketing campaign ("Bad Day? Dessert Dulu").
+6. **Lamis Resto**: Quantitative market research for Gen-Z product bundling.
+7. **Kandang Jeletot**: Social media copywriting leveraging the AIDA framework.
+8. **SEO Optimization**: Keyword research and search-intent optimized content writing.
 
 ---
 
 ## 🎨 Design System & Color Palette
 
 ### Colors
-- **Primary Accent**: Electric Sky Blue (`#06b6d4` / `#0c8de9`)
-- **Secondary Accent**: Deep Indigo (`#6366f1`) & Violet (`#8b5cf6`)
-- **Success Accent**: Emerald (`#10b981`)
-- **Warning Accent**: Amber (`#f59e0b`)
-- **Dark Mode Background**: Charcoal Navy (`#08090e` / `#090a0f`)
-- **Light Mode Background**: Off-White Clean (`#fafafa`)
+- **Background**: Warm Off-White (`#FAF4EA` / `#F5F0E6`)
+- **Text & High Contrast**: Deep Charcoal Brown (`#3D2E2B`)
+- **Primary Accent**: Soft Terracotta (`#E88B73`)
+- **Secondary Accent**: Muted Gold / Ochre (`#C4A468`)
 
 ### Typography Scale
-- **Display Heading**: 48px - 60px (`font-extrabold`)
-- **Section Heading**: 30px - 36px (`font-bold`)
-- **Card Subheading**: 18px - 20px (`font-bold`)
-- **Body Text**: 14px - 16px (`leading-relaxed`)
-- **Code / Mono**: 12px - 13px (`font-mono`)
+- **Display Heading**: Heavy uppercase, tracking-tight (`font-black`)
+- **Section Heading**: Elegant serif or structured sans (`font-bold`)
+- **Body Text**: Readable, high-contrast text with relaxed line height (`leading-relaxed`)
+- **Badges/Accents**: Technical mono-spaced font for labels (`font-mono`)
 
 ---
 
@@ -102,8 +55,8 @@ d:/PORTOFOLIO_DHIA/
 ### Installation
 1. Clone repository:
    ```bash
-   git clone https://github.com/your-username/portfolio-dhia.git
-   cd portfolio-dhia
+   git clone https://github.com/Braneee/portofolio-ardhia.git
+   cd portofolio-dhia
    ```
 2. Install dependencies:
    ```bash
@@ -117,28 +70,23 @@ d:/PORTOFOLIO_DHIA/
 
 ---
 
-## 🧪 Build & Quality Verification
+## 📦 Tech Stack
 
-To run a production build and typecheck:
-
-```bash
-npm run build
-```
+- **Framework**: Next.js 13/14 (App Router)
+- **Library**: React 18
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
 ---
 
-## 🌐 Vercel Deployment Guide
+## 🌐 Deployment
+
+This project is optimized for deployment on **Vercel**.
 
 1. Push your repository to GitHub.
 2. Visit [Vercel Dashboard](https://vercel.com/new).
-3. Import `portfolio-dhia` repository.
-4. Framework Preset: **Next.js**.
-5. Click **Deploy**. Your site will be live on Vercel's global edge network in seconds!
-
----
-
-## 🔮 Future Improvements Roadmap
-
-1. **Blog Engine**: Add MDX blog section for technical writing and architectural RFCs.
-2. **WebGL 3D Shader**: Integrate Three.js / React Three Fiber ambient particle canvas for optional high-performance GPUs.
-3. **Sound FX**: Subtle Web Audio API click/hover feedback toggle.
+3. Import the `portofolio-ardhia` repository.
+4. Ensure the Framework Preset is set to **Next.js**.
+5. Click **Deploy**. Your site will be live on Vercel's global edge network in seconds.
