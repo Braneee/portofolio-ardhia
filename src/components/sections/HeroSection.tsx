@@ -133,14 +133,14 @@ export function HeroSection() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6 pt-2 z-30 flex-shrink-0">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-2 z-30 flex-shrink-0">
         <FadeIn delay={0.35} y={20}>
-          <p className="text-[#3D2E2B] font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[280px] sm:max-w-[320px]">
+          <p className="text-[#3D2E2B] font-medium sm:font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[11px] sm:text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[280px] sm:max-w-[320px] drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] px-2">
             a social media specialist driven by crafting striking campaigns and viral content
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.5} y={20} className="flex items-center gap-3">
+        <FadeIn delay={0.5} y={20} className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">
           <DownloadCVButton variant="outline" />
           <ContactButton />
         </FadeIn>

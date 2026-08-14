@@ -106,8 +106,8 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
               }}
             >
               {selectedMedia.type === 'pdf' ? (
-                // Append #toolbar=0 to disable the native download/print toolbar in supported browsers
-                <iframe src={`${selectedMedia.url}#toolbar=0`} className="w-full h-full border-0 pointer-events-auto" />
+                // Append #toolbar=0&view=FitH to disable the native download/print toolbar and fit horizontally on mobile
+                <iframe src={`${selectedMedia.url}#toolbar=0&view=FitH`} className="w-full h-full border-0 pointer-events-auto" />
               ) : (
                 <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain pointer-events-none" />
               )}
