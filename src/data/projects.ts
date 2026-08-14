@@ -56,8 +56,7 @@ export const projectsData: Project[] = [
       ]
     },
     evidence: [
-      { title: "Content Strategy", type: "gallery", url: "#" },
-      { title: "Content Planning", type: "gallery", url: "#" },
+      { title: "Content Planning & Strategy", type: "pdf", url: "#" },
       { title: "Content Execution", type: "gallery", url: "#" },
       { title: "Performance Analysis", type: "gallery", url: "#" },
       { title: "Campaign Results", type: "gallery", url: "#" }
