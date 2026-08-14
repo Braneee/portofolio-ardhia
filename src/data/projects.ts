@@ -17,10 +17,11 @@ export const projectsData: Project[] = [
       "Collaborated with designers and internal teams to develop creative briefs and execute promotional campaigns while maintaining consistent brand messaging."
     ],
     result: {
-      description: "Successfully scaled TikTok presence through viral organic hooks.",
+      description: "Successfully scaled TikTok presence through highly targeted engagement and viral organic reach.",
       highlights: [
-        { label: "Content Volume", value: "100+", sub: "Pieces Produced" },
-        { label: "Organic Reach", value: "15K+", sub: "Views on Multiple Videos" }
+        { label: "Organic Views", value: "16.1K", sub: "1.9K+ Likes & 14K Viewers" },
+        { label: "FYP Traffic", value: "79.3%", sub: "High Algorithmic Reach" },
+        { label: "Target Audience", value: "89.8%", sub: "Malaysia Viewership" }
       ]
     },
     evidence: [
