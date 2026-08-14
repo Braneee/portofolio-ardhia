@@ -1,221 +1,151 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '@/data/projects';
-import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
+import { ArrowLeft, LayoutGrid, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
+import Image from 'next/image';
 
-function EvidenceSlider({ evidence }: { evidence: any[] }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+const categories = [
+  'All Projects',
+  'Social Media Campaign',
+  'Content Strategy',
+  'Market Research',
+  'SEO & Copywriting',
+  'Brand Ownership'
+];
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -300 : 300;
-      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+export default function ProjectsGallery() {
+  const [activeCategory, setActiveCategory] = useState('All Projects');
 
-  return (
-    <div className="relative group">
-      {/* Scroll Buttons */}
-      <button 
-        onClick={() => scroll('left')}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
-      >
-        <ChevronLeft className="w-5 h-5 text-[#3D2E2B]" />
-      </button>
-      
-      <button 
-        onClick={() => scroll('right')}
-        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-6 z-10 p-2 sm:p-3 bg-white border border-[#E6DCCC] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 disabled:opacity-0"
-      >
-        <ChevronRight className="w-5 h-5 text-[#3D2E2B]" />
-      </button>
-
-      {/* Slider Container */}
-      <div 
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-1"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {evidence.map((ev, evIdx) => (
-          <a 
-            key={evIdx}
-            href={ev.url !== '#' ? ev.url : undefined}
-            target={ev.url !== '#' ? "_blank" : undefined}
-            rel="noopener noreferrer"
-            className="snap-start shrink-0 block"
-          >
-            <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
-              {/* Placeholder Graphic */}
-              {ev.type === 'pdf' ? (
-                <FileText className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-              ) : (
-                <ImageIcon className="w-8 h-8 text-[#E88B73]/40 mb-3 group-hover:scale-110 transition-transform" />
-              )}
-              <span className="text-xs font-bold text-[#3D2E2B] uppercase tracking-widest px-4 text-center">
-                {ev.title}
-              </span>
-              
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-[#3D2E2B]/80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                <span className="text-white text-[10px] font-mono font-bold tracking-widest border border-white/30 px-4 py-2 rounded-full uppercase">
-                  {ev.type === 'pdf' ? 'View PDF' : 'View Media'}
-                </span>
-              </div>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
+  const filteredProjects = projectsData.filter(project => 
+    activeCategory === 'All Projects' || project.category === activeCategory
   );
-}
 
-export default function ProjectsPage() {
   return (
     <main className="w-full min-h-screen bg-[#FAF4EA] text-[#3D2E2B] pt-24 pb-32 px-4 sm:px-6 md:px-10 font-sans">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header section */}
         <FadeIn>
-          <div className="mb-16">
+          <div className="flex flex-col items-center text-center mb-12">
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2 text-[#E88B73] hover:text-[#C4A468] font-bold text-sm tracking-widest uppercase transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-[#E88B73] hover:text-[#C4A468] font-bold text-sm tracking-widest uppercase transition-colors mb-6 self-start sm:self-auto"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Home
             </Link>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-none mb-4">
-              All Campaigns & Projects
+            <span className="text-[#E88B73] font-mono font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
+              Selected Works
+            </span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-none mb-6">
+              Project Gallery
             </h1>
-            <p className="text-lg sm:text-xl text-[#3D2E2B]/70 max-w-2xl leading-relaxed">
-              A comprehensive showcase of my end-to-end digital marketing workflows, from strategic planning to measurable results.
+            <p className="text-sm sm:text-base text-[#3D2E2B]/70 max-w-2xl leading-relaxed">
+              An organized archive of {projectsData.length} projects built across different disciplines, 
+              highlighting strategic marketing, content planning, and creative solutions.
             </p>
           </div>
         </FadeIn>
 
-        {/* Projects Loop */}
-        <div className="space-y-24 sm:space-y-32">
-          {projectsData.map((project, idx) => (
-            <FadeIn key={project.id} delay={0.1}>
-              <article className="relative bg-white rounded-[32px] sm:rounded-[40px] border border-[#E6DCCC] p-6 sm:p-10 md:p-12 overflow-hidden shadow-xl shadow-[#3D2E2B]/5">
-                
-                {/* Number Badge */}
-                <div className="absolute top-0 right-0 bg-[#3D2E2B] text-[#FAF4EA] font-mono text-2xl sm:text-4xl font-black px-6 py-4 rounded-bl-[32px] sm:rounded-bl-[40px]">
-                  {String(idx + 1).padStart(2, '0')}
-                </div>
+        {/* Filter Bar */}
+        <FadeIn delay={0.1}>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-16">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${
+                  activeCategory === cat 
+                    ? 'bg-[#E88B73] text-white border-[#E88B73] shadow-lg shadow-[#E88B73]/20' 
+                    : 'bg-transparent text-[#3D2E2B]/60 border-[#E6DCCC] hover:border-[#E88B73]/50 hover:text-[#E88B73]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </FadeIn>
 
-                {/* Header */}
-                <div className="mb-10 sm:mb-12 max-w-3xl pr-16 sm:pr-24">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F5EBE6] text-[#E88B73] rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-[#F4A28C]/30">
-                    <LayoutGrid className="w-3.5 h-3.5" />
-                    {project.category}
-                  </div>
-                  <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-3">
-                    {project.title}
-                  </h2>
-                  <h3 className="text-lg sm:text-xl font-medium text-[#3D2E2B]/70">
-                    {project.subtitle}
-                  </h3>
-                </div>
+        {/* Divider */}
+        <div className="w-full h-px bg-[#E6DCCC]/50 mb-16"></div>
 
-                {/* Storytelling Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-12">
-                  
-                  {/* Left Col: Context & Role */}
-                  <div className="space-y-8">
-                    <div>
-                      <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-3">
-                        <Target className="w-4 h-4" /> Project Background
-                      </h4>
-                      <p className="text-[#3D2E2B]/80 leading-relaxed text-sm sm:text-base">
-                        {project.background}
+        {/* Gallery Grid */}
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link href={`/projects/${project.id}`} className="group block h-full">
+                  <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E6DCCC] overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:shadow-[#3D2E2B]/5 hover:-translate-y-1">
+                    
+                    {/* Thumbnail Image */}
+                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F5EBE6]">
+                      <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      />
+                      
+                      {/* View Project Overlay */}
+                      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px] bg-[#3D2E2B]/20">
+                        <span className="flex items-center gap-2 bg-white text-[#3D2E2B] px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                          View Project <ArrowUpRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="px-3 py-1 bg-[#F5EBE6] text-[#E88B73] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border border-[#F4A28C]/30 flex items-center gap-1.5">
+                          <LayoutGrid className="w-3 h-3" />
+                          {project.category}
+                        </span>
+                        {project.featured && (
+                          <span className="px-3 py-1 bg-[#3D2E2B] text-[#FAF4EA] rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                            Featured
+                          </span>
+                        )}
+                      </div>
+                      
+                      <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight mb-2 group-hover:text-[#E88B73] transition-colors">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-sm text-[#3D2E2B]/70 font-medium line-clamp-2 mt-auto">
+                        {project.subtitle}
                       </p>
                     </div>
 
-                    <div>
-                      <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-3">
-                        <Target className="w-4 h-4" /> Objective
-                      </h4>
-                      <p className="text-[#3D2E2B]/80 leading-relaxed text-sm sm:text-base">
-                        {project.objective}
-                      </p>
-                    </div>
                   </div>
+                </Link>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
-                  {/* Right Col: Process & Role */}
-                  <div className="space-y-8">
-                    <div>
-                      <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-3">
-                        <Briefcase className="w-4 h-4" /> My Role & Contribution
-                      </h4>
-                      <p className="text-[#3D2E2B]/80 leading-relaxed text-sm sm:text-base">
-                        {project.role}
-                      </p>
-                    </div>
+        {filteredProjects.length === 0 && (
+          <div className="w-full py-20 flex flex-col items-center justify-center text-center">
+            <LayoutGrid className="w-12 h-12 text-[#E88B73]/30 mb-4" />
+            <h3 className="text-xl font-bold uppercase tracking-widest text-[#3D2E2B]">No projects found</h3>
+            <p className="text-[#3D2E2B]/60 mt-2">Try selecting a different category.</p>
+          </div>
+        )}
 
-                    <div>
-                      <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-3">
-                        <PlayCircle className="w-4 h-4" /> Process / Scope of Work
-                      </h4>
-                      <ul className="space-y-2">
-                        {project.process.map((step, sIdx) => (
-                          <li key={sIdx} className="flex items-start gap-2.5 text-[#3D2E2B]/80 text-sm sm:text-base leading-relaxed">
-                            <CheckCircle2 className="w-4 h-4 mt-1 text-[#C4A468] shrink-0" />
-                            <span>{step}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Divider */}
-                <hr className="border-[#E6DCCC] mb-12" />
-
-                {/* Result Section */}
-                <div className="mb-12">
-                  <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-6">
-                    <BarChart3 className="w-4 h-4" /> Result / Output
-                  </h4>
-                  <p className="text-[#3D2E2B]/80 leading-relaxed text-sm sm:text-base mb-6">
-                    {project.result.description}
-                  </p>
-                  
-                  {project.result.highlights && project.result.highlights.length > 0 && (
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {project.result.highlights.map((hl, hlIdx) => (
-                        <div key={hlIdx} className="bg-[#FAF4EA] border border-[#E6DCCC] rounded-2xl p-6 flex flex-col justify-center shadow-sm">
-                          <span className="text-3xl sm:text-4xl font-black text-[#3D2E2B] mb-1">{hl.value}</span>
-                          <span className="text-sm font-bold text-[#E88B73] uppercase tracking-wider">{hl.label}</span>
-                          {hl.sub && <span className="text-xs text-[#3D2E2B]/60 mt-1">{hl.sub}</span>}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Evidence / Deliverables Section */}
-                <div>
-                  <h4 className="flex items-center gap-2 font-bold text-[#E88B73] uppercase tracking-widest text-sm mb-4">
-                    <ImageIcon className="w-4 h-4" /> Evidence & Deliverables
-                  </h4>
-                  
-                  {project.deliverables && (
-                    <p className="text-xs font-mono font-bold text-[#3D2E2B]/60 uppercase tracking-widest mb-4">
-                      {project.deliverables}
-                    </p>
-                  )}
-                  
-                  <EvidenceSlider evidence={project.evidence} />
-                </div>
-
-              </article>
-            </FadeIn>
-          ))}
-        </div>
       </div>
     </main>
   );
