@@ -49,7 +49,7 @@ export default function ProjectsGallery() {
 
         {/* Filter Bar */}
         <FadeIn delay={0.1}>
-          <div className="flex overflow-x-auto scrollbar-none sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 mb-16 pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 w-[calc(100%+32px)] sm:w-full">
+          <div className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 mb-6 sm:mb-12 pb-1 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 w-[calc(100%+32px)] sm:w-full">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -67,7 +67,7 @@ export default function ProjectsGallery() {
         </FadeIn>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#E6DCCC]/50 mb-16"></div>
+        <div className="w-full h-px bg-[#E6DCCC]/50 mb-8 sm:mb-16"></div>
 
         {/* Gallery Grid */}
         <motion.div 
