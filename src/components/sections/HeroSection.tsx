@@ -106,11 +106,10 @@ export function HeroSection() {
       </div>
 
       {/* --- DESKTOP LAYOUT --- */}
-      {/* Spacer to push bottom bar down on desktop */}
-      <div className="hidden sm:block flex-1" />
+      {/* Spacer removed in favor of mt-auto on the bottom bar */}
 
-      {/* Desktop Image: absolute at the bottom. It renders ON TOP of the static bottom bar, letting transparent edges overlap gracefully. */}
-      <div className="hidden sm:flex absolute bottom-0 left-1/2 -translate-x-1/2 z-10 items-end justify-center w-full pointer-events-none">
+      {/* Desktop Image: absolute, shifted down slightly to hide the hard cut behind the section overflow and bottom bar. */}
+      <div className="hidden sm:flex absolute -bottom-10 lg:-bottom-16 left-1/2 -translate-x-1/2 z-10 items-end justify-center w-full pointer-events-none">
         <FadeIn delay={0.4} y={20} className="flex items-end justify-center">
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
             <div className="relative group flex justify-center items-end">
@@ -123,7 +122,7 @@ export function HeroSection() {
                   objectPosition: 'bottom',
                   filter: 'drop-shadow(0 10px 40px rgba(61,46,43,0.3))',
                 }}
-                className="w-auto h-[65vh] md:h-[75vh] max-h-[800px] min-h-[400px] pointer-events-auto transition-transform duration-300 group-hover:scale-[1.03] origin-bottom"
+                className="w-auto h-[70vh] md:h-[80vh] max-h-[850px] min-h-[450px] pointer-events-auto transition-transform duration-300 group-hover:scale-[1.03] origin-bottom"
               />
             </div>
           </Magnet>
@@ -131,8 +130,8 @@ export function HeroSection() {
       </div>
 
       {/* --- MOBILE LAYOUT --- */}
-      {/* Mobile Image: relative and flex-1 so it naturally pushes the bottom bar down without overlapping it. */}
-      <div className="flex sm:hidden flex-1 items-end justify-center w-full pointer-events-none relative z-10">
+      {/* Mobile Image: pushed down with negative margin to overlap the bottom bar gradient, hiding the hard cut. */}
+      <div className="flex sm:hidden flex-1 items-end justify-center w-full pointer-events-none relative z-10 -mb-8">
         <FadeIn delay={0.4} y={20} className="flex items-end justify-center w-full">
           <div className="relative flex justify-center items-end">
             <div className="absolute inset-x-[-20%] bottom-0 top-[-20%] rounded-full bg-gradient-to-t from-[#F4A28C]/45 via-[#A8BBA2]/40 to-[#C4A468]/35 opacity-65 blur-3xl pointer-events-none" />
@@ -144,15 +143,14 @@ export function HeroSection() {
                 objectPosition: 'bottom',
                 filter: 'drop-shadow(0 10px 40px rgba(61,46,43,0.3))',
               }}
-              className="w-auto max-w-[150%] h-[50vh] min-h-[350px] pointer-events-auto origin-bottom"
+              className="w-auto max-w-[150%] h-[55vh] min-h-[380px] pointer-events-auto origin-bottom"
             />
           </div>
         </FadeIn>
       </div>
 
       {/* Bottom Bar */}
-      {/* On desktop: static (z-index ignored), so the absolute image renders ON TOP. On mobile: relative z-30 with gradient background so it sits below image and remains legible. */}
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-4 sm:pt-2 flex-shrink-0 relative sm:static z-30 bg-gradient-to-t from-[#F5F0E6] via-[#F5F0E6]/80 to-transparent sm:bg-none pb-2 sm:pb-0">
+      <div className="mt-auto w-full max-w-6xl flex flex-col sm:flex-row justify-between items-center sm:items-end gap-5 sm:gap-6 pt-12 sm:pt-2 flex-shrink-0 relative z-30 bg-gradient-to-t from-[#F5F0E6] via-[#F5F0E6]/90 to-transparent sm:bg-none pb-2 sm:pb-0">
         <FadeIn delay={0.35} y={20} className="w-full sm:w-auto flex justify-center sm:block">
           <p className="text-[#3D2E2B] font-bold sm:font-light uppercase tracking-wide leading-snug text-center sm:text-left text-[11px] sm:text-[clamp(0.8rem,1.2vw,1.2rem)] max-w-[300px] sm:max-w-[320px] drop-shadow-[0_2px_4px_rgba(255,255,255,1)] sm:drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] px-2">
             a social media specialist driven by crafting striking campaigns and viral content
