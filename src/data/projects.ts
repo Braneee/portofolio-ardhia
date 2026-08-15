@@ -215,7 +215,7 @@ export const projectsData: Project[] = [
     subtitle: "Small Business & Social Media Marketing",
     category: "Brand Ownership",
     featured: true,
-    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/kukiss-bae-jar.png",
     background: "KUKISS.BAE is a Brebes-based homemade cookie business that I developed from the ground up, using Instagram as its primary social media and marketing channel.",
     objective: "To build brand awareness, engage potential customers, and drive product conversion through Instagram content and promotional campaigns.",
     role: "Developed the brand identity and managed Instagram marketing, customer communication, order fulfillment, and daily operations.",
@@ -230,10 +230,10 @@ export const projectsData: Project[] = [
       ]
     },
     evidence: [
-      { title: "Instagram profile", type: "gallery", url: "#" },
-      { title: "Selected content", type: "gallery", url: "#" },
-      { title: "Campaign/promo content", type: "gallery", url: "#" },
-      { title: "Instagram Insights", type: "gallery", url: "#" }
+      { title: "Instagram profile", type: "gallery", url: "/images/kukiss-bae-jar.png" },
+      { title: "Selected content", type: "gallery", url: "/images/kukiss-bae-cookies.jpg" },
+      { title: "Campaign/promo content", type: "gallery", url: "/images/kukiss-bae-3.jpg" },
+      { title: "Instagram Insights", type: "gallery", url: "/images/kukiss-bae-4.png" }
     ],
     techStack: ["Branding", "Social Media Marketing", "CRM", "Business Operations"],
     caseStudyAvailable: true
