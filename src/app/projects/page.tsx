@@ -49,12 +49,12 @@ export default function ProjectsGallery() {
 
         {/* Filter Bar */}
         <FadeIn delay={0.1}>
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-16">
+          <div className="flex overflow-x-auto scrollbar-none sm:flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 mb-16 pb-2 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 w-[calc(100%+32px)] sm:w-full">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${
+                className={`whitespace-nowrap flex-shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${
                   activeCategory === cat 
                     ? 'bg-[#E88B73] text-white border-[#E88B73] shadow-lg shadow-[#E88B73]/20' 
                     : 'bg-transparent text-[#3D2E2B]/60 border-[#E6DCCC] hover:border-[#E88B73]/50 hover:text-[#E88B73]'
