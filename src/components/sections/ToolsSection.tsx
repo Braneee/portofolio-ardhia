@@ -137,79 +137,69 @@ const toolCategories: ToolCategory[] = [
 
 export function ToolsSection() {
   return (
-    <section className="py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-10 bg-[#F9F6F0] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
+    <section className="py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-10 bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
       
       {/* Soft Ambient Orbs */}
-      <div className="absolute top-[20%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#6B8065]/10 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-5%] w-[450px] h-[450px] rounded-full bg-[#F4A28C]/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#6B8065]/20 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[450px] h-[450px] rounded-full bg-[#F4A28C]/20 blur-[130px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10">
-        
-        {/* Left Column: Sticky Header */}
-        <div className="w-full lg:w-1/3 flex-shrink-0">
-          <div className="lg:sticky lg:top-32 space-y-4">
-            <FadeIn delay={0} y={20}>
-              <h2 className="hero-heading font-black uppercase text-[clamp(2.5rem,6vw,5rem)] leading-[0.9] tracking-tight text-[#3D2E2B]">
-                Tools <br className="hidden lg:block"/> & Skills
-              </h2>
-            </FadeIn>
-            <FadeIn delay={0.1} y={20}>
-              <p className="text-[#59443F] font-mono text-xs sm:text-sm tracking-widest uppercase mt-4">
-                The Creative Arsenal
-              </p>
-            </FadeIn>
-          </div>
-        </div>
+      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
+        {/* Header */}
+        <FadeIn delay={0} y={40} className="text-center">
+          <h2 className="hero-heading font-black uppercase text-[clamp(2.5rem,8vw,120px)] leading-none tracking-tight">
+            Tools & Skills
+          </h2>
+        </FadeIn>
 
-        {/* Right Column: Editorial List */}
-        <div className="w-full lg:w-2/3 flex flex-col">
-          <div className="w-full border-t border-[#E6DCCC]">
-            {toolCategories.map((cat, idx) => (
-              <FadeIn key={cat.title} delay={idx * 0.15} y={30} className="w-full">
-                <div className="border-b border-[#E6DCCC] py-10 md:py-16 group">
-                  <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-start">
-                    
-                    {/* Category Title */}
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-3">
-                        <span className="font-mono text-[10px] sm:text-xs text-[#E88B73] font-bold tracking-widest">
-                          0{idx + 1}
-                        </span>
-                        <div className="h-px bg-[#E88B73]/30 w-12" />
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {toolCategories.map((cat, idx) => (
+            <FadeIn key={cat.title} delay={idx * 0.1} y={30} className="w-full">
+              <div className="p-6 sm:p-8 rounded-[35px] border border-[#E6DCCC] bg-[#FFFFFF] shadow-xl shadow-[#3D2E2B]/5 space-y-6 h-full flex flex-col justify-between hover:border-[#E88B73]/60 transition-colors group">
+                <div className="space-y-5">
+                  {/* Category Header */}
+                  <div className="space-y-2 border-b border-[#E6DCCC] pb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-xl bg-[#F5EBE6] border border-[#F4A28C]/30 text-[#3D2E2B] shadow-inner">
+                        {cat.icon}
                       </div>
-                      <h3 className="font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tighter text-[#3D2E2B] leading-none">
+                      <h3 className="font-bold text-base sm:text-lg uppercase tracking-wide text-[#3D2E2B]">
                         {cat.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#59443F] font-light max-w-xs">
-                        {cat.subtitle}
-                      </p>
                     </div>
-                    
-                    {/* Tools List */}
-                    <div className="flex flex-col gap-6 sm:gap-8 mt-2 md:mt-0">
-                      {cat.tools.map((tool, tIdx) => (
-                        <div key={tIdx} className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 group/tool">
-                          <div className="flex items-center gap-3 min-w-[220px]">
-                            <div className="w-8 h-8 rounded-full bg-[#F5EBE6] flex items-center justify-center text-[#3D2E2B] group-hover/tool:bg-[#E88B73] group-hover/tool:text-white transition-colors duration-300 shrink-0">
-                              {React.cloneElement(tool.icon as React.ReactElement, { className: 'w-4 h-4' })}
-                            </div>
-                            <span className="font-bold text-base sm:text-lg uppercase tracking-wide text-[#3D2E2B] group-hover/tool:text-[#E88B73] transition-colors duration-300">
-                              {tool.name}
-                            </span>
+                    <p className="text-xs text-[#59443F] font-light pl-1">
+                      {cat.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Tools List */}
+                  <div className="space-y-3">
+                    {cat.tools.map((t, tIdx) => (
+                      <div
+                        key={tIdx}
+                        className="p-3.5 rounded-2xl bg-[#FAF6EE] border border-[#E6DCCC] hover:border-[#E88B73]/60 hover:bg-[#F5EBE6] transition-all space-y-2 group/item"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="p-2.5 rounded-xl bg-[#FFFFFF] border border-[#E6DCCC] text-[#3D2E2B] group-hover/item:border-[#E88B73] group-hover/item:text-[#E88B73] shrink-0 flex items-center justify-center transition-colors">
+                            {t.icon}
                           </div>
-                          <p className="text-sm text-[#59443F] font-light leading-snug sm:pt-1">
-                            {tool.desc}
-                          </p>
+                          <span className="text-xs sm:text-sm font-bold text-[#3D2E2B] group-hover/item:text-[#E88B73] transition-colors">
+                            {t.name}
+                          </span>
                         </div>
-                      ))}
-                    </div>
+
+                        {/* Description */}
+                        <p className="text-[11px] text-[#59443F] font-light pl-12">
+                          {t.desc}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </FadeIn>
-            ))}
-          </div>
+              </div>
+            </FadeIn>
+          ))}
         </div>
-
       </div>
     </section>
   );
