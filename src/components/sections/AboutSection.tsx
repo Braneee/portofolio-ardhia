@@ -163,7 +163,6 @@ export function AboutSection() {
 
         <FadeIn delay={0.4} y={20} className="pt-6 flex items-center justify-center gap-4 flex-wrap">
           <DownloadCVButton variant="primary" />
-          <ContactButton />
         </FadeIn>
       </div>
     </section>
