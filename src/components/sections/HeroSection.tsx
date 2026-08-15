@@ -88,9 +88,6 @@ export function HeroSection() {
                   </a>
                 ))}
               </div>
-              <div className="pt-2 border-t border-[#E6DCCC]">
-                <DownloadCVButton variant="primary" className="w-full justify-center" />
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
