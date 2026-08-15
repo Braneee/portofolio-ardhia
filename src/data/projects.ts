@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
     subtitle: "Digital Marketing Handling Project",
     category: "Social Media Campaign",
     featured: true,
-    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200",
+    image: "/images/omah-daster-bestseller.png",
     background: "Omah Daster Eva is a Malang-based women's fashion brand specializing in homewear with distinctive handmade Malang embroidery. The brand already had strong awareness and an established customer base, while the campaign focused on strengthening Instagram performance and supporting online conversion.",
     objective: "To develop and execute an Instagram social media strategy aligned with the target audience and optimize content performance throughout the campaign period.",
     role: "Conducted Instagram content analysis to identify top- and low-performing content formats and audience preferences.",
@@ -62,8 +62,7 @@ export const projectsData: Project[] = [
     },
     evidence: [
       { title: "Content Planning & Strategy", type: "pdf", url: "/projects/omah-daster-eva/content-planning-strategy.pdf" },
-      { title: "Content Execution", type: "gallery", url: "#" },
-      { title: "Performance Analysis", type: "gallery", url: "#" },
+      { title: "Content Execution", type: "gallery", url: "/images/omah-daster-bestseller.png" },
       { title: "Campaign Results", type: "pdf", url: "/projects/omah-daster-eva/campaign-result.pdf" }
     ],
     techStack: ["Instagram Reels", "Meta Business Suite", "Content Strategy"],
