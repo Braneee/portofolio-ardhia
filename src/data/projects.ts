@@ -28,7 +28,8 @@ export const projectsData: Project[] = [
     evidence: [
       { title: "01 Content Planning", type: "gallery", url: "/projects/fortis-seneca/content-planning/image.png" },
       { title: "01 Content Planning (Data)", type: "gallery", url: "/projects/fortis-seneca/content-planning/excel.png" },
-      { title: "03 Content Execution", type: "gallery", url: "#" },
+      { title: "03 Content Execution (Part 1)", type: "gallery", url: "/projects/fortis-seneca/content-execution/part1.png" },
+      { title: "03 Content Execution (Part 2)", type: "gallery", url: "/projects/fortis-seneca/content-execution/part2.png" },
       { title: "04 Performance Highlights", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/main.jpeg" },
       { title: "04 Highlight 2", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-1.jpeg" },
       { title: "04 Highlight 3", type: "gallery", url: "/projects/fortis-seneca/performance-highlight/wa-2.jpeg" },
