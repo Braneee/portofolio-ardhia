@@ -15,7 +15,7 @@ export interface Project {
   category: ProjectCategory;
   featured: boolean;
   image: string;
-  imageFit?: 'contain' | 'cover';
+  imageFit?: 'contain' | 'cover' | 'contain-full' | 'circle';
   
   // Storytelling fields
   background: string;

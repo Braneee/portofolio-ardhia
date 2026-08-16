@@ -88,13 +88,21 @@ export default function ProjectsGallery() {
                   <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E6DCCC] overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:shadow-[#3D2E2B]/5 hover:-translate-y-1">
                     
                     {/* Thumbnail Image */}
-                    <div className={`relative w-full aspect-[4/3] overflow-hidden ${project.imageFit === 'contain' ? 'bg-transparent' : 'bg-[#F5EBE6]'}`}>
-                      <div className={`absolute inset-0 z-10 group-hover:bg-transparent transition-colors duration-500 ${project.imageFit === 'contain' ? '' : 'bg-black/10'}`}></div>
+                    <div className={`relative w-full aspect-[4/3] overflow-hidden ${(project.imageFit === 'contain' || project.imageFit === 'circle') ? 'bg-transparent' : 'bg-[#F5EBE6]'}`}>
+                      <div className={`absolute inset-0 z-10 group-hover:bg-transparent transition-colors duration-500 ${(project.imageFit === 'contain' || project.imageFit === 'circle') ? '' : 'bg-black/10'}`}></div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className={`w-full h-full object-center transition-transform duration-700 group-hover:scale-105 ${project.imageFit === 'contain' ? 'object-contain p-8 sm:p-10' : 'object-cover'}`}
+                        className={
+                          project.imageFit === 'circle' 
+                            ? "absolute inset-0 m-auto h-[85%] w-auto aspect-square rounded-full object-cover shadow-sm transition-transform duration-700 group-hover:scale-105"
+                            : project.imageFit === 'contain-full'
+                            ? "w-full h-full object-contain object-top transition-transform duration-700 group-hover:scale-105"
+                            : project.imageFit === 'contain'
+                            ? "w-full h-full object-contain p-8 sm:p-10 object-center transition-transform duration-700 group-hover:scale-105"
+                            : "w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        }
                       />
                       
                       {/* View Project Overlay */}
