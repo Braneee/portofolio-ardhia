@@ -56,7 +56,7 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
               <div className="relative w-[260px] sm:w-[280px] h-40 sm:h-48 bg-[#F5EBE6] border border-[#E6DCCC] rounded-[20px] overflow-hidden flex flex-col items-center justify-center cursor-pointer transition-transform hover:-translate-y-1 group">
                 {ev.type === 'gallery' && ev.url !== '#' ? (
                   <>
-                    <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <img src={ev.url} alt={ev.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110" />
                   </>
                 ) : ev.type === 'pdf' ? (
                   <>
