@@ -97,6 +97,8 @@ export default function ProjectsGallery() {
                         className={
                           project.imageFit === 'circle' 
                             ? "absolute inset-0 m-auto h-[85%] w-auto aspect-square rounded-full object-cover shadow-sm transition-transform duration-700 group-hover:scale-105"
+                            : project.imageFit === 'cover-left'
+                            ? "w-full h-full object-cover object-left transition-transform duration-700 group-hover:scale-105"
                             : project.imageFit === 'contain-full'
                             ? "w-full h-full object-contain object-top transition-transform duration-700 group-hover:scale-105"
                             : project.imageFit === 'contain'

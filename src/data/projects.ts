@@ -192,7 +192,7 @@ export const projectsData: Project[] = [
     category: "SEO & Copywriting",
     featured: false,
     image: "/projects/seo-optimization/seo.png",
-    imageFit: "contain-full",
+    imageFit: "cover-left",
     background: "This project focused on developing SEO-optimized content around travel destinations in Bogor, targeting users searching for relevant travel recommendations.",
     objective: "To create search-intent-driven content that targets relevant keywords and provides useful information for users planning a trip to Bogor.",
     role: "Conducted keyword research using Ahrefs, Google Trends, and Google Keyword Planner.",
