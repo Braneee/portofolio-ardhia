@@ -94,7 +94,7 @@ export default function ProjectsGallery() {
                       <img 
                         src={project.image} 
                         alt={project.title}
-                        className={`w-full h-full object-center transition-transform duration-700 group-hover:scale-105 ${project.imageFit === 'contain' ? 'object-contain p-2 sm:p-4' : 'object-cover'}`}
+                        className={`w-full h-full object-center transition-transform duration-700 group-hover:scale-105 ${project.imageFit === 'contain' ? 'object-contain p-8 sm:p-10' : 'object-cover'}`}
                       />
                       
                       {/* View Project Overlay */}
