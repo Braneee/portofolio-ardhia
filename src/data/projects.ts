@@ -105,8 +105,9 @@ export const projectsData: Project[] = [
     subtitle: "Social Media Marketing",
     category: "Social Media Campaign",
     featured: false,
-    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1200",
-    background: "Fin’s Kitchen is a dessert brand targeting young consumers aged 18–35 in Pekalongan and surrounding areas. The brand had strong potential for reach through Instagram, with its top Reels reaching 28.9K views despite a relatively small follower base.",
+    image: "/projects/fins-kitchen/social-media.png",
+    imageFit: "cover-left",
+    background: "Fin's Kitchen is a dessert brand targeting young consumers aged 18–35 in Pekalongan and surrounding areas. The brand had strong potential for reach through Instagram, with its top Reels reaching 28.9K views despite a relatively small follower base.",
     objective: "To develop a social media marketing campaign that strengthens brand awareness, engagement, and conversion through relatable and visually appealing dessert content.",
     role: "Conducted audience and social media analysis to identify audience characteristics, interests, and content opportunities.",
     process: [
