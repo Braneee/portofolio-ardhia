@@ -88,8 +88,8 @@ export default function ProjectsGallery() {
                   <div className="bg-white rounded-[24px] sm:rounded-[32px] border border-[#E6DCCC] overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:shadow-[#3D2E2B]/5 hover:-translate-y-1">
                     
                     {/* Thumbnail Image */}
-                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F5EBE6]">
-                      <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div className={`relative w-full aspect-[4/3] overflow-hidden ${project.imageFit === 'contain' ? 'bg-transparent' : 'bg-[#F5EBE6]'}`}>
+                      <div className={`absolute inset-0 z-10 group-hover:bg-transparent transition-colors duration-500 ${project.imageFit === 'contain' ? '' : 'bg-black/10'}`}></div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={project.image} 
