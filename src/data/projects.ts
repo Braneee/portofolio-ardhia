@@ -238,9 +238,7 @@ export const projectsData: Project[] = [
     },
     evidence: [
       { title: "Instagram profile", type: "gallery", url: "/images/kukiss-bae-jar.png" },
-      { title: "Selected content", type: "gallery", url: "/images/kukiss-bae-cookies.jpg" },
-      { title: "Campaign/promo content", type: "gallery", url: "/images/kukiss-bae-3.jpg" },
-      { title: "Instagram Insights", type: "gallery", url: "/images/kukiss-bae-4.png" }
+      { title: "Selected content", type: "gallery", url: "/images/kukiss-bae-cookies.jpg" }
     ],
     techStack: ["Branding", "Social Media Marketing", "CRM", "Business Operations"],
     caseStudyAvailable: true
