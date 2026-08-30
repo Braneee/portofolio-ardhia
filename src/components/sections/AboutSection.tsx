@@ -84,7 +84,7 @@ function GoldenWreathBottom({ className = 'w-36 h-36' }: { className?: string })
 
 export function AboutSection() {
   const aboutText =
-    "With hands-on experience in digital marketing, social media management, and content strategy, i focus on short-form video production, AIDA copywriting, and SEO growth, i truly enjoy working with consumer brands that aim to stand out and reach 163% of target KPI. Let's build something incredible together!";
+    "I’m a social media enthusiast who enjoys turning everyday ideas, products, and brand stories into content that people want to stop, watch, and engage with. I’m particularly interested in F&B, lifestyle, and consumer brands, where creativity and audience behaviour play a big role in shaping how content performs. \n\nWith hands-on experience in social media management and content creation, I specialize in short-form video production, content strategy, copywriting, and performance-driven content development. From developing ideas and storyboards to writing copy, briefing creatives, and editing videos, I enjoy bringing content from idea to execution. I’ve also contributed to achieving 163% of the Instagram Impressions target by combining creative thinking with a strong focus on content performance.";
 
   return (
     <section
