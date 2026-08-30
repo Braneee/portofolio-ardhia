@@ -28,7 +28,7 @@ export function EducationSection() {
         <div className="relative w-full z-0">
           
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#6B8065] via-[#C4A468] via-[60%] to-[#E88B73] to-[80%] shadow-[0_0_15px_rgba(107,128,101,0.3)] z-0" style={{ top: 0, bottom: "-500px" }} />
+          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1  shadow-[0_0_15px_rgba(107,128,101,0.3)] z-0" style={{ top: 0, bottom: "-500px", background: "linear-gradient(to bottom, #6B8065 0%, #C4A468 40%, #E88B73 70%, #E88B73 100%)" }} />
 
           {/* Cards Stack */}
           <div className="space-y-10 sm:space-y-16 relative z-10">
