@@ -14,21 +14,25 @@ export function HeroSection() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'education', 'experience', 'tech-stack', 'project-gallery', 'feature-campaign', 'services', 'contact'];
+      const sections = ['about', 'education', 'experience', 'tech-stack', 'brands', 'project-gallery', 'feature-campaign', 'services', 'contact'];
       let current = '';
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // If the section's top is near the top of the viewport (with some buffer)
-          if (rect.top <= 250 && rect.bottom >= 250) {
+          // If the section is in the upper half of the viewport
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
             current = section;
-            break;
           }
         }
       }
       
+      // If we are looking at the brands section, highlight the gallery in the navbar
+      if (current === 'brands') {
+        current = 'project-gallery';
+      }
+
       // If we are at the very top of the page, no section is active
       if (window.scrollY < 200) {
         current = '';

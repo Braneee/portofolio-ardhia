@@ -18,7 +18,7 @@ const BRANDS = [
 
 export function BrandsSection() {
   return (
-    <section className="w-full bg-[#FAF4EA] py-16 sm:py-20 border-y border-[#E6DCCC] overflow-hidden flex flex-col items-center">
+    <section id="brands" className="w-full bg-[#FAF4EA] py-16 sm:py-20 border-y border-[#E6DCCC] overflow-hidden flex flex-col items-center">
       <h3 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#3D2E2B]/50 mb-8 sm:mb-10 text-center">
         Brands Collaborated With
       </h3>
