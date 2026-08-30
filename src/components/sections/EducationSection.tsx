@@ -7,7 +7,7 @@ import { Calendar, MapPin, Award, GraduationCap } from 'lucide-react';
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-10 bg-[#F9F6F0] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
+    <section id="education" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-10 bg-[#F9F6F0] text-[#3D2E2B] relative z-10 w-full  overflow-hidden">
       
       {/* Soft Ambient Orbs */}
       <div className="absolute top-[30%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#A8BBA2]/25 blur-[130px] pointer-events-none" />
@@ -28,7 +28,7 @@ export function EducationSection() {
         <div className="relative w-full z-0">
           
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#6B8065] via-[#C4A468] to-[#E88B73] shadow-[0_0_15px_rgba(107,128,101,0.3)] z-0" style={{ top: 0, bottom: "-500px" }} />
+          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#6B8065] via-[#C4A468] via-[60%] to-[#E88B73] to-[80%] shadow-[0_0_15px_rgba(107,128,101,0.3)] z-0" style={{ top: 0, bottom: "-500px" }} />
 
           {/* Cards Stack */}
           <div className="space-y-10 sm:space-y-16 relative z-10">
