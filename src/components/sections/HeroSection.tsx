@@ -33,9 +33,12 @@ export function HeroSection() {
         <FadeIn delay={0} y={-20}>
           <nav className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#FAF6EE]/95 backdrop-blur-2xl border border-[#E6DCCC] shadow-lg shadow-[#3D2E2B]/5">
             {/* Brand Logo */}
-            <a href="#" className="font-black tracking-tighter uppercase text-sm sm:text-base text-[#3D2E2B] flex items-center gap-2 pl-1 sm:pl-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#E88B73] animate-pulse" />
-              <span className="bg-gradient-to-r from-[#3D2E2B] via-[#E88B73] to-[#C4A468] bg-clip-text text-transparent">ARDHIA</span>
+            <a href="#" className="flex items-center gap-2 pl-1 sm:pl-2 group">
+              <img 
+                src="/images/logo-ar.png" 
+                alt="ARDHIA Logo" 
+                className="h-7 sm:h-8 w-auto object-contain mix-blend-darken group-hover:scale-105 transition-transform duration-300"
+              />
             </a>
 
             {/* Desktop Nav Links */}
