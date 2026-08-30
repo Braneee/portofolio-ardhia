@@ -15,8 +15,6 @@ const BRANDS = [
   { name: "KUKISS.BAE", src: "/images/brands/kukiss-bae.png" }
 ];
 
-// Double the array for seamless marquee loop
-const MARQUEE_ITEMS = [...BRANDS, ...BRANDS];
 
 export function BrandsSection() {
   return (
@@ -25,23 +23,54 @@ export function BrandsSection() {
         Brands Collaborated With
       </h3>
       
-      <div className="relative w-full flex overflow-hidden">
+      <div className="relative w-full flex overflow-hidden group">
         {/* Left/Right Fade Masks */}
         <div className="absolute top-0 left-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FAF4EA] to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 right-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF4EA] to-transparent z-10 pointer-events-none" />
         
+        {/* First Marquee Set */}
         <motion.div
-          animate={{ x: ["0%", "-50%"] }}
+          animate={{ x: ["0%", "-100%"] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 30, // speed
+            duration: 25, // speed
           }}
-          className="flex w-max shrink-0 items-center gap-12 sm:gap-20 pr-12 sm:pr-20"
+          className="flex shrink-0 items-center gap-12 sm:gap-20 pr-12 sm:pr-20"
         >
-          {MARQUEE_ITEMS.map((brand, idx) => (
+          {BRANDS.map((brand, idx) => (
             <div 
-              key={idx} 
+              key={`set1-${idx}`} 
+              className="flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer h-12 sm:h-16"
+            >
+              {brand.src ? (
+                <img 
+                  src={brand.src} 
+                  alt={brand.name} 
+                  className="max-h-full max-w-[120px] sm:max-w-[150px] object-contain rounded-md" 
+                />
+              ) : (
+                <span className="text-xl sm:text-2xl font-black uppercase text-[#3D2E2B] tracking-tight">
+                  {brand.name}
+                </span>
+              )}
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Second Marquee Set */}
+        <motion.div
+          animate={{ x: ["0%", "-100%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 25, // speed
+          }}
+          className="flex shrink-0 items-center gap-12 sm:gap-20 pr-12 sm:pr-20"
+        >
+          {BRANDS.map((brand, idx) => (
+            <div 
+              key={`set2-${idx}`} 
               className="flex items-center justify-center opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer h-12 sm:h-16"
             >
               {brand.src ? (
