@@ -35,3 +35,15 @@ remove_background.py
 /*.mov
 /*.pdf
 .agent/
+
+# Temporary Data and Scripts
+*.docx
+*.txt
+*.py
+*.md
+!README.md
+scratch/
+temp_dl/
+*.mov
+*.mp4
+*.tsbuildinfo

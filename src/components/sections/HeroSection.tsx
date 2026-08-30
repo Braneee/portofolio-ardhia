@@ -212,7 +212,7 @@ export function HeroSection() {
         </FadeIn>
 
         <FadeIn delay={0.5} y={20} className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3 w-full sm:w-auto px-2">
-          <DownloadCVButton variant="outline" className="w-full sm:w-auto justify-center" />
+          <DownloadCVButton variant="primary" className="w-full sm:w-auto justify-center" />
           <ContactButton className="w-full sm:w-auto justify-center" />
         </FadeIn>
       </div>
