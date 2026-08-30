@@ -9,10 +9,10 @@ const BRANDS = [
   { name: "Formula Oral Care", src: "/images/brands/formula.jpg" },
   { name: "Omah Daster Eva", src: "/images/brands/omah-daster-eva.png" },
   { name: "SARENA Parfum", src: "/images/brands/sarena-parfum.jpg" },
-  { name: "Fin's Kitchen", src: null },
-  { name: "Lamis Resto", src: null },
-  { name: "Kandang Jeletot", src: null },
-  { name: "KUKISS.BAE", src: null }
+  { name: "Fin's Kitchen", src: "/images/brands/fins-kitchen.png" },
+  { name: "Lamis Resto", src: "/images/lamis-logo.png" },
+  { name: "Kandang Jeletot", src: "/images/jeletot-logo.png" },
+  { name: "KUKISS.BAE", src: "/images/brands/kukiss-bae.png" }
 ];
 
 // Double the array for seamless marquee loop
