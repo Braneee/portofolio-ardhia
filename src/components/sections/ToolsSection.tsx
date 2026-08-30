@@ -137,7 +137,7 @@ const toolCategories: ToolCategory[] = [
 
 export function ToolsSection() {
   return (
-    <section className="py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-10 bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
+    <section id="tech-stack" className="py-20 sm:py-24 md:py-32 px-5 sm:px-8 md:px-10 bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
       
       {/* Soft Ambient Orbs */}
       <div className="absolute top-[20%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#6B8065]/20 blur-[130px] pointer-events-none" />

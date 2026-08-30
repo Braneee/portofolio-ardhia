@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FadeIn } from '../ui/FadeIn';
 import { LiveProjectButton } from '../ui/LiveProjectButton';
 import { Instagram, Video, ShoppingBag, ExternalLink, Play, Pause, Volume2, VolumeX, Sparkles, TrendingUp, Maximize2 } from 'lucide-react';
@@ -252,16 +252,11 @@ function Card({
   project,
   index,
   total,
-  progress,
 }: {
   project: Project;
   index: number;
   total: number;
-  progress: any;
 }) {
-  const targetScale = 1 - (total - index - 1) * 0.04;
-  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
-
   const renderPlatformIcon = (type: 'instagram' | 'tiktok' | 'web' | 'ecommerce') => {
     if (type === 'instagram') {
       return <Instagram className="w-3.5 h-3.5 text-[#E88B73]" />;
@@ -273,12 +268,8 @@ function Card({
   };
 
   return (
-    <div className="sticky top-12 sm:top-16 flex items-center justify-center mb-8 sm:mb-12">
-      <motion.div
-        style={{
-          scale,
-          top: `${index * 14}px`,
-        }}
+    <FadeIn delay={0.1} y={30} className="flex items-center justify-center mb-12 sm:mb-16">
+      <div
         className="relative w-full max-w-6xl rounded-[20px] sm:rounded-[32px] md:rounded-[38px] border-2 border-[#E6DCCC] bg-[#FFFFFF] p-3 sm:p-4.5 md:p-5 flex flex-col justify-between overflow-hidden shadow-xl shadow-[#3D2E2B]/5 space-y-2.5 sm:space-y-3"
       >
         {/* Top Header Row */}
@@ -482,32 +473,25 @@ function Card({
             </div>
           </div>
         )}
-      </motion.div>
-    </div>
+      </div>
+    </FadeIn>
   );
 }
 
 export function ProjectsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
   return (
     <section
-      id="projects"
-      ref={containerRef}
+      id="feature-campaign"
       className="bg-gradient-to-b from-[#F5F0E6] via-[#FAF4EA] to-[#F9F6F0] border-b border-[#E6DCCC] text-[#3D2E2B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-10 px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-24 pb-20 sm:pb-28 w-full"
     >
       {/* Heading */}
       <FadeIn delay={0} y={40} className="mb-10 sm:mb-14 md:mb-16 text-center">
-        <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(2.5rem,10vw,140px)]">
-          Projects
+        <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(2.5rem,8vw,100px)] max-w-4xl mx-auto">
+          Feature Campaign
         </h2>
       </FadeIn>
 
-      {/* Sticky Stacking Cards */}
+      {/* Cards Grid */}
       <div className="relative max-w-6xl mx-auto flex flex-col">
         {projects.map((project, idx) => (
           <Card
@@ -515,23 +499,8 @@ export function ProjectsSection() {
             project={project}
             index={idx}
             total={projects.length}
-            progress={scrollYProgress}
           />
         ))}
-      </div>
-
-      {/* View All Projects CTA */}
-      <div className="mt-16 sm:mt-24 w-full flex justify-center pb-10">
-        <a
-          href="/projects"
-          className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-[#3D2E2B] text-[#FAF4EA] rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-xl hover:shadow-2xl"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#E88B73] to-[#C4A468] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <span className="relative z-10 font-bold uppercase tracking-widest text-xs sm:text-sm">
-            View All Campaigns & Projects
-          </span>
-          <ExternalLink className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </a>
       </div>
     </section>
   );

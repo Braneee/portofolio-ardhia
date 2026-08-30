@@ -35,10 +35,12 @@ export function Navbar() {
 
   const navLinks = [
     { name: 'About', href: '#about', id: 'about' },
+    { name: 'Education', href: '#education', id: 'education' },
     { name: 'Experience', href: '#experience', id: 'experience' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Tech Stack', href: '#tech-stack', id: 'tech-stack' },
-    { name: 'Achievements', href: '#achievements', id: 'achievements' },
+    { name: 'Skills', href: '#tech-stack', id: 'tech-stack' },
+    { name: 'Gallery', href: '#project-gallery', id: 'project-gallery' },
+    { name: 'Campaign', href: '#feature-campaign', id: 'feature-campaign' },
+    { name: 'Services', href: '#services', id: 'services' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
