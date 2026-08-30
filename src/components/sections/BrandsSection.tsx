@@ -16,7 +16,7 @@ const BRANDS = [
 ];
 
 // Double the array for seamless marquee loop
-const MARQUEE_ITEMS = [...BRANDS, ...BRANDS, ...BRANDS];
+const MARQUEE_ITEMS = [...BRANDS, ...BRANDS];
 
 export function BrandsSection() {
   return (
@@ -31,13 +31,13 @@ export function BrandsSection() {
         <div className="absolute top-0 right-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FAF4EA] to-transparent z-10 pointer-events-none" />
         
         <motion.div
-          animate={{ x: [0, -1035] }} // Adjust value based on actual width
+          animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
             duration: 30, // speed
           }}
-          className="flex flex-nowrap items-center gap-12 sm:gap-20 whitespace-nowrap px-4"
+          className="flex w-max shrink-0 items-center gap-12 sm:gap-20 pr-12 sm:pr-20"
         >
           {MARQUEE_ITEMS.map((brand, idx) => (
             <div 
