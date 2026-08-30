@@ -282,8 +282,8 @@ function Card({
               {project.name}
             </h3>
             {/* Clean KPI Win Badge */}
-            <span className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-full bg-[#E88B73] text-white shadow-md font-bold flex items-center gap-1.5">
-              <TrendingUp className="w-4 h-4 text-white/90" /> {project.kpiMetric}
+            <span className="text-xs sm:text-sm font-mono px-3.5 py-1.5 rounded-full bg-[#3D2E2B] text-[#FAF6EE] shadow-md font-bold flex items-center gap-1.5">
+              <TrendingUp className="w-4 h-4 text-[#FAF6EE]/90" /> {project.kpiMetric}
             </span>
           </div>
 
