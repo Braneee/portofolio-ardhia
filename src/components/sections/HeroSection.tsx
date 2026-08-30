@@ -12,10 +12,14 @@ export function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
+    { name: 'Home', href: '#' },
     { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Skills', href: '#tech-stack' },
+    { name: 'Gallery', href: '#project-gallery' },
+    { name: 'Campaign', href: '#projects' },
     { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -38,17 +42,17 @@ export function HeroSection() {
             </a>
 
             {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-1 sm:gap-2">
+            <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-3 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#3D2E2B]/80 hover:text-[#3D2E2B] hover:bg-[#E88B73]/15 transition-all duration-200"
+                  className="px-2 lg:px-3 py-1.5 rounded-full text-[10px] lg:text-xs font-mono font-semibold uppercase tracking-wider text-[#3D2E2B]/80 hover:text-[#3D2E2B] hover:bg-[#E88B73]/15 transition-all duration-200"
                 >
                   {link.name}
                 </a>
               ))}
-              <DownloadCVButton variant="nav" className="ml-2" />
+              <DownloadCVButton variant="nav" className="ml-1 lg:ml-2" />
             </div>
 
             {/* Mobile Nav Actions (CV + Hamburger Button) */}
