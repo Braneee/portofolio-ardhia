@@ -9,11 +9,6 @@ interface DownloadCVButtonProps {
 }
 
 export function DownloadCVButton({ variant = 'primary', className = '' }: DownloadCVButtonProps) {
-  const signatureStyle = {
-    background: 'linear-gradient(135deg, #E88B73 0%, #F4A28C 45%, #C4A468 100%)',
-    boxShadow: '0px 4px 14px rgba(232, 139, 115, 0.35)',
-  };
-
   if (variant === 'nav') {
     return (
       <a
@@ -48,10 +43,9 @@ export function DownloadCVButton({ variant = 'primary', className = '' }: Downlo
       download="CV_ARDHIA_NURUL_VITRA_ISKANDAR.pdf"
       target="_blank"
       rel="noopener noreferrer"
-      style={signatureStyle}
-      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-[#2D211F] font-extrabold text-xs sm:text-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300 shadow-xl ${className}`}
+      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#E88B73] text-white font-extrabold text-xs sm:text-sm uppercase tracking-widest hover:scale-105 hover:bg-[#d67a63] transition-all duration-300 shadow-xl shadow-[#E88B73]/30 ${className}`}
     >
-      <Download className="w-4 h-4" /> Download CV (PDF)
+      <Download className="w-4 h-4 text-white" /> Download CV (PDF)
     </a>
   );
 }

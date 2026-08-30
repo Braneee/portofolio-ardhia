@@ -4,7 +4,6 @@ import React from 'react';
 import { FadeIn } from '../ui/FadeIn';
 import { AnimatedText } from '../ui/AnimatedText';
 import { ContactButton } from '../ui/ContactButton';
-import { DownloadCVButton } from '../ui/DownloadCVButton';
 
 // Elegant Botanical & Floral SVG Illustrations
 function FlowerBloomLeft({ className = 'w-36 h-36' }: { className?: string }) {
@@ -160,10 +159,6 @@ export function AboutSection() {
         <div className="py-4 px-2 sm:px-6 flex justify-center">
           <AnimatedText text={aboutText} />
         </div>
-
-        <FadeIn delay={0.4} y={20} className="pt-6 flex items-center justify-center gap-4 flex-wrap">
-          <DownloadCVButton variant="primary" />
-        </FadeIn>
       </div>
     </section>
   );
