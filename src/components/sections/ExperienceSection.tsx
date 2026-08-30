@@ -26,7 +26,7 @@ export function ExperienceSection() {
         <div className="relative w-full">
           
           {/* Vertical Line */}
-          <div className="absolute top-0 bottom-0 left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#E88B73] via-[#C4A468] to-[#6B8065] shadow-[0_0_15px_rgba(232,139,115,0.3)] z-0 rounded-full" />
+          <div className="absolute bottom-0 left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#E88B73] via-[#C4A468] to-[#6B8065] shadow-[0_0_15px_rgba(232,139,115,0.3)] z-0 rounded-full" style={{ top: "-200px" }} />
 
           {/* Cards Stack */}
           <div className="space-y-10 sm:space-y-16 relative z-10">
@@ -211,3 +211,4 @@ export function ExperienceSection() {
     </section>
   );
 }
+

@@ -26,7 +26,7 @@ export function EducationSection() {
         <div className="relative w-full">
           
           {/* Vertical Line */}
-          <div className="absolute top-0 bottom-0 left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#E88B73] via-[#C4A468] to-[#6B8065] shadow-[0_0_15px_rgba(232,139,115,0.3)] z-0 rounded-full" />
+          <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#E88B73] via-[#C4A468] to-[#6B8065] shadow-[0_0_15px_rgba(232,139,115,0.3)] z-0 rounded-full" style={{ top: 0, bottom: "-200px" }} />
 
           {/* Cards Stack */}
           <div className="space-y-10 sm:space-y-16 relative z-10">
@@ -36,8 +36,7 @@ export function EducationSection() {
               <div className="relative flex items-center justify-between w-full min-h-[120px]">
                 
                 {/* DESKTOP LEFT SLOT */}
-                <div className="w-full md:w-[calc(50%-2.5rem)] hidden md:block">
-                  <div className="group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
+                <div className="w-full md:w-[calc(50%-2.5rem)] hidden md:block"><div className="hidden group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
                     {/* Inner soft glow */}
                     <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
                     
@@ -75,7 +74,7 @@ export function EducationSection() {
 
                 {/* RIGHT / MOBILE SLOT */}
                 <div className="w-[calc(100%-3rem)] ml-auto md:ml-0 md:w-[calc(50%-2.5rem)]">
-                  <div className="block md:hidden group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
+                  <div className="group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
                     {/* Inner soft glow */}
                     <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
                     
@@ -111,7 +110,7 @@ export function EducationSection() {
 
 
 {educationData.map((exp, idx) => {
-              const isRight = idx % 2 === 0;
+              const isRight = idx % 2 !== 0;
 
               return (
                 <FadeIn key={exp.id} delay={idx * 0.15} y={30}>
@@ -290,3 +289,7 @@ export function EducationSection() {
     </section>
   );
 }
+
+
+
+
