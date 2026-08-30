@@ -14,7 +14,7 @@ export function HeroSection() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'project-gallery', 'feature-campaign', 'services', 'contact'];
+      const sections = ['about', 'education', 'experience', 'tech-stack', 'project-gallery', 'feature-campaign', 'services', 'contact'];
       let current = '';
 
       for (const section of sections) {
@@ -46,7 +46,9 @@ export function HeroSection() {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Edu', href: '#education' },
+    { name: 'Exp', href: '#experience' },
+    { name: 'Skills', href: '#tech-stack' },
     { name: 'Gallery', href: '#project-gallery' },
     { name: 'Campaign', href: '#feature-campaign' },
     { name: 'Services', href: '#services' },
@@ -77,14 +79,14 @@ export function HeroSection() {
             </a>
 
             {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href.substring(1) || (activeSection === '' && link.name === 'About');
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`relative px-4 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-colors duration-300 z-10 ${
+                    className={`relative px-2 lg:px-3 py-1.5 lg:py-2 rounded-full text-[10px] lg:text-[11px] font-mono font-bold uppercase tracking-wider transition-colors duration-300 z-10 ${
                       isActive ? 'text-[#3D2E2B]' : 'text-[#FAF6EE]/60 hover:text-[#FAF6EE]'
                     }`}
                   >
