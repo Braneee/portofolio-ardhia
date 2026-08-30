@@ -16,4 +16,5 @@ export const educationData: ExperienceItem[] = [
     ],
     technologies: ["Ahrefs", "Google Trends", "Meta Ads Manager", "AIDA Framework", "Google Keyword Planner", "Canva"],
     featured: true
+  }
 ];
