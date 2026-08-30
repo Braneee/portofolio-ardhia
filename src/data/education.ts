@@ -16,18 +16,4 @@ export const educationData: ExperienceItem[] = [
     ],
     technologies: ["Ahrefs", "Google Trends", "Meta Ads Manager", "AIDA Framework", "Google Keyword Planner", "Canva"],
     featured: true
-  },
-  {
-    id: "edu-2",
-    role: "S1 Urban & Regional Planning",
-    company: "University Name",
-    companyUrl: "",
-    location: "Indonesia",
-    period: "Graduation Year",
-    type: "Degree",
-    description: "Studied Urban and Regional Planning.",
-    achievements: [],
-    technologies: [],
-    featured: true
-  }
 ];
