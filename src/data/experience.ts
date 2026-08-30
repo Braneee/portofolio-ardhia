@@ -9,10 +9,11 @@ export const experienceData: ExperienceItem[] = [
     location: "Brebes, Central Java",
     period: "July 2025 – Present",
     type: "Business Owner",
-    description: "Founded and developed an online homemade cookie business from the ground up, overseeing branding, social media, marketing, and daily operations.",
+    description: "An online homemade cookie business based in Brebes, Central Java, offering freshly made soft cookies through a pre-order system.",
     achievements: [
-      "Planned and created Instagram content and promotional campaigns around seasonal moments, payday, double-date campaigns, and product bundling initiatives, achieving a 19% engagement rate.",
-      "Managed pre-order operations, with orders typically starting from 50 soft cookies per order cycle, while developing promotional content that reached 88.3% non-followers."
+      "Built and managed the business from the ground up, overseeing branding, social media, marketing activities, and day-to-day operations.",
+      "Planned and created Instagram content and promotional campaigns around seasonal moments, payday, double-date campaigns, and product bundling, achieving a 19% engagement rate.",
+      "Managed pre-order operations and promotional content, with orders typically starting from 50 soft cookies per order cycle and content reaching 88.3% non-followers."
     ],
     technologies: ["Branding", "Social Media Marketing", "Meta Business Suite", "Content Strategy", "CRM"],
     featured: true
@@ -25,10 +26,11 @@ export const experienceData: ExperienceItem[] = [
     location: "Malaysia",
     period: "Dec 2025 – June 2026",
     type: "Freelance/Remote",
-    description: "Created and planned TikTok content including storyboards, scripts, copywriting, and creative briefs for Nalpamara Herbal Soap and Formula Oral Care. Produced 100+ TikTok content pieces across both brands.",
+    description: "Fortis Seneca Malaysia is an FMCG company specializing in bringing personal care and consumer products to the Malaysian market through brand management, digital marketing, and e-commerce.",
     achievements: [
-      "Conducted trend research and competitor analysis to develop audience-focused content and creative concepts based on TikTok trends, audience insights, and brand objectives. Achieved multiple videos with 15K+ organic views.",
-      "Collaborated with designers and internal teams to execute promotional campaigns and maintain consistent brand messaging."
+      "Developed and produced 100+ TikTok content pieces for Nalpamara Herbal Soap and Formula Oral Care, covering content ideation, storyboarding, scripting, copywriting, and video editing.",
+      "Conducted trend, competitor, and audience research to develop relevant content concepts, adapting hooks, storytelling, and messaging to align with brand objectives and audience interests.",
+      "Achieved multiple videos with 15K+ organic views by translating TikTok trends and audience insights into engaging content formats designed to increase organic reach and engagement."
     ],
     technologies: ["TikTok Marketing", "CapCut", "Scriptwriting", "Copywriting", "Trend Analysis", "Social Blade"],
     featured: true
