@@ -7,7 +7,7 @@ import { Calendar, MapPin, Award, GraduationCap } from 'lucide-react';
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-10 bg-gradient-to-b from-[#F9F6F0] via-[#FAF4EA] to-[#F5F0E6] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
+    <section id="experience" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-10 bg-[#F9F6F0] text-[#3D2E2B] relative z-10 w-full border-b border-[#E6DCCC] overflow-hidden">
       
       {/* Soft Ambient Orbs */}
       <div className="absolute top-[30%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#A8BBA2]/25 blur-[130px] pointer-events-none" />
@@ -17,7 +17,7 @@ export function ExperienceSection() {
         
         {/* Section Header */}
         <FadeIn delay={0} y={40} className="text-center relative z-20">
-            <span className="bg-[#F5F0E6] px-4 md:px-10 py-2 rounded-2xl relative z-20 inline-block ring-2 ring-white/50 shadow-[0_4px_20px_rgba(245,240,230,1)]">
+            <span className="bg-[#F9F6F0] px-6 md:px-10 py-2 relative z-20 inline-block">
               <h2 className="hero-heading font-black uppercase text-[clamp(2.3rem,8vw,120px)] leading-none tracking-tight text-[#3D2E2B]">
                 Experience
               </h2>
