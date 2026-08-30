@@ -17,10 +17,10 @@ export default function Home() {
       <EducationSection />
       <ExperienceSection />
       <ToolsSection />
+      <BrandsSection />
       <ProjectGallerySection />
       <ProjectsSection />
       <ServicesSection />
-      <BrandsSection />
       <ContactSection />
     </main>
   );
