@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
@@ -10,6 +10,39 @@ import { DownloadCVButton } from '../ui/DownloadCVButton';
 
 export function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'experience', 'project-gallery', 'feature-campaign', 'services', 'contact'];
+      let current = '';
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section's top is near the top of the viewport (with some buffer)
+          if (rect.top <= 250 && rect.bottom >= 250) {
+            current = section;
+            break;
+          }
+        }
+      }
+      
+      // If we are at the very top of the page, no section is active
+      if (window.scrollY < 200) {
+        current = '';
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -31,27 +64,41 @@ export function HeroSection() {
       {/* Floating Glassmorphic Navbar */}
       <header className="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
         <FadeIn delay={0} y={-20}>
-          <nav className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#FAF6EE]/95 backdrop-blur-2xl border border-[#E6DCCC] shadow-lg shadow-[#3D2E2B]/5">
-            {/* Brand Logo */}
-            <a href="#" className="flex items-center gap-2 pl-1 sm:pl-2 group">
-              <img 
-                src="/images/logo-ar.png" 
-                alt="ARDHIA Logo" 
-                className="h-7 sm:h-8 w-auto object-contain mix-blend-darken group-hover:scale-105 transition-transform duration-300"
-              />
+          <nav className="flex items-center justify-between pl-2 pr-3 py-2 sm:py-2.5 rounded-full bg-[#241B19]/95 backdrop-blur-2xl border border-[#4A3B39] shadow-2xl shadow-[#3D2E2B]/30">
+            {/* Brand Logo in White Circle */}
+            <a href="#" className="flex items-center gap-2 group">
+              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#FDFDFD] flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/images/logo-ar.png" 
+                  alt="ARDHIA Logo" 
+                  className="h-6 sm:h-7 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
             </a>
 
             {/* Desktop Nav Links */}
-            <div className="hidden md:flex items-center gap-1 sm:gap-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="px-3 py-1.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider text-[#3D2E2B]/80 hover:text-[#3D2E2B] hover:bg-[#E88B73]/15 transition-all duration-200"
-                >
-                  {link.name}
-                </a>
-              ))}
+            <div className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.href.substring(1) || (activeSection === '' && link.name === 'About');
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`relative px-4 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider transition-colors duration-300 z-10 ${
+                      isActive ? 'text-[#3D2E2B]' : 'text-[#FAF6EE]/60 hover:text-[#FAF6EE]'
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNavPill"
+                        className="absolute inset-0 bg-[#FAF6EE] rounded-full z-[-1]"
+                        transition={{ type: 'spring', stiffness: 450, damping: 30 }}
+                      />
+                    )}
+                    {link.name}
+                  </a>
+                );
+              })}
               <DownloadCVButton variant="nav" className="ml-2" />
             </div>
 
@@ -60,10 +107,10 @@ export function HeroSection() {
               <DownloadCVButton variant="nav" />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-full bg-[#F5EBE6] text-[#3D2E2B] border border-[#F4A28C]/40 hover:bg-[#E88B73]/20 transition-colors"
+                className="p-1.5 rounded-full bg-[#3D2E2B] text-[#FAF6EE] border border-[#59443F] hover:bg-[#59443F] transition-colors"
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-4 h-4 text-[#E88B73]" /> : <Menu className="w-4 h-4 text-[#3D2E2B]" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </nav>
