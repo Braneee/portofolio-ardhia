@@ -31,7 +31,86 @@ export function EducationSection() {
           {/* Cards Stack */}
           <div className="space-y-10 sm:space-y-16 relative z-10">
             
-            {educationData.map((exp, idx) => {
+                        {/* Education Card */}
+            <FadeIn delay={0.45} y={30}>
+              <div className="relative flex items-center justify-between w-full min-h-[120px]">
+                
+                {/* DESKTOP LEFT SLOT */}
+                <div className="w-full md:w-[calc(50%-2.5rem)] hidden md:block">
+                  <div className="group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
+                    {/* Inner soft glow */}
+                    <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
+                    
+                    <div className="space-y-3 relative z-10">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white border border-[#E6DCCC] text-[#6B8065] flex items-center gap-1 font-bold shadow-sm">
+                          2020 &ndash; 2024
+                        </span>
+                        <span className="text-[10px] font-mono text-[#C4A468] font-bold flex items-center gap-1 bg-[#FAF6EE] px-2.5 py-1 rounded-full border border-[#C4A468]/20">
+                          <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
+                        </span>
+                      </div>
+                      <div className="pt-2">
+                        <h3 className="font-black text-xl sm:text-[22px] leading-tight text-[#3D2E2B] group-hover:text-[#6B8065] transition-colors duration-300">
+                          S1 Urban & Regional Planning (S.PWK.)
+                        </h3>
+                        <p className="text-sm font-bold text-[#6B8065] mt-1.5">
+                          Diponegoro University (UNDIP)
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4 border-t border-dashed border-[#E6DCCC] relative z-10">
+                      <p className="text-[13px] sm:text-sm text-[#59443F] font-medium leading-relaxed">
+                        Graduated with honors (Cum Laude), combining data-driven analytical research, spatial planning, and strategic brand positioning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* NODE DOT */}
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full border-4 border-[#FAF4EA] bg-[#6B8065] shadow-lg z-30 transition-transform duration-300 hover:scale-125 ring-2 ring-[#6B8065]/20">
+                  <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                </div>
+
+                {/* RIGHT / MOBILE SLOT */}
+                <div className="w-[calc(100%-3rem)] ml-auto md:ml-0 md:w-[calc(50%-2.5rem)]">
+                  <div className="block md:hidden group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
+                    {/* Inner soft glow */}
+                    <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
+                    
+                    <div className="space-y-3 relative z-10">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white border border-[#E6DCCC] text-[#6B8065] flex items-center gap-1 font-bold shadow-sm">
+                          2020 &ndash; 2024
+                        </span>
+                        <span className="text-[10px] font-mono text-[#C4A468] font-bold flex items-center gap-1 bg-[#FAF6EE] px-2.5 py-1 rounded-full border border-[#C4A468]/20">
+                          <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
+                        </span>
+                      </div>
+                      <div className="pt-2">
+                        <h3 className="font-black text-xl sm:text-[22px] leading-tight text-[#3D2E2B] group-hover:text-[#6B8065] transition-colors duration-300">
+                          S1 Urban & Regional Planning (S.PWK.)
+                        </h3>
+                        <p className="text-sm font-bold text-[#6B8065] mt-1.5">
+                          Diponegoro University (UNDIP)
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="pt-4 border-t border-dashed border-[#E6DCCC] relative z-10">
+                      <p className="text-[13px] sm:text-sm text-[#59443F] font-medium leading-relaxed">
+                        Graduated with honors (Cum Laude), combining data-driven analytical research, spatial planning, and strategic brand positioning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </FadeIn>
+
+
+{educationData.map((exp, idx) => {
               const isRight = idx % 2 === 0;
 
               return (
@@ -202,84 +281,6 @@ export function EducationSection() {
                 </FadeIn>
               );
             })}
-
-            {/* Education Card */}
-            <FadeIn delay={0.45} y={30}>
-              <div className="relative flex items-center justify-between w-full min-h-[120px]">
-                
-                {/* DESKTOP LEFT SLOT */}
-                <div className="w-full md:w-[calc(50%-2.5rem)] hidden md:block">
-                  <div className="group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
-                    {/* Inner soft glow */}
-                    <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
-                    
-                    <div className="space-y-3 relative z-10">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white border border-[#E6DCCC] text-[#6B8065] flex items-center gap-1 font-bold shadow-sm">
-                          2020 &ndash; 2024
-                        </span>
-                        <span className="text-[10px] font-mono text-[#C4A468] font-bold flex items-center gap-1 bg-[#FAF6EE] px-2.5 py-1 rounded-full border border-[#C4A468]/20">
-                          <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
-                        </span>
-                      </div>
-                      <div className="pt-2">
-                        <h3 className="font-black text-xl sm:text-[22px] leading-tight text-[#3D2E2B] group-hover:text-[#6B8065] transition-colors duration-300">
-                          S1 Urban & Regional Planning (S.PWK.)
-                        </h3>
-                        <p className="text-sm font-bold text-[#6B8065] mt-1.5">
-                          Diponegoro University (UNDIP)
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="pt-4 border-t border-dashed border-[#E6DCCC] relative z-10">
-                      <p className="text-[13px] sm:text-sm text-[#59443F] font-medium leading-relaxed">
-                        Graduated with honors (Cum Laude), combining data-driven analytical research, spatial planning, and strategic brand positioning.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* NODE DOT */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full border-4 border-[#FAF4EA] bg-[#6B8065] shadow-lg z-30 transition-transform duration-300 hover:scale-125 ring-2 ring-[#6B8065]/20">
-                  <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-                </div>
-
-                {/* RIGHT / MOBILE SLOT */}
-                <div className="w-[calc(100%-3rem)] ml-auto md:ml-0 md:w-[calc(50%-2.5rem)]">
-                  <div className="block md:hidden group relative p-6 sm:p-8 rounded-[32px] bg-gradient-to-br from-[#FFFFFF] to-[#F5F0E6] border-[1.5px] border-white shadow-[0_8px_30px_rgba(61,46,43,0.04)] hover:shadow-[0_20px_40px_rgba(107,128,101,0.12)] space-y-4 hover:-translate-y-1 transition-all duration-500 overflow-hidden ring-1 ring-black/[0.03]">
-                    {/* Inner soft glow */}
-                    <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[#6B8065]/10 rounded-full blur-[40px] group-hover:bg-[#6B8065]/20 transition-colors duration-500 pointer-events-none" />
-                    
-                    <div className="space-y-3 relative z-10">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-white border border-[#E6DCCC] text-[#6B8065] flex items-center gap-1 font-bold shadow-sm">
-                          2020 &ndash; 2024
-                        </span>
-                        <span className="text-[10px] font-mono text-[#C4A468] font-bold flex items-center gap-1 bg-[#FAF6EE] px-2.5 py-1 rounded-full border border-[#C4A468]/20">
-                          <Award className="w-3.5 h-3.5" /> GPA 3.74 (Cum Laude)
-                        </span>
-                      </div>
-                      <div className="pt-2">
-                        <h3 className="font-black text-xl sm:text-[22px] leading-tight text-[#3D2E2B] group-hover:text-[#6B8065] transition-colors duration-300">
-                          S1 Urban & Regional Planning (S.PWK.)
-                        </h3>
-                        <p className="text-sm font-bold text-[#6B8065] mt-1.5">
-                          Diponegoro University (UNDIP)
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="pt-4 border-t border-dashed border-[#E6DCCC] relative z-10">
-                      <p className="text-[13px] sm:text-sm text-[#59443F] font-medium leading-relaxed">
-                        Graduated with honors (Cum Laude), combining data-driven analytical research, spatial planning, and strategic brand positioning.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </FadeIn>
 
           </div>
 
