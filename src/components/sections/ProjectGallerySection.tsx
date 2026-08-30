@@ -50,8 +50,8 @@ export function ProjectGallerySection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap flex-shrink-0 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 border ${
                   activeCategory === cat 
-                    ? 'bg-[#E88B73] text-white border-[#E88B73] shadow-lg shadow-[#E88B73]/20' 
-                    : 'bg-transparent text-[#3D2E2B]/60 border-[#E6DCCC] hover:border-[#E88B73]/50 hover:text-[#E88B73]'
+                    ? 'bg-[#3D2E2B] text-[#FAF6EE] border-[#3D2E2B] shadow-md' 
+                    : 'bg-transparent text-[#3D2E2B]/60 border-[#E6DCCC] hover:border-[#3D2E2B]/50 hover:text-[#3D2E2B]'
                 }`}
               >
                 {cat}
