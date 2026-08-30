@@ -16,14 +16,16 @@ export function ExperienceSection() {
       <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16 relative z-10">
         
         {/* Section Header */}
-        <FadeIn delay={0} y={40} className="text-center">
-          <h2 className="hero-heading font-black uppercase text-[clamp(2.3rem,8vw,120px)] leading-none tracking-tight">
-            Experience
-          </h2>
-        </FadeIn>
+        <FadeIn delay={0} y={40} className="text-center relative z-20">
+            <span className="bg-[#F5F0E6] px-4 md:px-10 py-2 rounded-2xl relative z-20 inline-block ring-2 ring-white/50 shadow-[0_4px_20px_rgba(245,240,230,1)]">
+              <h2 className="hero-heading font-black uppercase text-[clamp(2.3rem,8vw,120px)] leading-none tracking-tight text-[#3D2E2B]">
+                Experience
+              </h2>
+            </span>
+          </FadeIn>
 
         {/* Timeline Wrapper (Responsive: Left on Mobile, Dead-Center on Desktop) */}
-        <div className="relative w-full">
+        <div className="relative w-full z-0">
           
           {/* Vertical Line */}
           <div className="absolute bottom-0 left-4 md:left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-[#E88B73] via-[#C4A468] to-[#6B8065] shadow-[0_0_15px_rgba(232,139,115,0.3)] z-0" style={{ top: "-500px" }} />
