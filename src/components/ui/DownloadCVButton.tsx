@@ -43,9 +43,9 @@ export function DownloadCVButton({ variant = 'primary', className = '' }: Downlo
       download="CV_ARDHIA_NURUL_VITRA_ISKANDAR.pdf"
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#E88B73] text-white font-extrabold text-xs sm:text-sm uppercase tracking-widest hover:scale-105 hover:bg-[#d67a63] transition-all duration-300 shadow-xl shadow-[#E88B73]/30 ${className}`}
+      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full border-2 border-[#3D2E2B] text-[#3D2E2B] font-extrabold text-xs sm:text-sm uppercase tracking-widest hover:bg-[#3D2E2B] hover:text-[#FAF4EA] transition-all duration-300 shadow-sm ${className}`}
     >
-      <Download className="w-4 h-4 text-white" /> Download CV (PDF)
+      <Download className="w-4 h-4" /> Download CV (PDF)
     </a>
   );
 }
