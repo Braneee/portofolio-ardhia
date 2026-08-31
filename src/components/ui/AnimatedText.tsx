@@ -32,9 +32,12 @@ export function AnimatedText({ text, className = '' }: AnimatedTextProps) {
   return (
     <p
       ref={containerRef}
-      className={`text-[#3D2E2B] font-semibold text-center leading-relaxed max-w-[620px] text-[clamp(1.1rem,2.2vw,1.45rem)] ${className}`}
+      className={`text-[#3D2E2B] font-semibold text-left leading-relaxed max-w-[720px] text-[clamp(1.05rem,2vw,1.25rem)] ${className}`}
     >
       {characters.map((char, idx) => {
+        if (char === '\n') {
+          return <br key={idx} />;
+        }
         const start = idx / total;
         const end = Math.min(1, (idx + 1) / total);
         return (
