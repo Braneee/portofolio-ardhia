@@ -232,10 +232,10 @@ export function ContactSection() {
                       key={tp}
                       type="button"
                       onClick={() => setSelectedTopic(tp)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all ${
+                      className={`whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border transition-all duration-300 ${
                         selectedTopic === tp
-                          ? 'bg-[#3D2E2B] text-white border-[#3D2E2B] shadow-sm'
-                          : 'bg-[#FAF6EE] text-[#3D2E2B] border-[#E6DCCC] hover:border-[#E88B73]'
+                          ? 'bg-[#3D2E2B] text-[#FAF6EE] border-[#3D2E2B] shadow-md scale-105'
+                          : 'bg-transparent text-[#3D2E2B]/70 border-[#E6DCCC] hover:border-[#3D2E2B]/50 hover:text-[#3D2E2B] hover:scale-105'
                       }`}
                     >
                       {tp}
