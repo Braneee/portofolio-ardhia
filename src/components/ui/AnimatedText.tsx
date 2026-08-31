@@ -32,7 +32,7 @@ export function AnimatedText({ text, className = '' }: AnimatedTextProps) {
   return (
     <p
       ref={containerRef}
-      className={`text-[#3D2E2B] font-semibold text-left leading-relaxed max-w-[720px] text-[clamp(1.05rem,2vw,1.25rem)] ${className}`}
+      className={`text-[#3D2E2B] font-semibold text-justify leading-relaxed max-w-[720px] text-[clamp(1.05rem,2vw,1.25rem)] ${className}`}
     >
       {characters.map((char, idx) => {
         if (char === '\n') {
