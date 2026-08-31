@@ -487,7 +487,7 @@ export function ProjectsSection() {
       {/* Heading */}
       <FadeIn delay={0} y={40} className="mb-10 sm:mb-14 md:mb-16 text-center">
         <h2 className="hero-heading font-black uppercase leading-none tracking-tight text-[clamp(2.5rem,8vw,100px)] max-w-4xl mx-auto">
-          Feature Campaign
+          Featured Campaign
         </h2>
       </FadeIn>
 

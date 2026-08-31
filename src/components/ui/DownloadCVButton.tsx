@@ -16,7 +16,7 @@ export function DownloadCVButton({ variant = 'primary', className = '' }: Downlo
         download="CV_ARDHIA_NURUL_VITRA_ISKANDAR.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#FAF6EE] text-xs font-mono font-bold uppercase tracking-wider text-[#3D2E2B] hover:scale-105 transition-transform duration-200 shadow-md ${className}`}
+        className={`inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-[#3D2E2B] text-xs font-mono font-bold uppercase tracking-wider text-[#FAF6EE] hover:scale-105 transition-transform duration-200 shadow-md ${className}`}
       >
         <Download className="w-3.5 h-3.5" /> CV
       </a>

@@ -70,16 +70,14 @@ export function HeroSection() {
       {/* Floating Glassmorphic Navbar */}
       <header className="fixed top-4 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-5xl">
         <FadeIn delay={0} y={-20}>
-          <nav className="flex items-center justify-between pl-2 pr-3 py-2 sm:py-2.5 rounded-full bg-[#241B19]/95 backdrop-blur-2xl border border-[#4A3B39] shadow-2xl shadow-[#3D2E2B]/30">
-            {/* Brand Logo in White Circle */}
-            <a href="#" className="flex items-center gap-2 group">
-              <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#FDFDFD] flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/images/logo-ar.png" 
-                  alt="ARDHIA Logo" 
-                  className="h-6 sm:h-7 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
+          <nav className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#FAF6EE]/95 backdrop-blur-2xl border border-[#E6DCCC] shadow-lg shadow-[#3D2E2B]/5">
+            {/* Brand Logo */}
+            <a href="#" className="flex items-center gap-2 pl-1 sm:pl-2 group">
+              <img 
+                src="/images/logo-ar.png" 
+                alt="ARDHIA Logo" 
+                className="h-7 sm:h-8 w-auto object-contain mix-blend-darken group-hover:scale-105 transition-transform duration-300"
+              />
             </a>
 
             {/* Desktop Nav Links */}
@@ -91,13 +89,13 @@ export function HeroSection() {
                     key={link.name}
                     href={link.href}
                     className={`relative px-2 lg:px-3 py-1.5 lg:py-2 rounded-full text-[10px] lg:text-[11px] font-mono font-bold uppercase tracking-wider transition-colors duration-300 z-10 ${
-                      isActive ? 'text-[#3D2E2B]' : 'text-[#FAF6EE]/60 hover:text-[#FAF6EE]'
+                      isActive ? 'text-[#FAF6EE]' : 'text-[#3D2E2B]/70 hover:text-[#3D2E2B]'
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeNavPill"
-                        className="absolute inset-0 bg-[#FAF6EE] rounded-full z-[-1]"
+                        className="absolute inset-0 bg-[#3D2E2B] rounded-full z-[-1]"
                         transition={{ type: 'spring', stiffness: 450, damping: 30 }}
                       />
                     )}
@@ -113,10 +111,10 @@ export function HeroSection() {
               <DownloadCVButton variant="nav" />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1.5 rounded-full bg-[#3D2E2B] text-[#FAF6EE] border border-[#59443F] hover:bg-[#59443F] transition-colors"
+                className="p-2 rounded-full bg-[#F5EBE6] text-[#3D2E2B] border border-[#F4A28C]/40 hover:bg-[#E88B73]/20 transition-colors"
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-4 h-4 text-[#E88B73]" /> : <Menu className="w-4 h-4 text-[#3D2E2B]" />}
               </button>
             </div>
           </nav>
