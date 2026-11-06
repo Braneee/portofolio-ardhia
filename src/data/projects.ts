@@ -64,7 +64,14 @@ export const projectsData: Project[] = [
       ]
     },
     evidence: [
-      { title: "Content Planning & Strategy", type: "pdf", url: "/projects/omah-daster-eva/content-planning-strategy.pdf" },
+      {
+        title: "Content Planning & Strategy",
+        type: "pdf",
+        url: "/projects/omah-daster-eva/content-planning-strategy.pdf",
+        pageImages: Array.from({ length: 30 }, (_, index) =>
+          `/projects/omah-daster-eva/content-planning-pages/page-${String(index + 1).padStart(2, '0')}.webp`
+        )
+      },
       { title: "Content Execution", type: "gallery", url: "/images/omah-daster-bestseller.png" },
       { title: "Campaign Results", type: "pdf", url: "/projects/omah-daster-eva/campaign-result.pdf" }
     ],

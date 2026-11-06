@@ -5,6 +5,7 @@ export interface ProjectEvidence {
   type: 'image' | 'video' | 'gallery' | 'pdf';
   url?: string;
   thumbnail?: string;
+  pageImages?: string[];
   images?: string[];
 }
 

@@ -7,10 +7,11 @@ import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { WorkbookPreview } from '@/components/ui/WorkbookPreview';
+import { DocumentPageViewer } from '@/components/ui/DocumentPageViewer';
 
 function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectImage?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [selectedMedia, setSelectedMedia] = React.useState<{url: string, type: string, title: string} | null>(null);
+  const [selectedMedia, setSelectedMedia] = React.useState<{url: string, type: string, title: string, pageImages?: string[]} | null>(null);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -49,7 +50,7 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
               key={evIdx}
               onClick={() => {
                 if (ev.url !== '#') {
-                  setSelectedMedia({ url: ev.url, type: ev.type, title: ev.title });
+                  setSelectedMedia({ url: ev.url, type: ev.type, title: ev.title, pageImages: ev.pageImages });
                 }
               }}
               className="snap-start shrink-0 block"
@@ -88,25 +89,27 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
       {/* Modal Popup */}
       {selectedMedia && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedMedia(null)}>
-          <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-[24px] overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
+          <div role="dialog" aria-modal="true" aria-label={selectedMedia.title} className="relative w-full max-w-5xl h-[85vh] bg-white rounded-[24px] overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E6DCCC] bg-[#FAF4EA]">
+            <div className="flex items-center justify-between gap-3 px-6 py-4 shrink-0 border-b border-[#E6DCCC] bg-[#FAF4EA]">
               <h3 className="font-bold text-[#3D2E2B] uppercase tracking-widest text-sm">{selectedMedia.title}</h3>
-              <button onClick={() => setSelectedMedia(null)} className="text-[#3D2E2B]/60 hover:text-[#E88B73] transition-colors p-2">
+              <button aria-label="Close document" onClick={() => setSelectedMedia(null)} className="text-[#3D2E2B]/60 hover:text-[#E88B73] transition-colors p-2">
                 ✕
               </button>
             </div>
             
             {/* Modal Content */}
             <div 
-              className="flex-1 bg-gray-100 relative overflow-hidden"
+              className="flex-1 min-h-0 bg-gray-100 relative overflow-hidden"
               onContextMenu={(e) => {
                 if (selectedMedia.type === 'pdf') {
                   e.preventDefault(); // Disable right-click for PDFs
                 }
               }}
             >
-              {selectedMedia.type === 'pdf' ? (
+              {selectedMedia.pageImages?.length ? (
+                <DocumentPageViewer key={selectedMedia.url} pages={selectedMedia.pageImages} title={selectedMedia.title} />
+              ) : selectedMedia.type === 'pdf' ? (
                 // Use Google Docs Viewer for robust cross-platform mobile PDF rendering without native browser quirks
                 <iframe 
                   src={`https://docs.google.com/gview?url=${encodeURIComponent('https://portofolio-ardhia.vercel.app' + selectedMedia.url)}&embedded=true`} 
