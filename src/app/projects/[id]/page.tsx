@@ -107,14 +107,12 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
                 }
               }}
             >
-              {selectedMedia.pageImages?.length ? (
-                <DocumentPageViewer key={selectedMedia.url} pages={selectedMedia.pageImages} title={selectedMedia.title} />
-              ) : selectedMedia.type === 'pdf' ? (
-                // Use Google Docs Viewer for robust cross-platform mobile PDF rendering without native browser quirks
-                <iframe 
-                  src={`https://docs.google.com/gview?url=${encodeURIComponent('https://portofolio-ardhia.vercel.app' + selectedMedia.url)}&embedded=true`} 
-                  className="w-full h-full border-0 pointer-events-auto" 
-                />
+              {selectedMedia.type === 'pdf' ? (
+                selectedMedia.pageImages?.length ? (
+                  <DocumentPageViewer key={selectedMedia.url} pages={selectedMedia.pageImages} title={selectedMedia.title} />
+                ) : (
+                  <p role="alert" className="p-6 text-sm text-[#3D2E2B]">This document preview is currently unavailable.</p>
+                )
               ) : (
                 <img src={selectedMedia.url} alt={selectedMedia.title} className="w-full h-full object-contain pointer-events-none" />
               )}

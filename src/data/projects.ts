@@ -1,6 +1,7 @@
 import { Project } from '@/types';
+import pdfPreviews from './pdf-previews.json';
 
-export const projectsData: Project[] = [
+const projectEntries: Project[] = [
   {
     id: "fortis-seneca",
     title: "Fortis Seneca Sdn. Bhd.",
@@ -67,10 +68,7 @@ export const projectsData: Project[] = [
       {
         title: "Content Planning & Strategy",
         type: "pdf",
-        url: "/projects/omah-daster-eva/content-planning-strategy.pdf",
-        pageImages: Array.from({ length: 30 }, (_, index) =>
-          `/projects/omah-daster-eva/content-planning-pages/page-${String(index + 1).padStart(2, '0')}.webp`
-        )
+        url: "/projects/omah-daster-eva/content-planning-strategy.pdf"
       },
       { title: "Content Execution", type: "gallery", url: "/images/omah-daster-bestseller.png" },
       { title: "Campaign Results", type: "pdf", url: "/projects/omah-daster-eva/campaign-result.pdf" }
@@ -287,3 +285,20 @@ export const projectsData: Project[] = [
     caseStudyAvailable: true
   }
 ];
+
+const previews: Record<string, { basePath: string; pageCount: number }> = pdfPreviews;
+
+export const projectsData: Project[] = projectEntries.map(project => ({
+  ...project,
+  evidence: project.evidence.map(evidence => {
+    if (evidence.type !== 'pdf' || !evidence.url) return evidence;
+    const preview = previews[evidence.url];
+    if (!preview) throw new Error(`Missing PDF preview: ${evidence.url}`);
+    return {
+      ...evidence,
+      pageImages: Array.from({ length: preview.pageCount }, (_, index) =>
+        `${preview.basePath}/page-${String(index + 1).padStart(2, '0')}.webp`
+      )
+    };
+  })
+}));

@@ -41,6 +41,7 @@ remove_background.py
 *.txt
 *.py
 !/scripts/export-workbook-preview.py
+!/scripts/render-project-pdfs.py
 *.md
 !README.md
 scratch/

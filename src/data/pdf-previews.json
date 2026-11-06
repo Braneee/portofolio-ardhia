@@ -1,0 +1,37 @@
+{
+  "/projects/fins-kitchen/social-media.pdf": {
+    "basePath": "/projects/fins-kitchen/social-media-pages",
+    "pageCount": 15,
+    "sourceSha256": "dac4863a0fe535c06987720e610a8164574f0adc8e4fc4d055b4d4ac4780432d"
+  },
+  "/projects/kandang-jeletot/copywriting.pdf": {
+    "basePath": "/projects/kandang-jeletot/copywriting-pages",
+    "pageCount": 6,
+    "sourceSha256": "180be84167faf892039c862a05fecc8b4bc9e214ab1a62e15719f0cb0e5f6780"
+  },
+  "/projects/lamis-resto/market-research.pdf": {
+    "basePath": "/projects/lamis-resto/market-research-pages",
+    "pageCount": 22,
+    "sourceSha256": "b0653c3de845f3707f8c0ad70c8e52c853bd889bbaf1e286ecfff7201f8c1899"
+  },
+  "/projects/omah-daster-eva/campaign-result.pdf": {
+    "basePath": "/projects/omah-daster-eva/campaign-result-pages",
+    "pageCount": 55,
+    "sourceSha256": "a19957f79861ead77d59346cd13849b7f40f3c5f389895e1629dad62f207c76d"
+  },
+  "/projects/omah-daster-eva/content-planning-strategy.pdf": {
+    "basePath": "/projects/omah-daster-eva/content-planning-pages",
+    "pageCount": 30,
+    "sourceSha256": "8472f41ed0a472e02c2ce69219fa1af4e74b8b12734062fcdbdff6b86c191a8e"
+  },
+  "/projects/sarena-parfum/sarena-strategy.pdf": {
+    "basePath": "/projects/sarena-parfum/sarena-strategy-pages",
+    "pageCount": 114,
+    "sourceSha256": "bb0dc262a7980b9913613fe6848bf2209e1f0b85a86b391827a3895f3e76750b"
+  },
+  "/projects/seo-optimization/seo.pdf": {
+    "basePath": "/projects/seo-optimization/seo-pages",
+    "pageCount": 9,
+    "sourceSha256": "a2f8cb31aa01ba61c5409ea745baa1db8fe55c182ef5afa91185d19fd386c56f"
+  }
+}

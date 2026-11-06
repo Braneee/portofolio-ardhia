@@ -39,6 +39,16 @@ python scripts/export-workbook-preview.py "path/to/source.xlsx" "public/projects
 
 The exporter reads saved formula results without recalculating or modifying the source. Rebuild and deploy the website to publish the updated snapshot.
 
+### Project PDF readers
+
+All PDF evidence uses the same page reader with page selection and zoom. The website loads one rendered WebP page at a time from its own assets. Original PDFs remain unchanged. After replacing a project PDF, regenerate its preview before building:
+
+```powershell
+python scripts/render-project-pdfs.py
+```
+
+This requires Python with `Pillow` and `pypdf`, plus Poppler's `pdftoppm` on PATH. The script reuses previews whose source hashes match and updates `src/data/pdf-previews.json` with the page counts. Commit the generated manifest and page assets alongside the PDF update.
+
 ---
 
 ## 🎨 Design System & Color Palette
