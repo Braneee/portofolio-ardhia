@@ -43,7 +43,7 @@ export interface ExperienceItem {
   companyUrl?: string;
   location: string;
   period: string;
-  type?: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp' | 'Freelance/Remote' | 'Degree';
+  type?: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp' | 'Freelance/Remote' | 'Degree' | 'Apprenticeship';
   description: string;
   achievements: string[];
   technologies: string[];

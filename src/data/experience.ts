@@ -5,8 +5,9 @@ export const experienceData: ExperienceItem[] = [
     id: "exp-cgi-creative-lab",
     role: "Social Media Specialist",
     company: "CGI Creative Lab",
-    location: "Bali, Indonesia",
+    location: "Bali, Indonesia (WFH)",
     period: "Sept – Oct 2026",
+    type: "Apprenticeship",
     description: "CGI Creative Lab is a Bali-based social media and creative agency providing digital marketing and creative services for brands.",
     achievements: [
       "Planned 38 Instagram content pieces across feeds, reels, and stories for a two-month content calendar, including content pillars, topics, creative hooks, formats, and calls to action.",
