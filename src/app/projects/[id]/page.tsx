@@ -89,7 +89,7 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
       {/* Modal Popup */}
       {selectedMedia && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedMedia(null)}>
-          <div role="dialog" aria-modal="true" aria-label={selectedMedia.title} className="relative w-full max-w-5xl h-[85vh] bg-white rounded-[24px] overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
+          <div role="dialog" aria-modal="true" aria-label={selectedMedia.title} className={`relative w-full max-w-5xl ${selectedMedia.type === 'pdf' ? 'max-h-[85dvh]' : 'h-[85vh]'} bg-white rounded-[24px] overflow-hidden flex flex-col shadow-2xl`} onClick={e => e.stopPropagation()}>
             {/* Modal Header */}
             <div className="flex items-center justify-between gap-3 px-6 py-4 shrink-0 border-b border-[#E6DCCC] bg-[#FAF4EA]">
               <h3 className="font-bold text-[#3D2E2B] uppercase tracking-widest text-sm">{selectedMedia.title}</h3>
@@ -100,7 +100,7 @@ function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectIm
             
             {/* Modal Content */}
             <div 
-              className="flex-1 min-h-0 bg-gray-100 relative overflow-hidden"
+              className={`${selectedMedia.type === 'pdf' ? 'flex flex-col' : 'flex-1'} min-h-0 bg-gray-100 relative overflow-hidden`}
               onContextMenu={(e) => {
                 if (selectedMedia.type === 'pdf') {
                   e.preventDefault(); // Disable right-click for PDFs

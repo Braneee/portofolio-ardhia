@@ -41,7 +41,7 @@ The exporter reads saved formula results without recalculating or modifying the 
 
 ### Project PDF readers
 
-All PDF evidence uses the same page reader with page selection and zoom. The website loads one rendered WebP page at a time from its own assets. Original PDFs remain unchanged. After replacing a project PDF, regenerate its preview before building:
+All PDF evidence uses the same page reader with page selection. The modal follows the page height, capped to fit the screen, and supports the browser's own zoom. The website loads one rendered WebP page at a time from its own assets. Original PDFs remain unchanged. After replacing a project PDF, regenerate its preview before building:
 
 ```powershell
 python scripts/render-project-pdfs.py

@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 
 export function DocumentPageViewer({ pages, title }: { pages: string[]; title: string }) {
   const [page, setPage] = useState(0);
-  const [zoom, setZoom] = useState(100);
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -21,7 +20,7 @@ export function DocumentPageViewer({ pages, title }: { pages: string[]; title: s
   }
 
   return (
-    <div className="flex flex-col h-full min-h-0" aria-label={`${title}, document viewer`}>
+    <div className="flex flex-col min-h-0" aria-label={`${title}, document viewer`}>
       <div className="flex flex-wrap items-center justify-between gap-3 px-3 sm:px-5 py-3 bg-[#FAF4EA] border-b border-[#E6DCCC] text-[#3D2E2B] shrink-0">
         <div className="flex items-center gap-2">
           <button type="button" aria-label="Previous page" disabled={page === 0} onClick={() => changePage(page - 1)} className="p-2 border border-[#E6DCCC] bg-white rounded-lg disabled:opacity-30 hover:enabled:bg-[#F5EBE6]">
@@ -35,14 +34,8 @@ export function DocumentPageViewer({ pages, title }: { pages: string[]; title: s
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
-        <div className="flex items-center gap-2">
-          <label htmlFor={`${id}-zoom`} className="text-xs font-medium">Zoom</label>
-          <select id={`${id}-zoom`} value={zoom} onChange={event => setZoom(Number(event.target.value))} className="bg-white border border-[#E6DCCC] rounded-lg px-2 py-2 text-xs font-semibold">
-            {[100, 150, 200, 300].map(value => <option key={value} value={value}>{value}%</option>)}
-          </select>
-        </div>
       </div>
-      <div ref={scrollRef} role="region" tabIndex={0} aria-label="Document page content. Scroll to read when zoomed." className="flex-1 min-h-0 overflow-auto overscroll-contain bg-gray-100">
+      <div ref={scrollRef} role="region" tabIndex={0} aria-label="Document page content" className="min-h-0 overflow-auto overscroll-contain bg-white">
         {loading && <div role="status" className="flex items-center justify-center gap-2 p-5 text-sm text-[#3D2E2B]"><Loader2 className="w-4 h-4 animate-spin" /> Loading page…</div>}
         {failed && (
           <div role="alert" className="p-6 text-sm text-center text-[#3D2E2B]">
@@ -50,7 +43,7 @@ export function DocumentPageViewer({ pages, title }: { pages: string[]; title: s
             <button type="button" onClick={() => { setFailed(false); setLoading(true); setAttempt(value => value + 1); }} className="mt-3 rounded-full bg-white border border-[#E6DCCC] px-4 py-2 font-semibold">Try again</button>
           </div>
         )}
-        <img key={`${page}-${attempt}`} src={pages[page]} alt={`${title} — page ${page + 1} of ${pages.length}`} onLoad={() => setLoading(false)} onError={() => { setLoading(false); setFailed(true); }} draggable={false} style={{ width: `${zoom}%`, maxWidth: 'none', display: loading || failed ? 'none' : 'block' }} className="h-auto bg-white" />
+        <img key={`${page}-${attempt}`} src={pages[page]} alt={`${title} — page ${page + 1} of ${pages.length}`} onLoad={() => setLoading(false)} onError={() => { setLoading(false); setFailed(true); }} draggable={false} style={{ display: loading || failed ? 'none' : 'block' }} className="w-full h-auto bg-white" />
       </div>
     </div>
   );
