@@ -72,6 +72,42 @@ export const projectsData: Project[] = [
     caseStudyAvailable: true
   },
   {
+    id: "cgi-creative-lab",
+    title: "CGI Creative Lab",
+    subtitle: "Social Media Management Project",
+    category: "Social Media Campaign",
+    featured: true,
+    image: "/images/cgi-creative-lab-logo.png",
+    imageFit: "contain",
+    workbookPreview: "/projects/cgi-creative-lab/workbook-preview.json",
+    background: "CGI Creative Lab is a social media and creative agency providing digital marketing and creative services for brands. The project focused on strengthening the agency's Instagram presence by showcasing its service portfolio, communicating its brand value, and building audience trust through strategic content planning.",
+    objective: "To strengthen CGI's Instagram positioning as a credible and creative agency, increase audience engagement, and improve social media performance through strategic content planning and KPI monitoring.",
+    role: "Responsible for managing CGI's Instagram content strategy and planning, developing performance tracking tools, and coordinating content production with the creative team.",
+    process: [
+      "Conducted Instagram content analysis to evaluate account performance and identify content optimization opportunities.",
+      "Developed a two-month content calendar comprising 64 planned content slots across Feeds, Reels, and Stories, including content pillars, topics, hooks, formats, and CTAs.",
+      "Created content briefs and coordinated with copywriters and graphic designers to align content direction and creative execution.",
+      "Developed a team KPI tracking worksheet to monitor performance and evaluate progress against social media targets.",
+      "Monitored Instagram insights and evaluated content performance to support data-driven optimization."
+    ],
+    result: {
+      description: "Achieved an average Instagram engagement rate of 5.34% through strategic content planning and performance monitoring, supported by a content calendar comprising 64 planned content slots.",
+      highlights: [
+        { label: "Average Engagement Rate", value: "5.34%" },
+        { label: "Target Achievement", value: "474%", sub: "of the 1.13% engagement rate target" },
+        { label: "Planned Content Slots", value: "64", sub: "Across Feeds, Reels & Stories" }
+      ]
+    },
+    deliverables: "Content Calendar & Briefs • Team KPI Tracking Worksheet • Instagram Content",
+    evidence: [
+      { title: "Instagram Profile & Brand Presence", type: "gallery", url: "/projects/cgi-creative-lab/instagram-profile.png" },
+      { title: "Content Execution — Feed & Reels", type: "gallery", url: "/projects/cgi-creative-lab/content-execution-1.png" },
+      { title: "Content Execution — Selected Posts", type: "gallery", url: "/projects/cgi-creative-lab/content-execution-2.png" }
+    ],
+    techStack: ["Instagram Insights", "Content Strategy", "Content Planning", "KPI Tracking"],
+    caseStudyAvailable: true
+  },
+  {
     id: "sarena-parfum",
     title: "SARÉNA Parfum",
     subtitle: "Digital Marketing Strategy Project",

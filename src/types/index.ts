@@ -28,6 +28,7 @@ export interface Project {
   };
   deliverables?: string;
   evidence: ProjectEvidence[];
+  workbookPreview?: string;
   
   techStack: string[];
   githubUrl?: string;
@@ -42,7 +43,7 @@ export interface ExperienceItem {
   companyUrl?: string;
   location: string;
   period: string;
-  type: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp' | 'Freelance/Remote' | 'Degree';
+  type?: 'Full-time' | 'Contract' | 'Business Owner' | 'Bootcamp' | 'Freelance/Remote' | 'Degree';
   description: string;
   achievements: string[];
   technologies: string[];

@@ -18,7 +18,7 @@ Designed with a premium, warm, and sophisticated aesthetic tailored for a digita
 
 ## 🏗️ Project Structure
 
-The portfolio showcases **8 core projects & campaigns**:
+The portfolio showcases **9 core projects & campaigns**:
 1. **Fortis Seneca TikTok**: Viral organic TikTok content strategy (16.1K views).
 2. **Omah Daster Eva**: Instagram marketing campaign (163% KPI win).
 3. **KUKISS.BAE**: End-to-end small business brand ownership and operations.
@@ -27,6 +27,17 @@ The portfolio showcases **8 core projects & campaigns**:
 6. **Lamis Resto**: Quantitative market research for Gen-Z product bundling.
 7. **Kandang Jeletot**: Social media copywriting leveraging the AIDA framework.
 8. **SEO Optimization**: Keyword research and search-intent optimized content writing.
+9. **CGI Creative Lab**: Instagram content strategy, KPI monitoring, and a read-only workbook preview.
+
+### CGI workbook preview
+
+The project detail page displays a saved snapshot of the workbook with a sheet selector and scrolling. The original XLSX is not served by the website. To refresh the preview after updating and saving the source workbook in Excel, run this from the project root with Python and `openpyxl` installed:
+
+```powershell
+python scripts/export-workbook-preview.py "path/to/source.xlsx" "public/projects/cgi-creative-lab/workbook-preview.json"
+```
+
+The exporter reads saved formula results without recalculating or modifying the source. Rebuild and deploy the website to publish the updated snapshot.
 
 ---
 

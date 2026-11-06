@@ -6,6 +6,7 @@ import { projectsData } from '@/data/projects';
 import { ArrowLeft, Target, Briefcase, PlayCircle, BarChart3, Image as ImageIcon, LayoutGrid, CheckCircle2, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn } from '@/components/ui/FadeIn';
+import { WorkbookPreview } from '@/components/ui/WorkbookPreview';
 
 function EvidenceSlider({ evidence, projectImage }: { evidence: any[], projectImage?: string }) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -258,6 +259,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
               )}
               
               <EvidenceSlider evidence={project.evidence} projectImage={project.image} />
+              {project.workbookPreview && <WorkbookPreview src={project.workbookPreview} />}
             </div>
 
           </article>

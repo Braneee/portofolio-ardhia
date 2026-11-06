@@ -40,10 +40,12 @@ remove_background.py
 *.docx
 *.txt
 *.py
+!/scripts/export-workbook-preview.py
 *.md
 !README.md
 scratch/
 temp_dl/
+/tmp/
 *.mov
 *.mp4
 *.tsbuildinfo

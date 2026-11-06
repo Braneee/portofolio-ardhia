@@ -2,6 +2,21 @@ import { ExperienceItem } from '@/types';
 
 export const experienceData: ExperienceItem[] = [
   {
+    id: "exp-cgi-creative-lab",
+    role: "Social Media Specialist",
+    company: "CGI Creative Lab",
+    location: "Bali, Indonesia",
+    period: "Sept – Oct 2026",
+    description: "CGI Creative Lab is a Bali-based social media and creative agency providing digital marketing and creative services for brands.",
+    achievements: [
+      "Planned 38 Instagram content pieces across feeds, reels, and stories for a two-month content calendar, including content pillars, topics, creative hooks, formats, and calls to action.",
+      "Developed a team KPI tracking worksheet and coordinated with copywriters and graphic designers to align content briefs, creative execution, and social media performance objectives.",
+      "Achieved an average Instagram Engagement Rate of 5.34%, reaching 474% of the 1.13% target, through strategic content planning and performance monitoring."
+    ],
+    technologies: ["Instagram Insights", "Content Strategy", "Content Planning", "KPI Tracking", "Creative Coordination"],
+    featured: true
+  },
+  {
     id: "exp-1",
     role: "Founder & Owner",
     company: "KUKISS.BAE",
